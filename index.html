@@ -292,6 +292,40 @@
     body.user-reduced-motion .cursor-glow-dot:after,
     body.user-reduced-motion .awakening-inner { animation:none!important; }
     body.user-reduced-motion *, body.user-reduced-motion *:before, body.user-reduced-motion *:after { scroll-behavior:auto!important; transition-duration:.01ms!important; }
+  
+    /* Mobile layout: keep navigation, controls and game UI comfortable on touch screens. */
+    @media(max-width:700px){
+      .wrap{width:min(100% - 28px,620px);padding-top:16px}
+      nav{align-items:stretch;flex-direction:column;gap:12px;padding-bottom:18px}
+      .brand{align-self:flex-start;font-size:.74rem;letter-spacing:.15em}
+      .controls{width:100%;justify-content:flex-start;gap:8px}
+      .controls .navlink,.controls .control-button{min-height:42px;padding:10px 12px;font-size:.7rem}
+      header{padding:48px 0 34px}
+      .eyebrow{font-size:.62rem;letter-spacing:.2em}
+      h1{font-size:clamp(2.1rem,12vw,4rem);letter-spacing:.045em}
+      .subtitle{max-width:38rem;font-size:.94rem;line-height:1.65;padding-inline:4px}
+      .status{max-width:100%;font-size:.66rem}
+      .sectionhead{align-items:flex-start;flex-direction:column;gap:7px}
+      .grid{grid-template-columns:minmax(0,1fr);gap:12px}
+      .card{min-height:0;padding:18px}
+      .actions{gap:8px}
+      .actions button,.actions .visit{min-height:42px}
+      .game-panel{padding:16px}
+      .game-entry{display:grid;grid-template-columns:minmax(0,1fr)}
+      .game-entry input,.game-entry button{width:100%;min-width:0;min-height:44px}
+      .game-stats{gap:8px 14px;font-size:.74rem}
+      .hunter-progression{padding:14px}
+      .hunter-progression-top{gap:10px}
+      .hunter-xp-meta{font-size:.65rem}
+      .score-row{grid-template-columns:26px minmax(0,1fr) auto;gap:7px;font-size:.76rem}
+      .shadow-orb{width:48px;height:48px;touch-action:manipulation}
+    }
+    @media(max-width:380px){
+      .wrap{width:calc(100% - 22px)}
+      .controls .navlink,.controls .control-button{flex:1 1 auto;text-align:center}
+      .card{padding:16px}
+      .hunter-xp-meta{flex-direction:column;gap:4px}
+    }
   </style>
 </head>
 <body>
