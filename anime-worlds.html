@@ -32,7 +32,19 @@ h1{font-size:clamp(2.2rem,7vw,4.5rem);line-height:.98;letter-spacing:.025em;marg
 footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-align:center;color:#786d74;font-size:.72rem;letter-spacing:.1em;line-height:2}footer strong{color:var(--red)}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.world{min-height:215px}header{padding-top:38px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
-</style>
+
+@media(max-width:650px){
+  .wrap{width:92%}
+  nav{align-items:flex-start;flex-direction:column;gap:12px;padding-bottom:16px}
+  .navlinks{width:100%;gap:8px}
+  .navlinks a{display:inline-flex;align-items:center;min-height:40px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:.66rem}
+  header{padding:38px 0 24px}
+  h1{font-size:clamp(2.25rem,12vw,4rem);letter-spacing:.025em}
+  .subtitle{font-size:.92rem;line-height:1.65}
+  .world{padding:20px;min-height:0}
+  .choose{min-height:44px;width:100%}
+}
+  </style>
 </head>
 <body>
 <div class="wrap">
