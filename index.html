@@ -17,7 +17,8 @@
     .cursor-aura{display:none!important}
     /* Theme-specific custom cursor artifacts */
     body[data-theme="naruto"] .cursor-glow-dot{width:29px;height:29px;border:2px solid #ffb1b8;border-radius:50%;background:radial-gradient(circle,#090304 0 13%,#a50018 15% 48%,#f51d35 52% 68%,#4a0610 72% 78%,#ff7b88 82%,#25030a 88%);box-shadow:0 0 8px #ff253f,0 0 18px #ed102d,0 0 30px #a80020;transition:width .12s,height .12s,opacity .15s}
-    body[data-theme="naruto"] .cursor-glow-dot:before{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%);border-radius:50%;background:#050204;box-shadow:0 0 0 2px #ff9ba6}\n    body[data-theme="naruto"] .cursor-glow-dot:after{content:"";position:absolute;inset:3px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 13%,#170208 14% 20%,transparent 21% 46%,#170208 47% 53%,transparent 54% 79%,#170208 80% 86%,transparent 87%);animation:sharingan-spin 2.4s linear infinite}
+    body[data-theme="naruto"] .cursor-glow-dot:before{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%);border-radius:50%;background:#050204;box-shadow:0 0 0 2px #ff9ba6}
+    body[data-theme="naruto"] .cursor-glow-dot:after{content:"";position:absolute;inset:3px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 13%,#170208 14% 20%,transparent 21% 46%,#170208 47% 53%,transparent 54% 79%,#170208 80% 86%,transparent 87%);animation:sharingan-spin 2.4s linear infinite}
     @keyframes sharingan-spin{to{transform:rotate(360deg)}}
     body[data-theme="black-clover"] .cursor-glow-dot{width:24px;height:30px;border:2px solid #ff526c;border-radius:5px 7px 5px 7px;background:linear-gradient(135deg,#1b0a10 0 42%,#4b0b1b 43% 55%,#13070b 56%);box-shadow:0 0 9px #f01836,0 0 20px #f0183680;transform-origin:center;clip-path:polygon(8% 0,92% 0,100% 12%,94% 100%,50% 88%,6% 100%,0 12%)}
     body[data-theme="black-clover"] .cursor-glow-dot:after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;color:#ff526c;font-size:15px;font-weight:900;text-shadow:0 0 7px #f01836;animation:grimoire-pulse 1.2s ease-in-out infinite alternate}
@@ -326,6 +327,18 @@
       .card{padding:16px}
       .hunter-xp-meta{flex-direction:column;gap:4px}
     }
+    /* Smoothness pass: keep motion compositor-friendly and reduce decorative work on compact screens. */
+    html{scroll-padding-top:16px}
+    .card,.game-panel,.update-drop{backface-visibility:hidden}
+    @media(max-width:700px){
+      .energy-orbs{display:none!important}
+      .animated-backdrop:before,.animated-backdrop:after{animation-duration:36s}
+    }
+    @media(hover:none){.cursor-glow-dot{display:none!important}}
+    body[data-quality="low"] .energy-orbs{display:none!important}
+    body[data-quality="low"] .sigil,body[data-quality="low"] .logo-hint,body[data-quality="low"] .status .dot{animation:none!important}
+    body[data-quality="low"] .scanlines{opacity:.035}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
@@ -538,6 +551,7 @@
         toggle.setAttribute("aria-pressed", String(enabled));
         toggle.textContent = enabled ? "SHADOWS: ON" : "SHADOWS: OFF";
         canvas.style.opacity = enabled ? ".65" : "0";
+        document.dispatchEvent(new CustomEvent("shadowHubParticles", {detail:{enabled}}));
         try { const key = "shadowHubSettingsV1"; const settings = JSON.parse(localStorage.getItem(key) || "{}"); settings.embers = enabled; localStorage.setItem(key, JSON.stringify(settings)); } catch {}
       });
 
@@ -546,13 +560,18 @@
       const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
       if (finePointer.matches) {
         document.body.classList.add("cursor-glow");
+        let cursorFrame = 0;
+        let pointerX = 0;
+        let pointerY = 0;
         const moveCursor = event => {
-          const x = event.clientX;
-          const y = event.clientY;
-          cursor.style.transform = `translate3d(${x}px,${y}px,0) translate(-50%,-50%)`;
-          aura.style.transform = `translate3d(${x}px,${y}px,0) translate(-50%,-50%)`;
-          cursor.style.opacity = "1";
-          aura.style.opacity = "1";
+          pointerX = event.clientX;
+          pointerY = event.clientY;
+          if (cursorFrame) return;
+          cursorFrame = requestAnimationFrame(() => {
+            cursor.style.transform = `translate3d(${pointerX}px,${pointerY}px,0) translate(-50%,-50%)`;
+            cursor.style.opacity = "1";
+            cursorFrame = 0;
+          });
         };
         window.addEventListener("mousemove", moveCursor, {passive:true});
         window.addEventListener("mouseenter", () => {
@@ -954,7 +973,7 @@
       let savedSettings = {};
       try { savedSettings = JSON.parse(localStorage.getItem("shadowHubSettingsV1") || "{}") || {}; } catch {}
       const quality = ["low","balanced","high"].includes(savedSettings.quality) ? savedSettings.quality : "balanced";
-      const embersEnabled = savedSettings.embers !== false;
+      let embersEnabled = savedSettings.embers !== false;
       const userReducedMotion = savedSettings.reducedMotion === true;
       let w = 0, h = 0, particles = [];
       function resize() {
@@ -962,7 +981,7 @@
         w = window.innerWidth; h = window.innerHeight;
         canvas.width = w * dpr; canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const cap = !embersEnabled ? 0 : quality === "low" ? 6 : quality === "high" ? 26 : 18;
+        const cap = !embersEnabled ? 0 : quality === "low" ? 4 : quality === "high" ? 16 : 10;
         const count = Math.min(cap, Math.floor(w / (quality === "high" ? 42 : 55)));
         particles = Array.from({length:count}, () => ({
           x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.7+.4,
@@ -993,7 +1012,7 @@
           ctx.shadowBlur = 0;
           ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
           ctx.fill();
-          if (!reduceMotion && !userReducedMotion && quality !== "low") {
+          if (embersEnabled && !reduceMotion && !userReducedMotion && quality !== "low") {
             p.y -= p.speed; p.x += p.drift;
             if (p.y < -5) {p.y=h+5;p.x=Math.random()*w;}
             if (p.x < -5) p.x=w+5;
@@ -1002,10 +1021,16 @@
         }
         ctx.globalAlpha = 1;
         ctx.shadowBlur = 0;
-        if (!reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
+        if (embersEnabled && !reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
       }
       document.addEventListener("visibilitychange", () => {
         if (!document.hidden && !reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
+      });
+      document.addEventListener("shadowHubParticles", event => {
+        embersEnabled = event.detail?.enabled === true;
+        resize();
+        if (embersEnabled && !reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
+        else ctx.clearRect(0,0,w,h);
       });
       window.addEventListener("resize", resize, {passive:true});
       resize(); draw();
