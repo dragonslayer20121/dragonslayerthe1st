@@ -100,6 +100,21 @@
     .animated-backdrop:before,.animated-backdrop:after{content:"";position:absolute;inset:0;border-radius:0;filter:none;will-change:auto;animation:none}
     .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#6b1cff45 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#ef17383b 0%,transparent 36%);animation:shadow-mist 19s ease-in-out infinite alternate}
     .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#d20b3b25 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#3211a840 0%,transparent 38%);animation:shadow-mist 27s ease-in-out infinite alternate-reverse}
+    /* Selected-world character art is always visible behind the hub; no logo click needed. */
+    .world-character-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-position:center 22%;background-size:cover;background-repeat:no-repeat;opacity:.48;filter:saturate(1.05);transition:background-image .25s ease,opacity .25s ease}
+    .world-character-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,10,.72),rgba(5,5,10,.38) 55%,rgba(5,5,10,.58)),linear-gradient(0deg,rgba(5,5,10,.88),rgba(5,5,10,.14) 48%,rgba(5,5,10,.62))}
+    body[data-theme="shadow"] .world-character-bg{background-image:url("https://channeln.gcdn.netmarble.com/channeln/Upload/0d74604c-3e97-4134-a06c-d66737f51aff.jpg")}
+    body[data-theme="naruto"] .world-character-bg{background-image:url("https://naruto-official.com/special/wallpaper_gallery/month/jp/10.webp")}
+    body[data-theme="black-clover"] .world-character-bg{background-image:url("https://bclover.jp/assets/img/character/full/main/asta.png")}
+    body[data-theme="bleach"] .world-character-bg{background-image:url("https://bleach-anime.com/en/assets/img/character/thumb_01.jpg")}
+    body[data-theme="tensura"] .world-character-bg{background-image:url("https://www.ten-sura.com/assets/images/character/rimuru.png")}
+    body[data-theme="jailer-2"] .world-character-bg{background-image:url("https://m.media-amazon.com/images/M/MV5BYmE0MTFjOTYtMWYxNC00YjFjLTlhNzYtMWQ5ZDEwNjRmYzE1XkEyXkFqcGc%40._V1_.jpg")}
+    body[data-theme="avengers"] .world-character-bg{background-image:url("https://cdn.shopify.com/s/files/1/0556/7322/5423/files/avengers_endgame.jpg?v=1678265680")}
+    body[data-theme="spider-verse"] .world-character-bg{background-image:url("https://www.sonypictures.in/sites/india/files/2023-08/SPVKeyArt.jpg")}
+    body[data-theme="spider-brand-new-day"] .world-character-bg{background-image:url("https://www.sonypictures.com/sites/default/files/styles/max_860x460/public/title-key-art/spidermanbrandnewday_onesheet_1400x2100_1.jpg?itok=hXKCyx3k")}
+    @media(max-width:700px){.world-character-bg{opacity:.34;background-position:58% top}}
+    @media(prefers-reduced-motion:reduce){.world-character-bg{transition:none}}
+
     @keyframes backdrop-drift{0%{background-position:0% 0%,100% 0%,50% 100%}100%{background-position:18% 25%,80% 40%,35% 75%}}
     @keyframes shadow-mist{0%{transform:translate3d(-2%,1%,0) rotate(-4deg) scale(.96);opacity:.65}100%{transform:translate3d(3%,-2%,0) rotate(5deg) scale(1.08);opacity:1}}
 
@@ -343,6 +358,7 @@
 </head>
 <body>
   <div class="animated-backdrop" aria-hidden="true"></div>
+  <div class="world-character-bg" aria-hidden="true"></div>
 
   <section class="character-portal" id="characterPortal" aria-hidden="true" aria-label="Anime character portal">
     <img class="portal-art" id="portalArt" alt="" decoding="async" fetchpriority="low">
