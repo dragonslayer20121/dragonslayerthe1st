@@ -70,7 +70,7 @@
     body[data-theme="black-clover"] button,body[data-theme="black-clover"] .visit,body[data-theme="black-clover"] .control-button,body[data-theme="black-clover"] .theme-select{border-color:#59202d;background:#1d0a10}
     body[data-theme="black-clover"] button:hover,body[data-theme="black-clover"] .visit:hover{background:#760d24;border-color:#ff526c}
     body[data-theme="bleach"]{--bg:#080b13;--panel:#101521;--red:#65c8ff;--red2:#1b6ca7;--muted:#aab7cc;--line:#2c4565}
-    body[data-theme="tensura"]{--bg:#061311;--panel:#0b201e;--red:#58e5d0;--red2:#138c85;--muted:#a8d8d2;--line:#1d655f}
+    body[data-theme="tensura"]{--bg:#061311;--panel:#0b201e;--red:#58e5d0;--red2:#138c85;--muted:#a8d8d2;--line:#1d655f}\n    body[data-theme="spider-brand-new-day"]{--bg:#090b16;--panel:#11182a;--red:#e52c43;--red2:#174b91;--muted:#b8c5dd;--line:#354d7b}
     body[data-theme="tensura"] .animated-backdrop{background:radial-gradient(ellipse at 18% 35%,#087d78a8 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#52f0d538 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#135b9ca8 0%,transparent 45%),#061311}
     body[data-theme="tensura"] .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#58e5d045 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#1d9fba40 0%,transparent 36%)}
     body[data-theme="tensura"] .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#b0fff028 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#267ed040 0%,transparent 38%)}
@@ -693,9 +693,10 @@
           name:"RIMURU<br>TEMPEST", kicker:"TEMPEST NATION // EVOLUTION", description:"The slime who rises to become a Demon Lord.",
           image:"https://www.ten-sura.com/assets/images/character/rimuru.png"
         },
-        "jailer-2": {name:"JAILER 2", kicker:"TIGER RETURNS", description:"A dark, gold-toned theme inspired by the Jailer universe.", image:""},
-        avengers: {name:"THE<br>AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", description:"A team of heroes brought together to protect their world.", image:""},
-        "spider-verse": {name:"SPIDER-<br>VERSE", kicker:"ACROSS THE MULTIVERSE", description:"A colourful world of Spider-People and alternate dimensions.", image:""}
+        "jailer-2": {name:"JAILER 2", kicker:"TIGER RETURNS", description:"A dark, gold-toned theme inspired by the Jailer universe.", image:"art/jailer-2.svg"},
+        avengers: {name:"THE<br>AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", description:"A team of heroes brought together to protect their world.", image:"art/avengers.svg"},
+        "spider-verse": {name:"SPIDER-<br>VERSE", kicker:"ACROSS THE MULTIVERSE", description:"A colourful world of Spider-People and alternate dimensions.", image:"art/spider-verse.svg"},
+        "spider-brand-new-day": {name:"SPIDER-MAN<br>BRAND NEW DAY", kicker:"A NEW DAY IN NEW YORK", description:"A fresh chapter for the friendly neighbourhood hero.", image:"art/brand-new-day.svg"}
       };
       let opened = false;
       function openPortal() {
@@ -1006,7 +1007,8 @@
         tensura: {fill:"#58e5d0", glow:"#58e5d0"},
         "jailer-2": {fill:"#d6a84f", glow:"#d6a84f"},
         avengers: {fill:"#65a9ff", glow:"#65a9ff"},
-        "spider-verse": {fill:"#e84dcb", glow:"#e84dcb"}
+        "spider-verse": {fill:"#e84dcb", glow:"#e84dcb"},
+        "spider-brand-new-day": {fill:"#e52c43", glow:"#e52c43"}
       };
       let lastDraw = 0;
       let frameId = 0;
