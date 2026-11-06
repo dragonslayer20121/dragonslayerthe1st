@@ -426,7 +426,10 @@
         "naruto": {title:"SHINOBI LEGACY", kicker:"THE WILL OF FIRE NEVER FADES", tagline:"A shinobi's true strength is the will to never give up.", sigil:"卍", intro:"AWAKEN,<br>SHINOBI", introKicker:"THE WILL OF FIRE AWAKENS", introText:"Your ninja way begins here. Believe it.", enter:"ENTER THE SHINOBI WORLD ↗"},
         "black-clover": {title:"WIZARD KING", kicker:"SURPASS YOUR LIMITS", tagline:"No magic? Then I'll surpass every limit with my own hands.", sigil:"♣", intro:"RISE,<br>WIZARD KING", introKicker:"A GRIMOIRE HAS CHOSEN YOU", introText:"Even without magic, your will can shake the kingdom.", enter:"OPEN THE GRIMOIRE ↗"},
         "bleach": {title:"SOUL REAPER", kicker:"THE BLADE THAT CUTS DESTINY", tagline:"If fate stands in my way, then I'll cut through fate.", sigil:"卍", intro:"AWAKEN,<br>SOUL REAPER", introKicker:"YOUR SPIRITUAL PRESSURE RISES", introText:"Draw your blade. The boundary between worlds is waiting.", enter:"CROSS THE GATE ↗"},
-        "tensura": {title:"RIMURU TEMPEST", kicker:"THE GREAT DEMON LORD AWAKENS", tagline:"A new world. A new nation. Unlimited evolution.", sigil:"◉", intro:"AWAKEN,<br>RIMURU", introKicker:"THE SLIME EVOLVES", introText:"Gather your allies and build a nation beyond expectations.", enter:"ENTER TEMPEST ↗"}
+        "tensura": {title:"RIMURU TEMPEST", kicker:"THE GREAT DEMON LORD AWAKENS", tagline:"A new world. A new nation. Unlimited evolution.", sigil:"◉", intro:"AWAKEN,<br>RIMURU", introKicker:"THE SLIME EVOLVES", introText:"Gather your allies and build a nation beyond expectations.", enter:"ENTER TEMPEST ↗"},
+        "jailer-2": {title:"JAILER 2", kicker:"TIGER RETURNS", tagline:"The Jailer world gets a darker, gold-lit look.", sigil:"★", intro:"TIGER,<br>RETURNS", introKicker:"JAILER 2 THEME", introText:"A dark cinematic look inspired by the Jailer universe.", enter:"ENTER THE JAILER WORLD ↗"},
+        "avengers": {title:"THE AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", tagline:"When the world needs saving, they answer.", sigil:"A", intro:"AVENGERS,<br>ASSEMBLE", introKicker:"EARTH'S MIGHTIEST", introText:"A universe of heroes, teamwork, and big-screen action.", enter:"ENTER THE AVENGERS WORLD ↗"},
+        "spider-verse": {title:"SPIDER-VERSE", kicker:"ACROSS THE MULTIVERSE", tagline:"Different worlds. Different Spider-People. One web.", sigil:"蜘蛛", intro:"ACROSS THE<br>SPIDER-VERSE", introKicker:"A DIFFERENT KIND OF HERO", introText:"Step into a neon world of webs, colour, and comic-book style.", enter:"ENTER THE SPIDER-VERSE ↗"}
       };
       function applyTheme(key, animate = true) {
         const theme = themes[key] || themes.shadow;
@@ -688,7 +691,10 @@
         tensura: {
           name:"RIMURU<br>TEMPEST", kicker:"TEMPEST NATION // EVOLUTION", description:"The slime who rises to become a Demon Lord.",
           image:"https://www.ten-sura.com/assets/images/character/rimuru.png"
-        }
+        },
+        "jailer-2": {name:"JAILER 2", kicker:"TIGER RETURNS", description:"A dark, gold-toned theme inspired by the Jailer universe.", image:""},
+        avengers: {name:"THE<br>AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", description:"A team of heroes brought together to protect their world.", image:""},
+        "spider-verse": {name:"SPIDER-<br>VERSE", kicker:"ACROSS THE MULTIVERSE", description:"A colourful world of Spider-People and alternate dimensions.", image:""}
       };
       let opened = false;
       function openPortal() {
@@ -698,12 +704,17 @@
         kicker.textContent = data.kicker;
         description.textContent = data.description;
         portal.dataset.character = key;
-        art.src = data.image;
         art.onerror = () => {
           art.onerror = null;
           art.style.display = "none";
         };
-        art.style.display = "block";
+        if (data.image) {
+          art.src = data.image;
+          art.style.display = "block";
+        } else {
+          art.removeAttribute("src");
+          art.style.display = "none";
+        }
         portal.classList.add("open");
         portal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
@@ -991,7 +1002,10 @@
         naruto: {fill:"#ff8414", glow:"#ff7817"},
         "black-clover": {fill:"#f01836", glow:"#f01836"},
         bleach: {fill:"#65c8ff", glow:"#65c8ff"},
-        tensura: {fill:"#58e5d0", glow:"#58e5d0"}
+        tensura: {fill:"#58e5d0", glow:"#58e5d0"},
+        "jailer-2": {fill:"#d6a84f", glow:"#d6a84f"},
+        avengers: {fill:"#65a9ff", glow:"#65a9ff"},
+        "spider-verse": {fill:"#e84dcb", glow:"#e84dcb"}
       };
       let lastDraw = 0;
       let frameId = 0;
