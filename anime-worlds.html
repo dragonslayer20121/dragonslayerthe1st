@@ -27,7 +27,7 @@ h1{font-size:clamp(2.2rem,7vw,4.5rem);line-height:.98;letter-spacing:.025em;marg
 .world p{position:relative;color:var(--muted);font-size:.88rem;line-height:1.65;margin:0 0 22px;max-width:460px}
 .choose{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border:1px solid color-mix(in srgb,var(--accent) 65%,transparent);border-radius:8px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:#fff;font-weight:900;font-size:.72rem;letter-spacing:.09em;cursor:pointer}
 .choose:hover{background:color-mix(in srgb,var(--accent) 22%,transparent)}
-#shadow{--accent:#ef1738}#naruto{--accent:#ff8414}#black-clover{--accent:#f01836}#bleach{--accent:#65c8ff}#tensura{--accent:#58e5d0}
+#shadow{--accent:#ef1738}#naruto{--accent:#ff8414}#black-clover{--accent:#f01836}#bleach{--accent:#65c8ff}#tensura{--accent:#58e5d0}#jailer-2{--accent:#d6a84f}#avengers{--accent:#65a9ff}#spider-verse{--accent:#e84dcb}
 #message{min-height:24px;text-align:center;color:var(--muted);font-size:.82rem;margin:22px 0 0}
 footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-align:center;color:#786d74;font-size:.72rem;letter-spacing:.1em;line-height:2}footer strong{color:var(--red)}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.world{min-height:215px}header{padding-top:38px}}
@@ -53,7 +53,7 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 <div class="navlinks"><a href="index.html">MAIN HUB ↗</a><a href="how-to.html">HOW TO USE ↗</a><a href="settings.html">GRAPHICS & SETTINGS ↗</a></div>
 </nav>
 <header>
-<div class="eyebrow">MULTIVERSE SELECT // 005 WORLDS</div>
+<div class="eyebrow">MULTIVERSE SELECT // 008 WORLDS</div>
 <h1>CHOOSE YOUR<br>ANIME WORLD</h1>
 <p class="subtitle">Pick an anime theme. It changes the colours and effects on the main page.</p>
 </header>
@@ -88,13 +88,31 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 <p>Azure slime energy, cool teal light, and the rise of a ruler who builds a nation of monsters.</p>
 <button class="choose" type="button" data-theme="tensura">SELECT WORLD ↗</button>
 </article>
+<article class="world" id="jailer-2">
+<div class="world-code">WORLD 06 // TIGER RETURNS</div>
+<h2>JAILER 2</h2>
+<p>Dark gold, deep red, and the larger-than-life style of the Jailer universe.</p>
+<button class="choose" type="button" data-theme="jailer-2">SELECT WORLD ↗</button>
+</article>
+<article class="world" id="avengers">
+<div class="world-code">WORLD 07 // EARTH'S MIGHTIEST</div>
+<h2>MARVEL — AVENGERS</h2>
+<p>Blue and gold energy inspired by the team that protects the universe.</p>
+<button class="choose" type="button" data-theme="avengers">SELECT WORLD ↗</button>
+</article>
+<article class="world" id="spider-verse">
+<div class="world-code">WORLD 08 // INTO THE SPIDER-VERSE</div>
+<h2>SPIDER-MAN — ACROSS THE SPIDER-VERSE</h2>
+<p>Neon pink, electric blue, and comic-book energy from across the multiverse.</p>
+<button class="choose" type="button" data-theme="spider-verse">SELECT WORLD ↗</button>
+</article>
 </main>
 <p id="message" aria-live="polite">CURRENT WORLD: checking saved theme…</p>
 <footer>MADE BY AAYUSH · ANIME WORLDS</footer>
 </div>
 <script>
 (() => {
-  const valid = ["shadow","naruto","black-clover","bleach","tensura"];
+  const valid = ["shadow","naruto","black-clover","bleach","tensura","jailer-2","avengers","spider-verse"];
   let current = "shadow";
   try {
     const saved = localStorage.getItem("identityHubTheme");
