@@ -123,9 +123,9 @@
     @keyframes hint-pulse{50%{opacity:.35;transform:scale(.75) rotate(35deg)}}
     .character-portal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:#030308;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s ease,visibility 0s linear .32s}
     .character-portal.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .32s ease,visibility 0s}
-    .character-portal .portal-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:.7;filter:saturate(1.12) contrast(1.08);transform:scale(1.06);animation:portal-art-drift 26s ease-in-out infinite alternate;will-change:transform,opacity}
+    .character-portal .portal-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:.86;filter:saturate(1.12) contrast(1.08);transform:scale(1.06);animation:portal-art-drift 26s ease-in-out infinite alternate;will-change:transform,opacity}
     .character-portal.open .portal-art{animation:portal-art-enter .62s cubic-bezier(.2,.75,.25,1) both,portal-art-drift 26s .62s ease-in-out infinite alternate}
-    @keyframes portal-art-enter{from{transform:scale(1.14);filter:blur(3px) saturate(.85);opacity:0}to{transform:scale(1.06);filter:blur(0) saturate(1.12);opacity:.7}}
+    @keyframes portal-art-enter{from{transform:scale(1.14);filter:blur(3px) saturate(.85);opacity:0}to{transform:scale(1.06);filter:blur(0) saturate(1.12);opacity:.86}}
     @keyframes portal-art-drift{from{transform:scale(1.06) translate3d(-.5%,0,0)}to{transform:scale(1.12) translate3d(.5%,.5%,0)}}
     .character-portal:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(2,2,7,.92) 0%,rgba(2,2,7,.6) 38%,rgba(2,2,7,.12) 100%),linear-gradient(0deg,rgba(2,2,7,.92),transparent 52%,rgba(2,2,7,.28));}
     .character-portal:after{content:"";position:absolute;inset:-30%;z-index:1;pointer-events:none;background:conic-gradient(from 0deg,transparent 0 78%,color-mix(in srgb,var(--red) 22%,transparent) 85%,transparent 93%);animation:portal-energy 18s linear infinite;mix-blend-mode:screen}
@@ -693,10 +693,10 @@
           name:"RIMURU<br>TEMPEST", kicker:"TEMPEST NATION // EVOLUTION", description:"The slime who rises to become a Demon Lord.",
           image:"https://www.ten-sura.com/assets/images/character/rimuru.png"
         },
-        "jailer-2": {name:"JAILER 2", kicker:"TIGER RETURNS", description:"A dark, gold-toned theme inspired by the Jailer universe.", image:"art/jailer-2.svg"},
-        avengers: {name:"THE<br>AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", description:"A team of heroes brought together to protect their world.", image:"art/avengers.svg"},
-        "spider-verse": {name:"SPIDER-<br>VERSE", kicker:"ACROSS THE MULTIVERSE", description:"A colourful world of Spider-People and alternate dimensions.", image:"art/spider-verse.svg"},
-        "spider-brand-new-day": {name:"SPIDER-MAN<br>BRAND NEW DAY", kicker:"A NEW DAY IN NEW YORK", description:"A fresh chapter for the friendly neighbourhood hero.", image:"art/brand-new-day.svg"}
+        "jailer-2": {name:"JAILER 2", kicker:"TIGER RETURNS", description:"Rajinikanth as Tiger Muthuvel Pandian.", image:"https://m.media-amazon.com/images/M/MV5BYmE0MTFjOTYtMWYxNC00YjFjLTlhNzYtMWQ5ZDEwNjRmYzE1XkEyXkFqcGc%40._V1_.jpg"},
+        avengers: {name:"THE<br>AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", description:"The Avengers, together on one screen.", image:"https://cdn.shopify.com/s/files/1/0556/7322/5423/files/avengers_endgame.jpg?v=1678265680"},
+        "spider-verse": {name:"SPIDER-<br>VERSE", kicker:"ACROSS THE MULTIVERSE", description:"Miles Morales, Gwen Stacy, and the Spider-People.", image:"https://www.sonypictures.in/sites/india/files/2023-08/SPVKeyArt.jpg"},
+        "spider-brand-new-day": {name:"SPIDER-MAN<br>BRAND NEW DAY", kicker:"A NEW DAY IN NEW YORK", description:"Peter Parker steps into a brand-new chapter.", image:"https://www.sonypictures.com/sites/default/files/styles/max_860x460/public/title-key-art/spidermanbrandnewday_onesheet_1400x2100_1.jpg?itok=hXKCyx3k"}
       };
       let opened = false;
       function openPortal() {
