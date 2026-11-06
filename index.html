@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080609">
-  <meta name="description" content="DragonslayerThe1st — my gaming, social, and developer hub.">
-  <title>DragonslayerThe1st — Identity Hub</title>
+  <meta name="description" content="Aayush’s corner of the internet: games, anime and social links.">
+  <title>DragonslayerThe1st</title>
   <style>
     :root{color-scheme:dark;--bg:#080609;--panel:#120d12;--red:#ef1738;--red2:#8f071e;--muted:#a99ca5;--line:#38202a}
     *{box-sizing:border-box}
@@ -358,9 +358,9 @@
   <div class="energy-orbs" aria-hidden="true"><span class="energy-orb"></span><span class="energy-orb"></span><span class="energy-orb"></span></div>
   <div class="awakening" id="awakening" role="dialog" aria-modal="true" aria-labelledby="awakeningTitle">
     <div class="awakening-inner">
-      <div class="awakening-kicker">A NEW POWER HAS AWAKENED</div>
+      <div class="awakening-kicker">WELCOME TO MY SITE</div>
       <h2 id="awakeningTitle">WELCOME,<br>DRAGONSLAYER</h2>
-      <p>The portal is open. Your identities await beyond the shadows.</p>
+      <p>My links, games, and favourite anime worlds are all in one place.</p>
       <button class="enter-button" id="enterHub" type="button">ENTER THE SHADOWS ↗</button>
     </div>
   </div>
@@ -372,23 +372,23 @@
       <div class="sigil" aria-hidden="true">♜</div>
       <div class="eyebrow">THE SHADOWS ARE WAITING</div>
       <h1>DRAGONSLAYER<br>THE 1ST</h1>
-      <p class="subtitle">One identity. Many worlds. A central portal to my gaming, social, and developer profiles.</p>
+      <p class="subtitle">My links, games, and anime stuff — all in one place.</p>
       <p class="subtitle" style="margin-top:14px;color:#ff526c;font-weight:850;letter-spacing:.09em;text-transform:uppercase;text-shadow:0 0 18px #ef17384d">“You can run from the shadows. They still answer to me.”</p>
       <div class="rule"></div>
-      <div class="status"><span class="dot"></span> IDENTITY HUB ONLINE</div>
+      <div class="status"><span class="dot"></span> THIS IS MY CORNER OF THE INTERNET</div>
     </header>
 
     <section class="update-drop" id="next-update" aria-labelledby="updateTitle">
-      <div class="update-topline"><span>◆ SYSTEM TRANSMISSION // 001</span><span class="update-live">UPDATE INCOMING</span></div>
-      <h2 id="updateTitle">THE NEXT EVOLUTION<br><span class="update-date">MAR 3–4, 2027</span></h2>
-      <p>A new chapter of the Hub is approaching. Expect fresh upgrades, extra polish, and more secrets waiting to be discovered in the shadows.</p>
-      <div class="update-foot"><span>NEW SYSTEMS</span><span>MORE SECRETS</span><span>STAY READY</span></div>
+      <div class="update-topline"><span>A QUICK NOTE</span><span class="update-live">WORK IN PROGRESS</span></div>
+      <h2 id="updateTitle">SITE NOTES</h2>
+      <p>I’m still adding links and checking that everything works well on phones. Some things may change as I go.</p>
+      <div class="update-foot"><span>GAMES</span><span>ANIME</span><span>MY LINKS</span></div>
     </section>
 
     <section id="profiles">
       <div class="sectionhead"><h2>◆ &nbsp; MY IDENTITIES</h2><span class="hint">SELECT A PORTAL TO ENTER</span></div>
       <div class="grid" id="grid"></div>
-      <p class="note">Some profile slots are placeholders for now. Add your usernames and profile URLs in the <strong>profiles</strong> list inside this file. Never put passwords, private emails, or recovery details here.</p>
+      <p class="note">A couple of links are still missing. I’ll add them when they’re ready. Don’t share passwords or private account details here.</p>
     </section>
 
     <section id="shadow-hunt">
@@ -416,7 +416,7 @@
       </div>
     </section>
 
-    <footer>ONE IDENTITY. MANY WORLDS.<br><strong>POWERED BY THE SHADOWS</strong><br>BUILT WITH HTML · CSS · JAVASCRIPT</footer>
+    <footer>MADE BY AAYUSH<br><strong>STILL A WORK IN PROGRESS</strong></footer>
   </div>
   <script>
     // Anime theme selector. Theme changes are local to this page view.
@@ -440,7 +440,7 @@
         document.querySelector(".awakening-kicker").textContent = theme.introKicker;
         document.querySelector(".awakening-inner p").textContent = theme.introText;
         document.querySelector("#enterHub").textContent = theme.enter;
-        document.title = "DragonslayerThe1st — Identity Hub";
+        document.title = "DragonslayerThe1st";
         const intro = document.querySelector("#awakening");
         intro.classList.remove("grimoire-awakening");
         if (key === "black-clover" && animate) {
@@ -708,9 +708,6 @@
         portal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
         opened = true;
-        // Start the existing synthesized ambient soundtrack if it is currently off.
-        const music = document.querySelector("#musicToggle");
-        if (music && music.getAttribute("aria-pressed") !== "true") music.click();
         close.focus({preventScroll:true});
       }
       function closePortal() {
@@ -981,7 +978,7 @@
         w = window.innerWidth; h = window.innerHeight;
         canvas.width = w * dpr; canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const cap = !embersEnabled ? 0 : quality === "low" ? 4 : quality === "high" ? 16 : 10;
+        const cap = !embersEnabled ? 0 : quality === "low" ? 3 : quality === "high" ? 12 : 6;
         const count = Math.min(cap, Math.floor(w / (quality === "high" ? 42 : 55)));
         particles = Array.from({length:count}, () => ({
           x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.7+.4,
@@ -996,11 +993,16 @@
         bleach: {fill:"#65c8ff", glow:"#65c8ff"},
         tensura: {fill:"#58e5d0", glow:"#58e5d0"}
       };
-      let activeTheme = "";
       let lastDraw = 0;
+      let frameId = 0;
+      const canAnimate = () => embersEnabled && !document.hidden && !reduceMotion && !userReducedMotion && quality !== "low";
+      function scheduleDraw() {
+        if (!frameId && canAnimate()) frameId = requestAnimationFrame(draw);
+      }
       function draw(timestamp = 0) {
-        if (document.hidden) return;
-        if (timestamp - lastDraw < 33) { requestAnimationFrame(draw); return; }
+        frameId = 0;
+        if (document.hidden || !embersEnabled) return;
+        if (timestamp - lastDraw < 33) { scheduleDraw(); return; }
         lastDraw = timestamp;
         ctx.clearRect(0,0,w,h);
         const theme = document.body.dataset.theme || "shadow";
@@ -1009,10 +1011,9 @@
           ctx.beginPath();
           ctx.fillStyle = particle.fill;
           ctx.globalAlpha = p.alpha;
-          ctx.shadowBlur = 0;
           ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
           ctx.fill();
-          if (embersEnabled && !reduceMotion && !userReducedMotion && quality !== "low") {
+          if (canAnimate()) {
             p.y -= p.speed; p.x += p.drift;
             if (p.y < -5) {p.y=h+5;p.x=Math.random()*w;}
             if (p.x < -5) p.x=w+5;
@@ -1020,20 +1021,36 @@
           }
         }
         ctx.globalAlpha = 1;
-        ctx.shadowBlur = 0;
-        if (embersEnabled && !reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
+        if (canAnimate()) scheduleDraw();
       }
       document.addEventListener("visibilitychange", () => {
-        if (!document.hidden && !reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
+        if (document.hidden && frameId) {
+          cancelAnimationFrame(frameId);
+          frameId = 0;
+        } else {
+          scheduleDraw();
+        }
       });
       document.addEventListener("shadowHubParticles", event => {
         embersEnabled = event.detail?.enabled === true;
         resize();
-        if (embersEnabled && !reduceMotion && !userReducedMotion && quality !== "low") requestAnimationFrame(draw);
-        else ctx.clearRect(0,0,w,h);
+        if (embersEnabled) draw(33);
+        else {
+          if (frameId) cancelAnimationFrame(frameId);
+          frameId = 0;
+          ctx.clearRect(0,0,w,h);
+        }
       });
-      window.addEventListener("resize", resize, {passive:true});
-      resize(); draw();
+      window.addEventListener("resize", () => {
+        resize();
+        if (canAnimate()) scheduleDraw();
+        else draw(33);
+      }, {passive:true});
+      window.addEventListener("pagehide", () => {
+        if (frameId) cancelAnimationFrame(frameId);
+        frameId = 0;
+      });
+      resize(); draw(33);
     })();
   </script>
   <script>
