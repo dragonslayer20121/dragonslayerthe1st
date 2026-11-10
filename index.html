@@ -355,6 +355,17 @@
     body[data-quality="low"] .sigil,body[data-quality="low"] .logo-hint,body[data-quality="low"] .status .dot{animation:none!important}
     body[data-quality="low"] .scanlines{opacity:.035}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+
+    .share-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:#050308dd;backdrop-filter:blur(10px)}
+    .share-modal[hidden]{display:none}
+    .share-card{position:relative;width:min(100%,380px);padding:30px 24px;text-align:center;border:1px solid #6b1b30;border-radius:18px;background:linear-gradient(145deg,#1b0b13,#0b080d 72%);box-shadow:0 0 45px #ef173833}
+    .share-card h2{margin:10px 0;color:var(--red);letter-spacing:.12em}
+    .share-card p{color:var(--muted);line-height:1.6}
+    .share-card img{display:block;width:220px;height:220px;max-width:100%;margin:20px auto;padding:10px;border-radius:12px;background:#fff}
+    .share-url{overflow-wrap:anywhere;color:#d9c8d0;font-size:.78rem;margin:12px 0 18px}
+    .share-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .share-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:9px 12px;border:1px solid #54202e;border-radius:8px;font-size:.68rem;letter-spacing:.06em}
+    .share-close{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#fff;font-size:1.8rem;cursor:pointer}
   </style>
 </head>
 <body>
@@ -383,8 +394,22 @@
   </div>
   <canvas id="embers" aria-hidden="true"></canvas><div class="scanlines" aria-hidden="true"></div>
   <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div><div class="cursor-glow-dot" id="cursorGlow" aria-hidden="true"></div>
+  <div class="share-modal" id="shareModal" hidden role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+    <div class="share-card">
+      <button class="share-close" id="closeShare" type="button" aria-label="Close share popup">×</button>
+      <div class="eyebrow">SPREAD THE WORD</div>
+      <h2 id="shareTitle">SHARE THE HUB</h2>
+      <p>Scan this code to visit DragonslayerThe1st.</p>
+      <img id="websiteQr" alt="QR code linking to the DragonslayerThe1st website" width="220" height="220">
+      <div class="share-url" id="shareUrl">https://user-name-hub.onrender.com</div>
+      <div class="share-actions">
+        <button class="control-button" id="copyWebsiteLink" type="button">COPY LINK</button>
+        <a class="control-button" id="downloadWebsiteQr" download="dragonslayer-hub-qr.png">DOWNLOAD QR</a>
+      </div>
+    </div>
+  </div>
   <div class="wrap">
-    <nav><button class="brand logo-portal" id="logoPortal" type="button" aria-label="Open anime character portal">DRAGON<span>SLAYER</span> // HUB <span class="logo-hint">✦</span></button><div class="controls"><a class="navlink" href="anime-worlds.html">ANIME WORLDS ↗</a><button class="control-button" id="musicToggle" type="button" aria-pressed="false">MUSIC: OFF</button><button class="control-button" id="sfxToggle" type="button" aria-pressed="true">🔊 SFX: ON</button><button class="control-button" id="particleToggle" type="button" aria-pressed="true">SHADOWS: ON</button><a class="navlink" href="#profiles">EXPLORE PROFILES ↓</a><a class="navlink howto-link" href="how-to.html">HOW TO USE ↗</a><a class="navlink howto-link" href="settings.html">GRAPHICS & SETTINGS ⚙</a></div></nav>
+    <nav><button class="brand logo-portal" id="logoPortal" type="button" aria-label="Open anime character portal">DRAGON<span>SLAYER</span> // HUB <span class="logo-hint">✦</span></button><div class="controls"><a class="navlink" href="anime-worlds.html">ANIME WORLDS ↗</a><button class="control-button" id="musicToggle" type="button" aria-pressed="false">MUSIC: OFF</button><button class="control-button" id="sfxToggle" type="button" aria-pressed="true">🔊 SFX: ON</button><button class="control-button" id="particleToggle" type="button" aria-pressed="true">SHADOWS: ON</button><a class="navlink" href="#profiles">EXPLORE PROFILES ↓</a><a class="navlink howto-link" href="how-to.html">HOW TO USE ↗</a><a class="navlink howto-link" href="settings.html">GRAPHICS & SETTINGS ⚙</a><button class="control-button" id="shareWebsiteBtn" type="button">↗ SHARE WEBSITE</button></div></nav>
     <header>
       <div class="sigil" aria-hidden="true">♜</div>
       <div class="eyebrow">THE SHADOWS ARE WAITING</div>
@@ -1164,6 +1189,41 @@
           typed = "";
           showSecret("SYSTEM COMMAND ACCEPTED // ARISE, SHADOW MONARCH.");
         }
+      });
+    })();
+  </script>
+  <script>
+    // Share popup: generate a QR code for the live hub URL only when requested.
+    (() => {
+      const siteUrl = "https://user-name-hub.onrender.com";
+      const modal = document.querySelector("#shareModal");
+      const qr = document.querySelector("#websiteQr");
+      const download = document.querySelector("#downloadWebsiteQr");
+      const urlText = document.querySelector("#shareUrl");
+      const openButton = document.querySelector("#shareWebsiteBtn");
+      const closeButton = document.querySelector("#closeShare");
+      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=440x440&margin=12&data=" + encodeURIComponent(siteUrl);
+      if (!modal || !openButton || !qr || !download) return;
+      urlText.textContent = siteUrl;
+      openButton.addEventListener("click", () => {
+        qr.src = qrUrl;
+        download.href = qrUrl;
+        modal.hidden = false;
+        closeButton.focus();
+      });
+      const close = () => { modal.hidden = true; openButton.focus(); };
+      closeButton.addEventListener("click", close);
+      modal.addEventListener("click", event => { if (event.target === modal) close(); });
+      document.addEventListener("keydown", event => { if (event.key === "Escape" && !modal.hidden) close(); });
+      document.querySelector("#copyWebsiteLink").addEventListener("click", async event => {
+        const button = event.currentTarget;
+        try {
+          await navigator.clipboard.writeText(siteUrl);
+          button.textContent = "✓ COPIED";
+        } catch {
+          button.textContent = "COPY FAILED";
+        }
+        window.setTimeout(() => button.textContent = "COPY LINK", 1500);
       });
     })();
   </script>
