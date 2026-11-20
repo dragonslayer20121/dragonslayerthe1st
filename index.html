@@ -1306,5 +1306,78 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
 <script>
 (()=>{const toggle=document.getElementById("sidebarToggle");if(!toggle)return;toggle.addEventListener("click",()=>{const open=document.body.classList.toggle("sidebar-open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});document.addEventListener("click",e=>{if(document.body.classList.contains("sidebar-open")&&!e.target.closest("#siteSidebar")&&!e.target.closest("#sidebarToggle")){document.body.classList.remove("sidebar-open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}});})();
 </script>
+
+  <script>
+    // Safety fallback: keep identity cards visible if an earlier page script fails.
+    (() => {
+      const grid = document.getElementById("grid");
+      if (!grid || grid.children.length) return;
+      const profiles = [
+        {name:"GitHub",icon:"github",color:"ffffff",username:"dragonslayer20121",url:"https://github.com/dragonslayer20121"},
+        {name:"Roblox",icon:"roblox",color:"ffffff",username:"keshavthehindugod",url:""},
+        {name:"Discord",icon:"discord",color:"5865F2",username:"deaddragon987",url:""},
+        {name:"Instagram",icon:"instagram",color:"E4405F",username:"Aayush Anil · @dragonslayerthe1st",url:"https://www.instagram.com/dragonslayerthe1st/"},
+        {name:"YouTube",icon:"youtube",color:"FF0033",username:"@dragonslayer64",url:"https://www.youtube.com/@dragonslayer64"},
+        {name:"Steam",icon:"steam",color:"ffffff",username:"Not added yet",url:""},
+        {name:"More portals",icon:"plus",color:"EF3764",username:"Add another platform when ready",url:""}
+      ];
+      profiles.forEach(profile => {
+        const card = document.createElement("article");
+        card.className = "card identity-card";
+        card.style.opacity = "1";
+        card.style.animation = "none";
+        card.style.setProperty("--logo-glow", "#" + profile.color);
+        const top = document.createElement("div");
+        top.className = "cardtop";
+        const logo = document.createElement("div");
+        logo.className = "identity-logo";
+        if (profile.icon === "plus") {
+          logo.classList.add("is-plus");
+          logo.textContent = "+";
+        } else {
+          const img = document.createElement("img");
+          img.src = "https://cdn.simpleicons.org/" + profile.icon + "/" + profile.color;
+          img.alt = profile.name + " logo";
+          img.loading = "lazy";
+          img.onerror = () => { logo.textContent = profile.name.slice(0,1); };
+          logo.append(img);
+        }
+        const name = document.createElement("div");
+        name.className = "platform";
+        name.textContent = profile.name;
+        top.append(logo, name);
+        const username = document.createElement("div");
+        username.className = "username";
+        username.textContent = profile.username;
+        const actions = document.createElement("div");
+        actions.className = "actions";
+        const copy = document.createElement("button");
+        copy.type = "button";
+        copy.textContent = "Copy username";
+        copy.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(profile.username);
+            copy.textContent = "✓ Copied";
+          } catch {
+            copy.textContent = "Clipboard blocked";
+          }
+          window.setTimeout(() => copy.textContent = "Copy username", 1400);
+        });
+        actions.append(copy);
+        if (profile.url) {
+          const visit = document.createElement("a");
+          visit.className = "visit";
+          visit.href = profile.url;
+          visit.target = "_blank";
+          visit.rel = "noopener noreferrer";
+          visit.textContent = "Visit portal ↗";
+          actions.append(visit);
+        }
+        card.append(top, username, actions);
+        grid.append(card);
+      });
+    })();
+  </script>
+
 </body>
 </html>
