@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080609">
+  <meta name="description" content="Visit Aayush's personal website, DragonslayerThe1st, for his interests, projects, games, anime and social links.">
+  <meta name="author" content="Aayush">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aayush | DragonslayerThe1st">
+  <meta property="og:description" content="Aayush's personal corner of the internet — projects, games, anime and social links.">
+  <meta property="og:url" content="https://user-name-hub.onrender.com/">
+  <meta name="twitter:card" content="summary">
+  <title>Shadow Hunt — Aayush | DragonslayerThe1st</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aayush",
+    "alternateName": "DragonslayerThe1st",
+    "url": "https://user-name-hub.onrender.com/",
+    "description": "Personal website featuring projects, games, anime and social links."
+  }
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#080609;--panel:#120d12;--red:#ef1738;--red2:#8f071e;--muted:#a99ca5;--line:#38202a}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% -10%,#4b0718 0,transparent 45%),var(--bg);color:#f8f3f5;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:inherit}
+    body.cursor-glow,body.cursor-glow *{cursor:none!important}
+    .cursor-glow-dot{position:fixed;left:0;top:0;width:18px;height:18px;border:2px solid #ff284d;border-radius:50%;pointer-events:none!important;user-select:none;z-index:2147483647;opacity:0;transform:translate3d(-100px,-100px,0);background:#ff17454d;box-shadow:0 0 12px #ff1745,0 0 28px #ef1738,0 0 55px #ef173899;transition:width .12s,height .12s,opacity .15s;will-change:transform}
+    .cursor-aura{display:none!important}
+    /* Theme-specific custom cursor artifacts */
+    body[data-theme="naruto"] .cursor-glow-dot{width:29px;height:29px;border:2px solid #ffb1b8;border-radius:50%;background:radial-gradient(circle,#090304 0 13%,#a50018 15% 48%,#f51d35 52% 68%,#4a0610 72% 78%,#ff7b88 82%,#25030a 88%);box-shadow:0 0 8px #ff253f,0 0 18px #ed102d,0 0 30px #a80020;transition:width .12s,height .12s,opacity .15s}
+    body[data-theme="naruto"] .cursor-glow-dot:before{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%);border-radius:50%;background:#050204;box-shadow:0 0 0 2px #ff9ba6}
+    body[data-theme="naruto"] .cursor-glow-dot:after{content:"";position:absolute;inset:3px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 13%,#170208 14% 20%,transparent 21% 46%,#170208 47% 53%,transparent 54% 79%,#170208 80% 86%,transparent 87%);animation:sharingan-spin 2.4s linear infinite}
+    @keyframes sharingan-spin{to{transform:rotate(360deg)}}
+    body[data-theme="black-clover"] .cursor-glow-dot{width:24px;height:30px;border:2px solid #ff526c;border-radius:5px 7px 5px 7px;background:linear-gradient(135deg,#1b0a10 0 42%,#4b0b1b 43% 55%,#13070b 56%);box-shadow:0 0 9px #f01836,0 0 20px #f0183680;transform-origin:center;clip-path:polygon(8% 0,92% 0,100% 12%,94% 100%,50% 88%,6% 100%,0 12%)}
+    body[data-theme="black-clover"] .cursor-glow-dot:after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;color:#ff526c;font-size:15px;font-weight:900;text-shadow:0 0 7px #f01836;animation:grimoire-pulse 1.2s ease-in-out infinite alternate}
+    @keyframes grimoire-pulse{from{filter:brightness(.8)}to{filter:brightness(1.7)}}
+    /* Black Clover grimoire awakening overlay */
+    .awakening.grimoire-awakening .awakening-inner{position:relative;isolation:isolate;animation:grimoire-rise 1.15s cubic-bezier(.2,.8,.2,1) both}
+    .awakening.grimoire-awakening .awakening-inner:before,.awakening.grimoire-awakening .awakening-inner:after{content:"";position:absolute;z-index:-1;top:14%;bottom:10%;width:48%;border:1px solid #f0183677;background:linear-gradient(135deg,#310914ee,#10070c 70%);box-shadow:0 0 28px #f0183630,inset 0 0 24px #f0183618}
+    .awakening.grimoire-awakening .awakening-inner:before{left:1%;transform-origin:right center;animation:grimoire-left-open 1s cubic-bezier(.16,.75,.25,1) both}
+    .awakening.grimoire-awakening .awakening-inner:after{right:1%;transform-origin:left center;animation:grimoire-right-open 1s cubic-bezier(.16,.75,.25,1) both}
+    .awakening.grimoire-awakening .awakening-kicker,.awakening.grimoire-awakening h2{ text-shadow:0 0 18px #f01836,0 0 36px #f0183677}
+    @keyframes grimoire-left-open{from{transform:perspective(500px) rotateY(82deg);opacity:.1}to{transform:perspective(500px) rotateY(0);opacity:1}}
+    @keyframes grimoire-right-open{from{transform:perspective(500px) rotateY(-82deg);opacity:.1}to{transform:perspective(500px) rotateY(0);opacity:1}}
+    @keyframes grimoire-rise{from{opacity:0;transform:translateY(14px) scale(.94);filter:blur(5px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+
+    body[data-theme="black-clover"] .cursor-aura{background:radial-gradient(circle,#f0183640 0%,#f0183625 24%,#f0183612 44%,transparent 72%)}
+    body.cursor-glow a:hover~.cursor-glow-dot,body.cursor-glow button:hover~.cursor-glow-dot{width:32px;height:32px;background:#ff17455c;box-shadow:0 0 15px #ff1745,0 0 35px #ef1738,0 0 60px #ef173899}
+    .awakening{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at center,#3d0717 0%,#090609 68%);transition:opacity .7s,visibility .7s}
+    .awakening.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .awakening-inner{text-align:center;max-width:600px;animation:awaken-in 1.1s both}
+    .awakening-kicker{font-size:.7rem;letter-spacing:.35em;color:#ff7184}
+    .awakening h2{margin:18px 0;font-size:clamp(2.3rem,9vw,5.5rem);line-height:1.02;letter-spacing:.08em;color:#fff;text-shadow:0 0 28px #ef173866}
+    .awakening p{color:#c4b4bd;line-height:1.7}
+    .awakening .enter-button{margin-top:18px;padding:13px 20px;font-weight:800;letter-spacing:.12em;background:#780b22;border-color:#ef3753}
+    .controls{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+    .theme-select{max-width:170px;min-height:35px;padding:8px 10px;border:1px solid #54202e;border-radius:8px;background:#170b11;color:#f4e8ee;font:inherit;font-size:.68rem;letter-spacing:.04em}
+    /* Naruto: Kurama Chakra Mode — all flame-orange, no blue accents. */
+    body[data-theme="naruto"]{--bg:#140800;--panel:#211006;--red:#ff7817;--red2:#c94305;--muted:#e4b28a;--line:#7a3512;background:radial-gradient(ellipse at 50% -10%,#8a2c00 0,transparent 48%),var(--bg)}
+    body[data-theme="naruto"] .animated-backdrop{background:radial-gradient(ellipse at 18% 35%,#ff6a00a8 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#ffb00070 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#c83c00a8 0%,transparent 45%),#140800}
+    body[data-theme="naruto"] .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#ff8a0045 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#ff4b0040 0%,transparent 36%)}
+    body[data-theme="naruto"] .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#ffc02e38 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#ff5a0045 0%,transparent 38%)}
+    body[data-theme="naruto"] .brand span,body[data-theme="naruto"] .eyebrow,body[data-theme="naruto"] h2,body[data-theme="naruto"] .awakening-kicker,body[data-theme="naruto"] .symbol{color:#ffb347}
+    body[data-theme="naruto"] .sigil,body[data-theme="naruto"] .card,body[data-theme="naruto"] .game-panel{border-color:#8f3c0b}
+    body[data-theme="naruto"] .card:before,body[data-theme="naruto"] .rule{background:linear-gradient(90deg,transparent,#ff7817,transparent)}
+    body[data-theme="naruto"] .status .dot,body[data-theme="naruto"] .dot{background:#ff7817;box-shadow:0 0 12px #ff7817}
+    body[data-theme="naruto"] button,body[data-theme="naruto"] .visit,body[data-theme="naruto"] .control-button,body[data-theme="naruto"] .theme-select{border-color:#8f3c0b;background:#351403}
+    body[data-theme="naruto"] button:hover,body[data-theme="naruto"] .visit:hover{background:#9e3500;border-color:#ffb347}
+    body[data-theme="naruto"] .sigil{background:#351403;box-shadow:0 0 28px #ff781755,inset 0 0 22px #ff781822}
+    body[data-theme="naruto"] .card{background:linear-gradient(140deg,#321708ed,#1b0b03f5 68%)}
+    body[data-theme="naruto"] .hunt-arena{border-color:#8f3c0b;background:radial-gradient(ellipse at 50% 50%,#772400 0%,#261003 58%,#140800 100%)}
+    body[data-theme="naruto"] .shadow-orb{border-color:#ffd18a;background:radial-gradient(circle at 35% 30%,#fff5d6,#ff9a24 22%,#db3d00 62%,#381000 75%);box-shadow:0 0 12px #ff7817,0 0 28px #ff4b00}
+    body[data-theme="black-clover"]{--bg:#080507;--panel:#16090d;--red:#f01836;--red2:#8d071e;--muted:#bda5ad;--line:#51202c}
+    body[data-theme="black-clover"] .animated-backdrop{background:radial-gradient(ellipse at 18% 35%,#70091ca8 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#1b1116d9 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#3b0619a8 0%,transparent 45%),#080507}
+    body[data-theme="black-clover"] .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#f0183645 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#080507aa 0%,transparent 36%)}
+    body[data-theme="black-clover"] .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#f0183628 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#9a0c2d45 0%,transparent 38%)}
+    body[data-theme="black-clover"] .brand span,body[data-theme="black-clover"] .eyebrow,body[data-theme="black-clover"] h2,body[data-theme="black-clover"] .awakening-kicker,body[data-theme="black-clover"] .symbol{color:#ff526c}
+    body[data-theme="black-clover"] .sigil,body[data-theme="black-clover"] .card,body[data-theme="black-clover"] .game-panel{border-color:#59202d}
+    body[data-theme="black-clover"] .card:before,body[data-theme="black-clover"] .rule{background:linear-gradient(90deg,transparent,#f01836,transparent)}
+    body[data-theme="black-clover"] .status .dot,body[data-theme="black-clover"] .dot{background:#f01836;box-shadow:0 0 12px #f01836}
+    body[data-theme="black-clover"] button,body[data-theme="black-clover"] .visit,body[data-theme="black-clover"] .control-button,body[data-theme="black-clover"] .theme-select{border-color:#59202d;background:#1d0a10}
+    body[data-theme="black-clover"] button:hover,body[data-theme="black-clover"] .visit:hover{background:#760d24;border-color:#ff526c}
+    body[data-theme="bleach"]{--bg:#080b13;--panel:#101521;--red:#65c8ff;--red2:#1b6ca7;--muted:#aab7cc;--line:#2c4565}
+    body[data-theme="tensura"]{--bg:#061311;--panel:#0b201e;--red:#58e5d0;--red2:#138c85;--muted:#a8d8d2;--line:#1d655f}\n    body[data-theme="spider-brand-new-day"]{--bg:#090b16;--panel:#11182a;--red:#e52c43;--red2:#174b91;--muted:#b8c5dd;--line:#354d7b}
+    body[data-theme="tensura"] .animated-backdrop{background:radial-gradient(ellipse at 18% 35%,#087d78a8 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#52f0d538 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#135b9ca8 0%,transparent 45%),#061311}
+    body[data-theme="tensura"] .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#58e5d045 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#1d9fba40 0%,transparent 36%)}
+    body[data-theme="tensura"] .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#b0fff028 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#267ed040 0%,transparent 38%)}
+    body[data-theme="tensura"] .brand span,body[data-theme="tensura"] .eyebrow,body[data-theme="tensura"] h2,body[data-theme="tensura"] .awakening-kicker,body[data-theme="tensura"] .symbol{color:#8ffff0}
+    body[data-theme="tensura"] .sigil,body[data-theme="tensura"] .card,body[data-theme="tensura"] .game-panel{border-color:#1d655f}
+    body[data-theme="tensura"] .card:before,body[data-theme="tensura"] .rule{background:linear-gradient(90deg,transparent,#58e5d0,transparent)}
+    body[data-theme="tensura"] .status .dot,body[data-theme="tensura"] .dot{background:#58e5d0;box-shadow:0 0 12px #58e5d0}
+    body[data-theme="tensura"] button,body[data-theme="tensura"] .visit,body[data-theme="tensura"] .control-button,body[data-theme="tensura"] .theme-select{border-color:#1d655f;background:#0b2421}
+    body[data-theme="tensura"] button:hover,body[data-theme="tensura"] .visit:hover{background:#125c54;border-color:#8ffff0}
+    body[data-theme="tensura"] .sigil{background:#0b2421;box-shadow:0 0 28px #58e5d055,inset 0 0 22px #58e5d022}
+    body[data-theme="tensura"] .card{background:linear-gradient(140deg,#10342eed,#081b19f5 68%)}
+    body[data-theme="tensura"] .hunt-arena{border-color:#1d655f;background:radial-gradient(ellipse at 50% 50%,#10554e 0%,#0a2624 58%,#061311 100%)}
+    body[data-theme="tensura"] .shadow-orb{border-color:#b0fff0;background:radial-gradient(circle at 35% 30%,#fff,#58e5d0 22%,#167dba 62%,#063b3a 75%);box-shadow:0 0 12px #58e5d0,0 0 28px #167dba44}
+    body[data-theme="bleach"] .animated-backdrop{background:radial-gradient(ellipse at 18% 35%,#123b80a8 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#e9f5ff38 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#2b155ca8 0%,transparent 45%),#070a12}
+    body[data-theme="bleach"] .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#49b9ff45 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#c9eaff30 0%,transparent 36%)}
+    body[data-theme="bleach"] .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#a9dfff28 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#4631b340 0%,transparent 38%)}
+    body[data-theme="bleach"] .brand span,body[data-theme="bleach"] .eyebrow,body[data-theme="bleach"] h2,body[data-theme="bleach"] .awakening-kicker,body[data-theme="bleach"] .symbol{color:#9bdfff}
+    body[data-theme="bleach"] .sigil,body[data-theme="bleach"] .card,body[data-theme="bleach"] .game-panel{border-color:#2d4f78}
+    body[data-theme="bleach"] .card:before,body[data-theme="bleach"] .rule{background:linear-gradient(90deg,transparent,#65c8ff,transparent)}
+    body[data-theme="bleach"] .status .dot,body[data-theme="bleach"] .dot{background:#65c8ff;box-shadow:0 0 12px #65c8ff}
+    body[data-theme="bleach"] button,body[data-theme="bleach"] .visit,body[data-theme="bleach"] .control-button,body[data-theme="bleach"] .theme-select{border-color:#2d4f78;background:#0d1729}
+    body[data-theme="bleach"] button:hover,body[data-theme="bleach"] .visit:hover{background:#16466d;border-color:#9bdfff}
+
+    .control-button{font-size:.68rem;letter-spacing:.06em;color:#d9c8d0;background:#170b11;border-color:#54202e}
+    @keyframes awaken-in{from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(5px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+    .animated-backdrop{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.8;background:radial-gradient(ellipse at 18% 35%,#310b75a8 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#60051fa8 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#26085a8a 0%,transparent 45%),#080609;animation:none;will-change:auto}
+    .animated-backdrop:before,.animated-backdrop:after{content:"";position:absolute;inset:0;border-radius:0;filter:none;will-change:auto;animation:none}
+    .animated-backdrop:before{background:radial-gradient(ellipse at 25% 45%,#6b1cff45 0%,transparent 34%),radial-gradient(ellipse at 75% 55%,#ef17383b 0%,transparent 36%);animation:shadow-mist 19s ease-in-out infinite alternate}
+    .animated-backdrop:after{background:radial-gradient(ellipse at 60% 25%,#d20b3b25 0%,transparent 32%),radial-gradient(ellipse at 35% 80%,#3211a840 0%,transparent 38%);animation:shadow-mist 27s ease-in-out infinite alternate-reverse}
+    /* Selected-world character art is always visible behind the hub; no logo click needed. */
+    .world-character-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-position:center 22%;background-size:cover;background-repeat:no-repeat;opacity:.48;filter:saturate(1.05);transition:background-image .25s ease,opacity .25s ease}
+    .world-character-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,10,.72),rgba(5,5,10,.38) 55%,rgba(5,5,10,.58)),linear-gradient(0deg,rgba(5,5,10,.88),rgba(5,5,10,.14) 48%,rgba(5,5,10,.62))}
+    body[data-theme="shadow"] .world-character-bg{background-image:url("https://channeln.gcdn.netmarble.com/channeln/Upload/0d74604c-3e97-4134-a06c-d66737f51aff.jpg")}
+    body[data-theme="naruto"] .world-character-bg{background-image:url("https://naruto-official.com/special/wallpaper_gallery/month/jp/10.webp")}
+    body[data-theme="black-clover"] .world-character-bg{background-image:url("https://bclover.jp/assets/img/character/full/main/asta.png")}
+    body[data-theme="bleach"] .world-character-bg{background-image:url("https://bleach-anime.com/en/assets/img/character/thumb_01.jpg")}
+    body[data-theme="tensura"] .world-character-bg{background-image:url("https://www.ten-sura.com/assets/images/character/rimuru.png")}
+    body[data-theme="jailer-2"] .world-character-bg{background-image:url("https://m.media-amazon.com/images/M/MV5BYmE0MTFjOTYtMWYxNC00YjFjLTlhNzYtMWQ5ZDEwNjRmYzE1XkEyXkFqcGc%40._V1_.jpg")}
+    body[data-theme="avengers"] .world-character-bg{background-image:url("https://cdn.shopify.com/s/files/1/0556/7322/5423/files/avengers_endgame.jpg?v=1678265680")}
+    body[data-theme="spider-verse"] .world-character-bg{background-image:url("https://www.sonypictures.in/sites/india/files/2023-08/SPVKeyArt.jpg")}
+    body[data-theme="spider-brand-new-day"] .world-character-bg{background-image:url("https://www.sonypictures.com/sites/default/files/styles/max_860x460/public/title-key-art/spidermanbrandnewday_onesheet_1400x2100_1.jpg?itok=hXKCyx3k")}
+    @media(max-width:700px){.world-character-bg{opacity:.34;background-position:58% top}}
+    @media(prefers-reduced-motion:reduce){.world-character-bg{transition:none}}
+
+    @keyframes backdrop-drift{0%{background-position:0% 0%,100% 0%,50% 100%}100%{background-position:18% 25%,80% 40%,35% 75%}}
+    @keyframes shadow-mist{0%{transform:translate3d(-2%,1%,0) rotate(-4deg) scale(.96);opacity:.65}100%{transform:translate3d(3%,-2%,0) rotate(5deg) scale(1.08);opacity:1}}
+
+    /* Extra drifting energy orbs layered over the existing animated mist. */
+    .energy-orbs{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+    .energy-orb{position:absolute;width:clamp(90px,15vw,220px);aspect-ratio:1;border-radius:50%;filter:none;opacity:.08;background:radial-gradient(circle at 35% 35%,#ffb5c2 0%,var(--red) 10%,color-mix(in srgb,var(--red) 22%,transparent) 30%,transparent 70%);box-shadow:none;animation:none}
+    .energy-orb:nth-child(1){left:4%;top:20%;animation-duration:24s}
+    .energy-orb:nth-child(2){right:6%;top:48%;width:clamp(120px,19vw,280px);animation-duration:29s;animation-delay:-9s}
+    .energy-orb:nth-child(3){left:42%;bottom:-8%;width:clamp(100px,13vw,190px);animation-duration:31s;animation-delay:-15s}
+    @keyframes energy-drift{0%{transform:translate3d(-2vw,-2vh,0) scale(.85)}50%{transform:translate3d(3vw,4vh,0) scale(1.12)}100%{transform:translate3d(-1vw,7vh,0) scale(.95)}}
+    body[data-theme="naruto"] .energy-orb{background:radial-gradient(circle at 35% 35%,#fff0a8 0%,#ff8a18 12%,#ff6a0033 34%,transparent 70%);box-shadow:0 0 50px #ff781744}
+    body[data-theme="bleach"] .energy-orb{background:radial-gradient(circle at 35% 35%,#fff 0%,#65c8ff 12%,#65c8ff33 34%,transparent 70%);box-shadow:0 0 50px #65c8ff44}
+    @media(prefers-reduced-motion:reduce){.energy-orb{animation:none}}
+
+
+    /* Logo-triggered character portal + premium visual polish */
+    .logo-portal{font:inherit;text-align:left;cursor:pointer;position:relative;isolation:isolate}
+    .logo-portal:after{content:"";position:absolute;inset:-7px;border-radius:12px;background:var(--red);opacity:0;filter:blur(20px);z-index:-1;transition:opacity .3s}
+    .logo-portal:hover:after{opacity:.22}
+    .logo-hint{display:inline-block!important;color:var(--red)!important;margin-left:4px;animation:hint-pulse 1.8s ease-in-out infinite}
+    @keyframes hint-pulse{50%{opacity:.35;transform:scale(.75) rotate(35deg)}}
+    .character-portal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:#030308;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s ease,visibility 0s linear .32s}
+    .character-portal.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .32s ease,visibility 0s}
+    .character-portal .portal-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:.86;filter:saturate(1.12) contrast(1.08);transform:scale(1.06);animation:portal-art-drift 26s ease-in-out infinite alternate;will-change:transform,opacity}
+    .character-portal.open .portal-art{animation:portal-art-enter .62s cubic-bezier(.2,.75,.25,1) both,portal-art-drift 26s .62s ease-in-out infinite alternate}
+    @keyframes portal-art-enter{from{transform:scale(1.14);filter:blur(3px) saturate(.85);opacity:0}to{transform:scale(1.06);filter:blur(0) saturate(1.12);opacity:.86}}
+    @keyframes portal-art-drift{from{transform:scale(1.06) translate3d(-.5%,0,0)}to{transform:scale(1.12) translate3d(.5%,.5%,0)}}
+    .character-portal:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(2,2,7,.92) 0%,rgba(2,2,7,.6) 38%,rgba(2,2,7,.12) 100%),linear-gradient(0deg,rgba(2,2,7,.92),transparent 52%,rgba(2,2,7,.28));}
+    .character-portal:after{content:"";position:absolute;inset:-30%;z-index:1;pointer-events:none;background:conic-gradient(from 0deg,transparent 0 78%,color-mix(in srgb,var(--red) 22%,transparent) 85%,transparent 93%);animation:portal-energy 18s linear infinite;mix-blend-mode:screen}
+    @keyframes portal-energy{to{transform:rotate(360deg)}}
+    .portal-copy{position:relative;z-index:2;width:min(1100px,calc(100% - 40px));padding:clamp(20px,5vw,60px);pointer-events:none;opacity:0;transform:translateY(10px);transition:opacity .28s ease .06s,transform .38s cubic-bezier(.2,.75,.25,1) .04s}
+    .character-portal.open .portal-copy{opacity:1;transform:translateY(0)}
+    .portal-copy .portal-kicker{color:var(--red);font-size:.72rem;font-weight:950;letter-spacing:.35em;text-transform:uppercase;text-shadow:0 0 20px var(--red)}
+    .portal-copy h2{max-width:700px;margin:20px 0 12px;font-size:clamp(3rem,10vw,8.5rem);line-height:.82;letter-spacing:-.07em;text-transform:uppercase;text-shadow:0 12px 50px #000}
+    .portal-copy p{max-width:420px;color:#e0dbe7;font-size:clamp(.9rem,2vw,1.1rem);line-height:1.8}
+    .portal-close{position:absolute;right:clamp(16px,4vw,42px);top:clamp(16px,4vw,42px);z-index:5;border:1px solid #ffffff50;background:#08070bc9;color:#fff;border-radius:999px;padding:12px 17px;font-weight:900;letter-spacing:.12em;cursor:pointer;backdrop-filter:blur(12px);transition:.25s}
+    .portal-close:hover{border-color:var(--red);box-shadow:0 0 28px var(--red);transform:translateY(-2px)}
+    .portal-hint{position:absolute;z-index:3;bottom:25px;left:clamp(20px,5vw,60px);color:#ffffff9c;font-size:.65rem;letter-spacing:.18em}
+    .character-portal[data-character="naruto"]:before{background:linear-gradient(90deg,rgba(18,6,0,.9),rgba(18,6,0,.52) 40%,rgba(18,6,0,.08)),linear-gradient(0deg,rgba(18,6,0,.85),transparent 60%)}
+    .character-portal[data-character="black-clover"]:before{background:linear-gradient(90deg,rgba(5,4,7,.94),rgba(5,4,7,.58) 42%,rgba(5,4,7,.1)),linear-gradient(0deg,rgba(5,4,7,.9),transparent 60%)}
+    .character-portal[data-character="bleach"]:before{background:linear-gradient(90deg,rgba(2,8,17,.93),rgba(2,8,17,.55) 42%,rgba(2,8,17,.08)),linear-gradient(0deg,rgba(2,8,17,.9),transparent 60%)}
+    @media(max-width:600px){.character-portal .portal-art{object-position:62% center;opacity:.62}.character-portal:before{background:linear-gradient(90deg,rgba(2,2,7,.82),rgba(2,2,7,.25)),linear-gradient(0deg,rgba(2,2,7,.88),transparent 70%)}.portal-copy{padding:24px 8px}.portal-copy h2{font-size:clamp(3.1rem,16vw,6rem)}.portal-hint{bottom:16px}}
+    /* Keep the cinematic look without overworking low-power phones and laptops. */
+    @media(max-width:700px){
+      .animated-backdrop:before,.animated-backdrop:after{filter:blur(28px)}
+      .energy-orb{opacity:.09;filter:blur(1px)}
+      .cursor-aura{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .animated-backdrop{animation:none!important}
+      .animated-backdrop:before,.animated-backdrop:after{animation:none!important}
+      .energy-orb{animation:none!important}
+    }
+    @media(prefers-reduced-motion:reduce){.character-portal .portal-art,.character-portal:after,.logo-hint{animation:none!important}}
+
+    body[data-quality="low"] .animated-backdrop:before,body[data-quality="low"] .animated-backdrop:after{animation:none!important;transform:none!important;opacity:.45}
+    body[data-mist="off"] .animated-backdrop:before,body[data-mist="off"] .animated-backdrop:after{display:none!important}
+    body[data-scanlines="off"] .scanlines{display:none!important}
+    body.user-reduced-motion *,body.user-reduced-motion *:before,body.user-reduced-motion *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    body.user-reduced-motion .animated-backdrop:before,body.user-reduced-motion .animated-backdrop:after,body.user-reduced-motion .energy-orb,body.user-reduced-motion .character-portal .portal-art,body.user-reduced-motion .character-portal:after{animation:none!important}
+    #embers{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.65}
+    .scanlines{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px,transparent 5px)}
+    .wrap{position:relative;z-index:1;width:min(1050px,92%);margin:auto;padding:24px 0 38px}
+    nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0 28px;border-bottom:1px solid #ffffff13}
+    .brand{font-size:.78rem;font-weight:900;letter-spacing:.2em}.brand span{color:var(--red)}
+    .navlink{font-size:.8rem;color:var(--muted);text-decoration:none;transition:color .2s ease,text-shadow .2s ease,transform .2s ease}.navlink:hover{color:var(--red);text-shadow:0 0 14px color-mix(in srgb,var(--red) 55%,transparent);transform:translateY(-1px)}.howto-link{padding:8px 11px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--panel) 78%,transparent);font-size:.68rem;font-weight:800;letter-spacing:.06em}.navlink:hover{color:white}
+    header{text-align:center;padding:76px 0 54px}
+    .sigil{width:76px;height:76px;margin:0 auto 22px;display:grid;place-items:center;border:1px solid var(--red);border-radius:24px;color:#ff4962;font-size:35px;background:#190910a8;box-shadow:0 0 24px #ef173825,inset 0 0 22px #ef173812;animation:aura 3s ease-in-out infinite}
+    .eyebrow{font-size:.7rem;letter-spacing:.32em;color:#ff7184;font-weight:800}
+    h1{margin:12px 0 10px;font-size:clamp(2.2rem,8vw,5.3rem);line-height:1.03;letter-spacing:.08em;font-weight:950;text-shadow:0 0 34px #ef17383d}
+    .subtitle{margin:18px auto 0;max-width:520px;color:var(--muted);line-height:1.7}
+    .rule{width:110px;height:2px;margin:30px auto;background:linear-gradient(90deg,transparent,var(--red),transparent);box-shadow:0 0 18px var(--red)}
+    .rule,.card:before{display:none!important}
+    .status{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff17;border-radius:999px;padding:8px 13px;color:#d8cbd0;font-size:.72rem;background:#ffffff05}
+    .dot{width:7px;height:7px;background:#ed2745;border-radius:50%;box-shadow:0 0 12px #ed2745;animation:blink 1.8s infinite}
+    section{margin:20px 0 0}
+    .sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+    h2{margin:0;font-size:.78rem;letter-spacing:.23em;color:#ff8090}
+    .hint{font-size:.72rem;color:#81747b}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:15px}
+    .card{position:relative;overflow:hidden;min-height:174px;padding:21px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(140deg,#1c1118e8,#100c11f2 68%);box-shadow:0 8px 28px #0003;transform:translateY(12px);opacity:0;animation:rise .65s forwards;transition:transform .25s,border-color .25s,box-shadow .25s}
+    .card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(transparent,var(--red),transparent);opacity:.75}
+    .card:after{content:"";position:absolute;width:120px;height:120px;right:-75px;top:-75px;border-radius:50%;background:#ef173815;filter:blur(6px);transition:transform .3s}
+    .card:hover{transform:translateY(-5px);border-color:#a52b42;box-shadow:0 15px 38px #ef173815}
+    .card:hover:after{transform:scale(1.8)}
+    .cardtop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .platform{font-size:1rem;font-weight:800;letter-spacing:.02em}
+    .symbol{display:grid;place-items:center;width:35px;height:35px;border-radius:10px;border:1px solid #6e2535;background:#240d16;color:#ff7184;font-size:.9rem;font-weight:900}
+    .username{margin-top:17px;color:#c5b8bf;font-size:.85rem;overflow-wrap:anywhere}
+    .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    button,.visit{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:35px;padding:8px 11px;border:1px solid #6e2535;border-radius:8px;background:#260d16;color:#fff;font:inherit;font-size:.74rem;text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+    button:hover,.visit:hover{background:#8f1028;border-color:#ef3753;transform:translateY(-1px)}
+    button:focus-visible,a:focus-visible{outline:2px solid #ff6b82;outline-offset:3px}
+    .empty{color:#81747b}
+    .note{margin-top:18px;color:#82767d;font-size:.75rem;line-height:1.6}
+    footer{margin-top:58px;padding-top:22px;border-top:1px solid #ffffff13;text-align:center;color:#786d74;font-size:.72rem;letter-spacing:.1em;line-height:2}
+    footer strong{color:#ef3652}
+    @keyframes aura{0%,100%{box-shadow:0 0 20px #ef173820,inset 0 0 15px #ef173810}50%{box-shadow:0 0 42px #ef173850,inset 0 0 25px #ef17381c}}
+    @keyframes blink{50%{opacity:.4}}
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+    .game-panel{border:1px solid #512033;border-radius:16px;padding:20px;background:linear-gradient(145deg,#190d16ee,#0d0910f2);box-shadow:0 12px 36px #0005}
+    .game-intro{color:var(--muted);font-size:.86rem;line-height:1.6;margin:10px 0 18px}
+    .game-entry{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .game-entry input{flex:1;min-width:170px;min-height:40px;padding:10px 12px;color:#fff;background:#0a070b;border:1px solid #653044;border-radius:8px;font:inherit}
+    .game-entry input:focus{outline:2px solid #ff4962;outline-offset:2px}
+    .game-stats{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0;color:#d9c8d0;font-size:.8rem}
+    .game-stats strong{color:#ff7184}
+    .hunt-arena{position:relative;min-height:250px;overflow:hidden;border:1px solid #542033;border-radius:12px;background:radial-gradient(ellipse at 50% 50%,#34091b 0%,#100911 58%,#080609 100%);isolation:isolate}
+    .hunt-arena:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;background:linear-gradient(transparent 49%,#a21a3a22 50%,transparent 51%),linear-gradient(90deg,transparent 49%,#a21a3a22 50%,transparent 51%);background-size:32px 32px}
+    .arena-message{position:absolute;inset:0;display:grid;place-items:center;padding:18px;text-align:center;color:#b9a8b2;font-size:.85rem;line-height:1.6;pointer-events:none}
+    .shadow-orb{position:absolute;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid #ff7890;background:radial-gradient(circle at 35% 30%,#fff0f3,#ff3156 22%,#81051f 62%,#17050d 75%);box-shadow:0 0 12px #ff234f,0 0 28px #d10b3b;cursor:pointer;animation:orb-pulse .8s ease-in-out infinite alternate}
+    .shadow-orb:focus-visible{outline:3px solid white;outline-offset:4px}
+    .hunter-progression{margin:18px 0;padding:17px;border:1px solid #ef173844;border-radius:12px;background:linear-gradient(130deg,#280812b8,#100b10)}
+    .hunter-progression-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+    .hunter-rank-label{font-size:.68rem;letter-spacing:.18em;color:#ff7184;font-weight:900}
+    .hunter-rank-title{margin:5px 0;font-size:1.25rem;font-weight:950;letter-spacing:.04em}
+    .hunter-level{font-size:.82rem;color:#e7dce1}
+    .hunter-xp-track{height:9px;margin:13px 0 7px;border-radius:99px;overflow:hidden;background:#ffffff12}
+    .hunter-xp-fill{height:100%;width:0;background:linear-gradient(90deg,#9d082b,#ff526c);box-shadow:0 0 12px #ef173866;transition:width .25s ease}
+    .hunter-xp-meta{display:flex;justify-content:space-between;gap:10px;color:#b9aab3;font-size:.72rem}
+    .hunter-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+    .hunter-badge{padding:6px 9px;border:1px solid #ffffff1a;border-radius:999px;background:#ffffff06;color:#d8cbd0;font-size:.7rem}
+    .hunter-badge.unlocked{border-color:#ef526c88;color:#ff9aaa;background:#ef173814}
+    .hunter-reward{margin-top:10px;color:#ff9aaa;font-size:.76rem;line-height:1.5}
+    .hunter-toast{margin:10px 0 0;color:#fff;font-size:.8rem;line-height:1.5}
+    .leaderboard{margin-top:18px;padding-top:16px;border-top:1px solid #ffffff16}
+    .leaderboard h3{margin:0 0 10px;color:#ff8090;font-size:.72rem;letter-spacing:.2em}
+    .score-row{display:grid;grid-template-columns:35px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #ffffff0d;color:#cfc0c8;font-size:.82rem}
+    .score-rank{color:#ff7184;font-weight:900}.score-points{color:#fff;font-weight:800}
+    .game-note{color:#81747b;font-size:.72rem;line-height:1.6;margin:12px 0 0}
+    @keyframes orb-pulse{from{transform:scale(.88);filter:brightness(.9)}to{transform:scale(1.08);filter:brightness(1.25)}}
+    @media(max-width:560px){.hunt-arena{min-height:220px}}
+
+    @media(max-width:560px){.wrap{width:90%}header{padding:56px 0 38px}.sectionhead{align-items:start;flex-direction:column}.card{min-height:160px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.card{opacity:1;transform:none}.animated-backdrop{will-change:auto}}
+  
+    /* Secret logo transformation — click the sigil to awaken its hidden form. */
+    @keyframes secret-transform{0%{transform:scale(1) rotate(0);filter:brightness(1)}18%{transform:scale(1.18) rotate(-8deg);filter:brightness(2.2)}38%{transform:scale(.88) rotate(8deg);filter:brightness(1.5)}62%{transform:scale(1.25) rotate(0);filter:brightness(2.8)}100%{transform:scale(1) rotate(0);filter:brightness(1)}}
+    @keyframes secret-ring{0%{opacity:0;transform:scale(.35) rotate(0)}35%{opacity:1}100%{opacity:0;transform:scale(2.7) rotate(150deg)}}
+    .sigil{position:relative;cursor:pointer;user-select:none}
+    .sigil.secret-transforming{animation:secret-transform 1.25s ease-in-out}
+    .sigil.secret-transforming:after{content:"";position:absolute;inset:-10px;border:2px solid var(--red);border-radius:30%;box-shadow:0 0 18px var(--red),inset 0 0 18px var(--red);pointer-events:none;animation:secret-ring 1.25s ease-out forwards}
+    body.secret-awakened h1{text-shadow:0 0 18px var(--red),0 0 42px var(--red),0 0 80px var(--red)}
+    body.secret-awakened .sigil{box-shadow:0 0 45px var(--red),inset 0 0 30px var(--red)}
+    .secret-toast{position:fixed;left:50%;bottom:24px;z-index:40;transform:translate(-50%,18px);opacity:0;pointer-events:none;padding:12px 18px;border:1px solid var(--red);border-radius:10px;background:#090609ed;color:#fff;font-size:.72rem;font-weight:900;letter-spacing:.18em;text-align:center;box-shadow:0 0 28px color-mix(in srgb,var(--red) 45%,transparent);transition:opacity .25s,transform .25s}
+    .secret-toast.visible{opacity:1;transform:translate(-50%,0)}
+    @media(prefers-reduced-motion:reduce){.sigil.secret-transforming,.sigil.secret-transforming:after{animation-duration:.01ms}}
+
+      /* Low-power rendering: keep the theme, drop costly perpetual effects. */
+    .animated-backdrop,.animated-backdrop:before,.animated-backdrop:after{animation:none!important;filter:none!important;will-change:auto!important}
+    .energy-orb{animation:none!important;filter:none!important;box-shadow:none!important;opacity:.06!important}
+    .cursor-aura{display:none!important}
+    .cursor-glow-dot{box-shadow:0 0 7px var(--red)!important;will-change:transform}
+    body[data-theme="naruto"] .cursor-glow-dot,body[data-theme="black-clover"] .cursor-glow-dot{box-shadow:0 0 7px var(--red)!important}
+    @media(max-width:900px){.animated-backdrop:before,.animated-backdrop:after{display:none}.energy-orbs{display:none}}
+
+    /* Upcoming update announcement — lightweight, responsive, theme-aware. */
+    .update-drop{position:relative;isolation:isolate;overflow:hidden;margin:30px auto 34px;padding:clamp(18px,3vw,28px);border:1px solid color-mix(in srgb,var(--red) 65%,transparent);border-radius:16px;background:linear-gradient(115deg,color-mix(in srgb,var(--red) 12%,#100910),#100b12 55%,color-mix(in srgb,var(--red) 8%,#080609));box-shadow:0 0 26px color-mix(in srgb,var(--red) 12%,transparent),inset 0 0 22px #ffffff04}
+    .update-drop:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--red),#fff8, var(--red),transparent);background-size:200% 100%;animation:update-sweep 5s linear infinite}
+    .update-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.68rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    .update-live{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border:1px solid color-mix(in srgb,var(--red) 55%,transparent);border-radius:999px;color:var(--red);background:color-mix(in srgb,var(--red) 9%,transparent)}
+    .update-live:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+    .update-drop h2{margin:16px 0 8px;font-size:clamp(1.45rem,4.5vw,2.25rem);line-height:1.1;letter-spacing:.035em;color:#fff}
+    .update-date{display:inline-block;color:var(--red);font-weight:950;letter-spacing:.09em;text-shadow:0 0 18px color-mix(in srgb,var(--red) 35%,transparent)}
+    .update-drop p{max-width:660px;margin:10px 0 0;color:var(--muted);line-height:1.7;font-size:.9rem}
+    .update-foot{margin-top:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:#f8eaf0;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+    .update-foot span{padding:7px 9px;border:1px solid #ffffff15;border-radius:7px;background:#ffffff05}
+    @keyframes update-sweep{to{background-position:200% 0}}
+    .easter-toast{position:fixed;left:50%;bottom:22px;z-index:2000;max-width:min(92vw,520px);padding:13px 17px;border:1px solid var(--red);border-radius:10px;background:#100910f5;color:#fff;text-align:center;font-size:.78rem;font-weight:850;letter-spacing:.09em;box-shadow:0 0 26px color-mix(in srgb,var(--red) 28%,transparent);transform:translate(-50%,18px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+    .easter-toast.show{opacity:1;transform:translate(-50%,0)}
+    .sigil{cursor:pointer}
+    @keyframes easter-flash{0%,100%{filter:none}35%{filter:drop-shadow(0 0 22px var(--red)) brightness(1.35)}}
+    body.easter-flash header .sigil{animation:easter-flash .75s ease}
+    @media(prefers-reduced-motion:reduce){.update-drop:before{animation:none}.easter-toast{transition:none}body.easter-flash header .sigil{animation:none}}
+
+
+    /* Low-power mode: stop decorative motion that adds work without affecting functionality. */
+    body[data-quality="low"] .animated-backdrop:before,
+    body[data-quality="low"] .animated-backdrop:after,
+    body[data-quality="low"] .logo-hint,
+    body[data-quality="low"] .awakening-inner,
+    body[data-quality="low"] .cursor-glow-dot:after { animation:none!important; }
+    body[data-quality="low"] .energy-orbs { display:none!important; }
+    body[data-quality="low"] .animated-backdrop { opacity:.55; }
+    body.user-reduced-motion .animated-backdrop:before,
+    body.user-reduced-motion .animated-backdrop:after,
+    body.user-reduced-motion .energy-orb,
+    body.user-reduced-motion .logo-hint,
+    body.user-reduced-motion .cursor-glow-dot:after,
+    body.user-reduced-motion .awakening-inner { animation:none!important; }
+    body.user-reduced-motion *, body.user-reduced-motion *:before, body.user-reduced-motion *:after { scroll-behavior:auto!important; transition-duration:.01ms!important; }
+  
+    /* Mobile layout: keep navigation, controls and game UI comfortable on touch screens. */
+    @media(max-width:700px){
+      .wrap{width:min(100% - 28px,620px);padding-top:16px}
+      nav{align-items:stretch;flex-direction:column;gap:12px;padding-bottom:18px}
+      .brand{align-self:flex-start;font-size:.74rem;letter-spacing:.15em}
+      .controls{width:100%;justify-content:flex-start;gap:8px}
+      .controls .navlink,.controls .control-button{min-height:42px;padding:10px 12px;font-size:.7rem}
+      header{padding:48px 0 34px}
+      .eyebrow{font-size:.62rem;letter-spacing:.2em}
+      h1{font-size:clamp(2.1rem,12vw,4rem);letter-spacing:.045em}
+      .subtitle{max-width:38rem;font-size:.94rem;line-height:1.65;padding-inline:4px}
+      .status{max-width:100%;font-size:.66rem}
+      .sectionhead{align-items:flex-start;flex-direction:column;gap:7px}
+      .grid{grid-template-columns:minmax(0,1fr);gap:12px}
+      .card{min-height:0;padding:18px}
+      .actions{gap:8px}
+      .actions button,.actions .visit{min-height:42px}
+      .game-panel{padding:16px}
+      .game-entry{display:grid;grid-template-columns:minmax(0,1fr)}
+      .game-entry input,.game-entry button{width:100%;min-width:0;min-height:44px}
+      .game-stats{gap:8px 14px;font-size:.74rem}
+      .hunter-progression{padding:14px}
+      .hunter-progression-top{gap:10px}
+      .hunter-xp-meta{font-size:.65rem}
+      .score-row{grid-template-columns:26px minmax(0,1fr) auto;gap:7px;font-size:.76rem}
+      .shadow-orb{width:48px;height:48px;touch-action:manipulation}
+    }
+    @media(max-width:380px){
+      .wrap{width:calc(100% - 22px)}
+      .controls .navlink,.controls .control-button{flex:1 1 auto;text-align:center}
+      .card{padding:16px}
+      .hunter-xp-meta{flex-direction:column;gap:4px}
+    }
+    /* Smoothness pass: keep motion compositor-friendly and reduce decorative work on compact screens. */
+    html{scroll-padding-top:16px}
+    .card,.game-panel,.update-drop{backface-visibility:hidden}
+    @media(max-width:700px){
+      .energy-orbs{display:none!important}
+      .animated-backdrop:before,.animated-backdrop:after{animation-duration:36s}
+    }
+    @media(hover:none){.cursor-glow-dot{display:none!important}}
+    body[data-quality="low"] .energy-orbs{display:none!important}
+    body[data-quality="low"] .sigil,body[data-quality="low"] .logo-hint,body[data-quality="low"] .status .dot{animation:none!important}
+    body[data-quality="low"] .scanlines{opacity:.035}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+
+    .share-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:#050308dd;backdrop-filter:blur(10px)}
+    .share-modal[hidden]{display:none}
+    .share-card{position:relative;width:min(100%,380px);padding:30px 24px;text-align:center;border:1px solid #6b1b30;border-radius:18px;background:linear-gradient(145deg,#1b0b13,#0b080d 72%);box-shadow:0 0 45px #ef173833}
+    .share-card h2{margin:10px 0;color:var(--red);letter-spacing:.12em}
+    .share-card p{color:var(--muted);line-height:1.6}
+    .share-card img{display:block;width:220px;height:220px;max-width:100%;margin:20px auto;padding:10px;border-radius:12px;background:#fff}
+    .share-url{overflow-wrap:anywhere;color:#d9c8d0;font-size:.78rem;margin:12px 0 18px}
+    .share-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .share-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:9px 12px;border:1px solid #54202e;border-radius:8px;font-size:.68rem;letter-spacing:.06em}
+    .share-close{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#fff;font-size:1.8rem;cursor:pointer}
+  
+    /* Identity portal redesign: larger cards and recognizable platform marks. */
+    #profiles .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+    #profiles .identity-card{min-height:330px;padding:25px 24px 22px;border-radius:22px;display:flex;flex-direction:column;justify-content:flex-start;background:linear-gradient(145deg,#1b101beF,#0c0912f7 72%);border:1px solid #55263c;box-shadow:0 14px 38px #0007,inset 0 1px #ffffff0b;transition:transform .25s,border-color .25s,box-shadow .25s}
+    #profiles .identity-card:hover{transform:translateY(-6px);border-color:#e43a68;box-shadow:0 18px 46px #d10b3c24,0 12px 32px #0008}
+    #profiles .identity-card:before{width:3px;opacity:.9}
+    #profiles .identity-card .cardtop{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:17px;min-height:180px}
+    #profiles .identity-card .platform{font-size:1.22rem;font-weight:850;letter-spacing:.01em}
+    #profiles .identity-card .symbol{display:none}
+    #profiles .identity-logo{width:112px;height:112px;display:grid;place-items:center;border-radius:25px;background:radial-gradient(circle,#ffffff10,transparent 72%);filter:drop-shadow(0 0 18px var(--logo-glow,#e91e63)55);}
+    #profiles .identity-logo img{width:100%;height:100%;object-fit:contain}
+    #profiles .identity-logo.is-plus{border:1px solid #e43a68;border-radius:50%;width:104px;height:104px;color:#ff5c88;font-size:5rem;font-weight:300;line-height:1;box-shadow:0 0 28px #ef174533,inset 0 0 22px #ef17451c}
+    #profiles .identity-card .username{margin-top:15px;min-height:44px;color:#cbbdc8;font-size:.96rem;line-height:1.5}
+    #profiles .identity-card .actions{margin-top:auto;padding-top:20px;gap:10px}
+    #profiles .identity-card .actions button,#profiles .identity-card .actions .visit{min-height:43px;padding:10px 13px;border-radius:11px;font-size:.78rem}
+    #profiles .identity-card .actions svg{width:16px;height:16px;flex:none}
+    @media(max-width:1050px){#profiles .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){#profiles .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}#profiles .identity-card{min-height:300px;padding:19px}#profiles .identity-card .cardtop{min-height:160px}#profiles .identity-logo{width:88px;height:88px}}
+    @media(max-width:460px){#profiles .grid{grid-template-columns:1fr}#profiles .identity-card{min-height:275px}#profiles .identity-card .cardtop{min-height:145px}#profiles .identity-logo{width:82px;height:82px}}
+
+/* Left utility sidebar */
+body{--sidebar-width:238px}
+.site-sidebar{position:fixed;z-index:80;left:18px;top:18px;bottom:18px;width:210px;padding:20px 15px;border:1px solid #542238;border-radius:20px;background:linear-gradient(165deg,#170d19f5,#09070df7 75%);box-shadow:0 18px 55px #0009,inset 0 1px #ffffff0b;display:flex;flex-direction:column;gap:9px;overflow-y:auto;backdrop-filter:blur(16px)}
+.sidebar-brand{padding:4px 7px 17px;margin-bottom:8px;border-bottom:1px solid #ffffff18;font-size:.86rem;font-weight:950;letter-spacing:.1em;color:#fff;text-decoration:none}
+.sidebar-brand span{color:#ff527c}
+.sidebar-label{margin:12px 7px 5px;color:#8f7e8b;font-size:.62rem;font-weight:900;letter-spacing:.18em}
+.sidebar-link,.sidebar-control{display:flex;align-items:center;gap:11px;width:100%;min-height:42px;padding:10px 11px;border:1px solid transparent;border-radius:11px;background:transparent;color:#cbbdc8;text-decoration:none;text-align:left;font:inherit;font-size:.76rem;letter-spacing:.035em;cursor:pointer;transition:.2s}
+.sidebar-link:hover,.sidebar-control:hover{background:#351020;border-color:#69243e;color:#fff}
+.sidebar-link .side-icon,.sidebar-control .side-icon{width:19px;text-align:center;color:#ff6488;font-size:1rem}
+.sidebar-spacer{flex:1;min-height:12px}
+.sidebar-note{padding:12px 8px 2px;border-top:1px solid #ffffff14;color:#766a76;font-size:.64rem;line-height:1.6}
+.sidebar-toggle{display:none}
+body:not(.hunt-page) .wrap{width:min(1250px,calc(100% - var(--sidebar-width) - 54px));margin-left:calc(var(--sidebar-width) + 34px);margin-right:20px}
+body .wrap>nav{padding-left:0}
+body .wrap>nav .controls{display:none}
+@media(max-width:850px){
+ body{--sidebar-width:0px}
+ .site-sidebar{left:0;top:0;bottom:0;width:260px;border-radius:0 18px 18px 0;transform:translateX(-105%);transition:transform .25s}
+ body.sidebar-open .site-sidebar{transform:translateX(0)}
+ .sidebar-toggle{display:inline-flex;position:fixed;z-index:90;left:14px;top:14px;align-items:center;justify-content:center;width:43px;height:43px;border:1px solid #713047;border-radius:12px;background:#170d19;color:#ff7897;font-size:1.25rem}
+ body:not(.hunt-page) .wrap{width:calc(100% - 34px);margin:0 auto;padding-top:68px}
+ body.hunt-page .wrap{width:calc(100% - 34px);margin:0 auto;padding-top:68px}
+}
+body.hunt-page .wrap>header,body.hunt-page .wrap>section:not(#shadow-hunt),body.hunt-page .wrap>footer{display:none!important}
+body.hunt-page #shadow-hunt{display:block;margin-top:40px}
+body.hunt-page .wrap{width:min(1050px,calc(100% - var(--sidebar-width) - 54px));margin-left:calc(var(--sidebar-width) + 34px);margin-right:20px}
+body.hunt-page .wrap>nav{margin-bottom:22px}
+@media(max-width:850px){body.hunt-page .wrap{width:calc(100% - 34px);margin:0 auto}}
+</style>
+</head>
+<body class="hunt-page">
+  <div class="animated-backdrop" aria-hidden="true"></div>
+  <div class="world-character-bg" aria-hidden="true"></div>
+
+  <section class="character-portal" id="characterPortal" aria-hidden="true" aria-label="Anime character portal">
+    <img class="portal-art" id="portalArt" alt="" decoding="async" fetchpriority="low">
+    <div class="portal-copy">
+      <div class="portal-kicker" id="portalKicker">SYSTEM // SHADOW AWAKENING</div>
+      <h2 id="portalTitle">SHADOW<br>MONARCH</h2>
+      <p id="portalDescription">The shadows answer. Your world begins now.</p>
+    </div>
+    <div class="portal-hint">CLICK THE LOGO AGAIN OR PRESS ESC TO RETURN</div>
+    <button class="portal-close" id="portalClose" type="button">✕ CLOSE PORTAL</button>
+  </section>
+
+  <div class="energy-orbs" aria-hidden="true"><span class="energy-orb"></span><span class="energy-orb"></span><span class="energy-orb"></span></div>
+  <div class="awakening" id="awakening" role="dialog" aria-modal="true" aria-labelledby="awakeningTitle">
+    <div class="awakening-inner">
+      <div class="awakening-kicker">WELCOME TO MY SITE</div>
+      <h2 id="awakeningTitle">WELCOME,<br>DRAGONSLAYER</h2>
+      <p>My links, games, and favourite worlds are all in one place.</p>
+      <button class="enter-button" id="enterHub" type="button">ENTER THE SHADOWS ↗</button>
+    </div>
+  </div>
+  <canvas id="embers" aria-hidden="true"></canvas><div class="scanlines" aria-hidden="true"></div>
+  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div><div class="cursor-glow-dot" id="cursorGlow" aria-hidden="true"></div>
+  <div class="share-modal" id="shareModal" hidden role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+    <div class="share-card">
+      <button class="share-close" id="closeShare" type="button" aria-label="Close share popup">×</button>
+      <div class="eyebrow">SPREAD THE WORD</div>
+      <h2 id="shareTitle">SHARE THE HUB</h2>
+      <p>Scan this code to visit DragonslayerThe1st.</p>
+      <img id="websiteQr" alt="QR code linking to the DragonslayerThe1st website" width="220" height="220">
+      <div class="share-url" id="shareUrl">https://user-name-hub.onrender.com</div>
+      <div class="share-actions">
+        <button class="control-button" id="copyWebsiteLink" type="button">COPY LINK</button>
+        <a class="control-button" id="downloadWebsiteQr" download="dragonslayer-hub-qr.png">DOWNLOAD QR</a>
+      </div>
+    </div>
+  </div>
+  
+<button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open settings sidebar" aria-expanded="false">☰</button>
+<aside class="site-sidebar" id="siteSidebar" aria-label="Site controls">
+  <a class="sidebar-brand" href="index.html">DRAGON<span>SLAYER</span> // HUB</a>
+  <div class="sidebar-label">AUDIO</div>
+  <button class="sidebar-control" id="musicToggle" type="button" aria-pressed="false"><span class="side-icon">♫</span><span>MUSIC: OFF</span></button>
+  <button class="sidebar-control" id="sfxToggle" type="button" aria-pressed="true"><span class="side-icon">◖</span><span>SFX: ON</span></button>
+  <div class="sidebar-label">VISUAL SETTINGS</div>
+  <button class="sidebar-control" id="particleToggle" type="button" aria-pressed="true"><span class="side-icon">✧</span><span>SHADOWS: ON</span></button>
+  <a class="sidebar-link" href="settings.html"><span class="side-icon">⚙</span>GRAPHICS & SETTINGS</a>
+  <div class="sidebar-label">QUICK LINKS</div>
+  <a class="sidebar-link" href="anime-worlds.html"><span class="side-icon">◇</span>WORLDS</a>
+  <a class="sidebar-link" href="shadow-hunt.html"><span class="side-icon">✦</span>SHADOW HUNT</a>
+  <a class="sidebar-link" href="how-to.html"><span class="side-icon">?</span>HOW TO USE</a>
+  <a class="sidebar-link" href="index.html#profiles"><span class="side-icon">◎</span>MY IDENTITIES</a>
+  <div class="sidebar-spacer"></div>
+  <button class="sidebar-control" id="shareWebsiteBtn" type="button"><span class="side-icon">↗</span><span>SHARE WEBSITE</span></button>
+  <div class="sidebar-note">YOUR SPACE. YOUR RULES.<br>DRAGONSLAYER // HUB</div>
+</aside>
+  <div class="wrap">
+    <nav><button class="brand logo-portal" id="logoPortal" type="button" aria-label="Open character portal">DRAGON<span>SLAYER</span> // HUB <span class="logo-hint">✦</span></button><div class="controls"><a class="navlink" href="anime-worlds.html">WORLDS ↗</a><a class="navlink" href="shadow-hunt.html">SHADOW HUNT ↗</a></div></nav>
+    <header>
+      <div class="sigil" aria-hidden="true">♜</div>
+      <div class="eyebrow">THE SHADOWS ARE WAITING</div>
+      <h1>DRAGONSLAYER<br>THE 1ST</h1>
+      <p class="subtitle">My links, games, and anime stuff — all in one place.</p>
+      <p class="subtitle" style="margin-top:14px;color:#ff526c;font-weight:850;letter-spacing:.09em;text-transform:uppercase;text-shadow:0 0 18px #ef17384d">“You can run from the shadows. They still answer to me.”</p>
+      <div class="rule"></div>
+      <div class="status"><span class="dot"></span> THIS IS MY CORNER OF THE INTERNET</div>
+    </header>
+
+    <section class="update-drop" id="next-update" aria-labelledby="updateTitle">
+      <div class="update-topline"><span>A QUICK NOTE</span><span class="update-live">WORK IN PROGRESS</span></div>
+      <h2 id="updateTitle">SITE NOTES</h2>
+      <p>I’m still adding links and checking that everything works well on phones. Some things may change as I go.</p>
+      <div class="update-foot"><span>GAMES</span><span>ANIME</span><span>MY LINKS</span></div>
+    </section>
+
+    <section id="profiles">
+      <div class="sectionhead"><h2>◆ &nbsp; MY IDENTITIES</h2><span class="hint">SELECT A PORTAL TO ENTER</span></div>
+      <div class="grid" id="grid"></div>
+      <p class="note">A couple of links are still missing. I’ll add them when they’re ready. Don’t share passwords or private account details here.</p>
+    </section>
+
+    <section id="shadow-hunt">
+      <div class="sectionhead"><h2>◆ &nbsp; SHADOW HUNT</h2><span class="hint">30 SECONDS · CATCH THE ORBS</span></div>
+      <div class="game-panel">
+        <p class="game-intro">Enter your player name first, then start the hunt. Click the glowing shadow orb as many times as you can before time runs out.</p>
+        <form class="game-entry" id="huntForm">
+          <input id="playerName" name="playerName" maxlength="18" autocomplete="nickname" placeholder="Enter your player name" aria-label="Player name" required>
+          <button id="startHunt" type="submit">START HUNT</button>
+        </form>
+        <div class="game-stats"><span>PLAYER: <strong id="activePlayer">—</strong></span><span>SCORE: <strong id="huntScore">0</strong></span><span>TIME: <strong id="huntTime">30</strong>s</span></div>
+        <div class="hunter-progression" id="hunterProgression" aria-label="Hunter progression">
+          <div class="hunter-progression-top"><div><div class="hunter-rank-label">HUNTER RANK</div><div class="hunter-rank-title" id="hunterTitle">E-RANK HUNTER</div><div class="hunter-level" id="hunterLevel">LEVEL 1 · 0 XP</div></div><div class="hunter-level" id="hunterLifetime">TOTAL XP: 0</div></div>
+          <div class="hunter-xp-track" role="progressbar" aria-label="Progress to next level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="hunterXpTrack"><div class="hunter-xp-fill" id="hunterXpFill"></div></div>
+          <div class="hunter-xp-meta"><span id="hunterXpCurrent">0 / 100 XP</span><span id="hunterXpNext">100 XP to next level</span></div>
+          <div class="hunter-badges" id="hunterBadges"></div>
+          <div class="hunter-reward" id="hunterReward">Complete hunts to earn XP, unlock ranks, and collect achievements.</div>
+          <p class="hunter-toast" id="hunterToast" aria-live="polite"></p>
+        </div>
+        <div class="hunt-arena" id="huntArena" aria-label="Shadow Hunt game area">
+          <div class="arena-message" id="arenaMessage">Enter your name and press START HUNT to begin.</div>
+        </div>
+        <div class="leaderboard"><h3>◆ LOCAL LEADERBOARD — TOP 10</h3><div id="leaderboardRows"><p class="game-note">No scores yet. Be the first Shadow Hunter.</p></div></div>
+        <p class="game-note">Leaderboard note: this static website saves scores in this browser on this device only. It is not a shared online leaderboard yet, and clearing browser data can erase scores. Use a nickname—don't enter private information.</p>
+      </div>
+    </section>
+
+    <footer>MADE BY AAYUSH<br><strong>STILL A WORK IN PROGRESS</strong></footer>
+  </div>
+  <script>
+    // Anime theme selector. Theme changes are local to this page view.
+    (() => {
+      const themes = {
+        "shadow": {title:"SHADOW MONARCH", kicker:"THE SHADOWS ARE WAITING", tagline:"You can run from the shadows. They still answer to me.", sigil:"♜", intro:"ARISE,<br>SHADOW MONARCH", introKicker:"A NEW POWER HAS AWAKENED", introText:"The portal is open. Your identities await beyond the shadows.", enter:"ENTER THE SHADOWS ↗"},
+        "naruto": {title:"SHINOBI LEGACY", kicker:"THE WILL OF FIRE NEVER FADES", tagline:"A shinobi's true strength is the will to never give up.", sigil:"卍", intro:"AWAKEN,<br>SHINOBI", introKicker:"THE WILL OF FIRE AWAKENS", introText:"Your ninja way begins here. Believe it.", enter:"ENTER THE SHINOBI WORLD ↗"},
+        "black-clover": {title:"WIZARD KING", kicker:"SURPASS YOUR LIMITS", tagline:"No magic? Then I'll surpass every limit with my own hands.", sigil:"♣", intro:"RISE,<br>WIZARD KING", introKicker:"A GRIMOIRE HAS CHOSEN YOU", introText:"Even without magic, your will can shake the kingdom.", enter:"OPEN THE GRIMOIRE ↗"},
+        "bleach": {title:"SOUL REAPER", kicker:"THE BLADE THAT CUTS DESTINY", tagline:"If fate stands in my way, then I'll cut through fate.", sigil:"卍", intro:"AWAKEN,<br>SOUL REAPER", introKicker:"YOUR SPIRITUAL PRESSURE RISES", introText:"Draw your blade. The boundary between worlds is waiting.", enter:"CROSS THE GATE ↗"},
+        "tensura": {title:"RIMURU TEMPEST", kicker:"THE GREAT DEMON LORD AWAKENS", tagline:"A new world. A new nation. Unlimited evolution.", sigil:"◉", intro:"AWAKEN,<br>RIMURU", introKicker:"THE SLIME EVOLVES", introText:"Gather your allies and build a nation beyond expectations.", enter:"ENTER TEMPEST ↗"},
+        "jailer-2": {title:"JAILER 2", kicker:"TIGER RETURNS", tagline:"The Jailer world gets a darker, gold-lit look.", sigil:"★", intro:"TIGER,<br>RETURNS", introKicker:"JAILER 2 THEME", introText:"A dark cinematic look inspired by the Jailer universe.", enter:"ENTER THE JAILER WORLD ↗"},
+        "avengers": {title:"THE AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", tagline:"When the world needs saving, they answer.", sigil:"A", intro:"AVENGERS,<br>ASSEMBLE", introKicker:"EARTH'S MIGHTIEST", introText:"A universe of heroes, teamwork, and big-screen action.", enter:"ENTER THE AVENGERS WORLD ↗"},
+        "spider-verse": {title:"SPIDER-VERSE", kicker:"ACROSS THE MULTIVERSE", tagline:"Different worlds. Different Spider-People. One web.", sigil:"蜘蛛", intro:"ACROSS THE<br>SPIDER-VERSE", introKicker:"A DIFFERENT KIND OF HERO", introText:"Step into a neon world of webs, colour, and comic-book style.", enter:"ENTER THE SPIDER-VERSE ↗"},
+        "spider-brand-new-day": {title:"BRAND NEW DAY", kicker:"A NEW DAY IN NEW YORK", tagline:"A fresh chapter. The same friendly neighbourhood hero.", sigil:"🕸", intro:"A BRAND<br>NEW DAY", introKicker:"YOUR FRIENDLY NEIGHBOURHOOD", introText:"Swing into a fresh Spider-Man-inspired world of red, blue, and city lights.", enter:"ENTER BRAND NEW DAY ↗"}
+      };
+      function applyTheme(key, animate = true) {
+        const theme = themes[key] || themes.shadow;
+        try { localStorage.setItem("identityHubTheme", key in themes ? key : "shadow"); } catch { /* storage may be disabled */ }
+        document.body.dataset.theme = key;
+        document.querySelector("h1").innerHTML = theme.title.replace(" ", "<br>");
+        document.querySelector(".eyebrow").textContent = theme.kicker;
+        document.querySelector("header .sigil").textContent = theme.sigil;
+        document.querySelector("header p[style]").textContent = "“" + theme.tagline + "”";
+        document.querySelector(".awakening h2").innerHTML = theme.intro;
+        document.querySelector(".awakening-kicker").textContent = theme.introKicker;
+        document.querySelector(".awakening-inner p").textContent = theme.introText;
+        document.querySelector("#enterHub").textContent = theme.enter;
+        document.title = "DragonslayerThe1st";
+        const intro = document.querySelector("#awakening");
+        intro.classList.remove("grimoire-awakening");
+        if (key === "black-clover" && animate) {
+          intro.classList.remove("hidden");
+          void intro.offsetWidth;
+          intro.classList.add("grimoire-awakening");
+          window.clearTimeout(window.__grimoireIntroTimer);
+          window.__grimoireIntroTimer = window.setTimeout(() => {
+            intro.classList.add("hidden");
+            intro.classList.remove("grimoire-awakening");
+          }, 1900);
+        }
+      }
+      let savedTheme = "shadow";
+      try {
+        const stored = localStorage.getItem("identityHubTheme");
+        if (stored && Object.prototype.hasOwnProperty.call(themes, stored)) savedTheme = stored;
+      } catch { /* storage may be disabled */ }
+      applyTheme(savedTheme, false);
+    })();
+
+    // Awakening intro, particle toggle, and subtle desktop cursor effect.
+    (() => {
+      const intro = document.querySelector("#awakening");
+      const enter = document.querySelector("#enterHub");
+      const closeIntro = () => {
+        intro.classList.add("hidden");
+        document.querySelector("#profiles").setAttribute("tabindex", "-1");
+        document.querySelector("#profiles").focus({preventScroll:true});
+      };
+      enter.addEventListener("click", closeIntro);
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) intro.classList.add("hidden");
+
+      // Original synthesized dark-ambient soundtrack. Starts only after the visitor taps Music.
+      const musicToggle = document.querySelector("#musicToggle");
+      let audioContext = null;
+      let musicMaster = null;
+      let musicTimer = null;
+      let musicStep = 0;
+      let musicNodes = [];
+      const stopMusic = () => {
+        if (musicTimer) { window.clearInterval(musicTimer); musicTimer = null; }
+        musicNodes.forEach(node => { try { node.stop(); } catch {} });
+        musicNodes = [];
+        if (musicMaster && audioContext) {
+          musicMaster.gain.setTargetAtTime(0, audioContext.currentTime, 0.15);
+        }
+        musicToggle.setAttribute("aria-pressed", "false");
+        musicToggle.textContent = "MUSIC: OFF";
+      };
+      const playMusicNote = (frequency, start, duration, volume, type = "sine") => {
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = type;
+        oscillator.frequency.setValueAtTime(frequency, start);
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(volume, start + 0.7);
+        gain.gain.setTargetAtTime(0.0001, start + duration - 0.4, 0.25);
+        oscillator.connect(gain);
+        gain.connect(musicMaster);
+        oscillator.start(start);
+        oscillator.stop(start + duration + 0.3);
+        musicNodes.push(oscillator);
+        oscillator.onended = () => { musicNodes = musicNodes.filter(node => node !== oscillator); };
+      };
+      const startMusic = async () => {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          musicToggle.textContent = "MUSIC UNAVAILABLE";
+          return;
+        }
+        if (!audioContext) {
+          audioContext = new AudioContextClass();
+          musicMaster = audioContext.createGain();
+          musicMaster.gain.value = 0.0001;
+          musicMaster.connect(audioContext.destination);
+        }
+        await audioContext.resume();
+        musicMaster.gain.setTargetAtTime(0.22, audioContext.currentTime, 0.6);
+        // Soft layered drone and a slow minor-key motif, generated locally.
+        playMusicNote(55, audioContext.currentTime, 18, 0.12);
+        playMusicNote(82.41, audioContext.currentTime, 18, 0.045);
+        const notes = [110, 130.81, 164.81, 146.83, 110, 98, 130.81, 164.81];
+        musicStep = 0;
+        musicTimer = window.setInterval(() => {
+          if (!audioContext || audioContext.state !== "running") return;
+          const now = audioContext.currentTime;
+          playMusicNote(notes[musicStep % notes.length], now, 3.4, 0.055, "triangle");
+          if (musicStep % 4 === 0) playMusicNote(notes[(musicStep + 2) % notes.length] / 2, now, 5.5, 0.025);
+          musicStep++;
+        }, 2400);
+        musicToggle.setAttribute("aria-pressed", "true");
+        musicToggle.textContent = "MUSIC: ON";
+      };
+      musicToggle.addEventListener("click", async () => {
+        if (musicToggle.getAttribute("aria-pressed") === "true") {
+          stopMusic();
+        } else {
+          try { await startMusic(); }
+          catch { musicToggle.textContent = "TAP TO RETRY"; }
+        }
+      });
+
+      const toggle = document.querySelector("#particleToggle");
+      const canvas = document.querySelector("#embers");
+      toggle.addEventListener("click", () => {
+        const enabled = toggle.getAttribute("aria-pressed") !== "true";
+        toggle.setAttribute("aria-pressed", String(enabled));
+        toggle.textContent = enabled ? "SHADOWS: ON" : "SHADOWS: OFF";
+        canvas.style.opacity = enabled ? ".65" : "0";
+        document.dispatchEvent(new CustomEvent("shadowHubParticles", {detail:{enabled}}));
+        try { const key = "shadowHubSettingsV1"; const settings = JSON.parse(localStorage.getItem(key) || "{}"); settings.embers = enabled; localStorage.setItem(key, JSON.stringify(settings)); } catch {}
+      });
+
+      const cursor = document.querySelector("#cursorGlow");
+      const aura = document.querySelector("#cursorAura");
+      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+      if (finePointer.matches) {
+        document.body.classList.add("cursor-glow");
+        let cursorFrame = 0;
+        let pointerX = 0;
+        let pointerY = 0;
+        const moveCursor = event => {
+          pointerX = event.clientX;
+          pointerY = event.clientY;
+          if (cursorFrame) return;
+          cursorFrame = requestAnimationFrame(() => {
+            cursor.style.transform = `translate3d(${pointerX}px,${pointerY}px,0) translate(-50%,-50%)`;
+            cursor.style.opacity = "1";
+            cursorFrame = 0;
+          });
+        };
+        window.addEventListener("mousemove", moveCursor, {passive:true});
+        window.addEventListener("mouseenter", () => {
+          cursor.style.opacity = "1";
+          aura.style.opacity = "1";
+        });
+        window.addEventListener("mouseleave", () => {
+          cursor.style.opacity = "0";
+          aura.style.opacity = "0";
+        });
+      }
+    })();
+
+
+
+    // UI/game sound effects, synthesized locally with the Web Audio API.
+    // This is separate from the optional ambient music toggle.
+    (() => {
+      const button = document.querySelector("#sfxToggle");
+      let enabled = true;
+      let sfxContext = null;
+      try {
+        const stored = localStorage.getItem("identityHubSfx");
+        if (stored === "off") enabled = false;
+      } catch {}
+      function updateButton() {
+        button.textContent = enabled ? "🔊 SFX: ON" : "🔇 SFX: OFF";
+        button.setAttribute("aria-pressed", String(enabled));
+      }
+      function context() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return null;
+        if (!sfxContext) sfxContext = new AudioContextClass();
+        if (sfxContext.state === "suspended") sfxContext.resume().catch(() => {});
+        return sfxContext;
+      }
+      function tone(kind = "click") {
+        if (!enabled) return;
+        const audio = context();
+        if (!audio) return;
+        const sounds = {
+          click: {from:520,to:760,duration:.055,volume:.035,wave:"sine"},
+          score: {from:640,to:1120,duration:.11,volume:.06,wave:"triangle"},
+          start: {from:150,to:620,duration:.28,volume:.05,wave:"sawtooth"},
+          finish:{from:760,to:300,duration:.22,volume:.045,wave:"triangle"},
+          power: {from:220,to:880,duration:.36,volume:.055,wave:"sawtooth"}
+        };
+        const sound = sounds[kind] || sounds.click;
+        const now = audio.currentTime;
+        const oscillator = audio.createOscillator();
+        const gain = audio.createGain();
+        oscillator.type = sound.wave;
+        oscillator.frequency.setValueAtTime(sound.from, now);
+        oscillator.frequency.exponentialRampToValueAtTime(sound.to, now + sound.duration);
+        gain.gain.setValueAtTime(sound.volume, now);
+        gain.gain.exponentialRampToValueAtTime(.001, now + sound.duration);
+        oscillator.connect(gain);
+        gain.connect(audio.destination);
+        oscillator.start(now);
+        oscillator.stop(now + sound.duration + .02);
+      }
+      button.addEventListener("click", () => {
+        enabled = !enabled;
+        try { localStorage.setItem("identityHubSfx", enabled ? "on" : "off"); } catch {}
+        updateButton();
+        if (enabled) tone("click");
+      });
+      document.addEventListener("click", event => {
+        const target = event.target.closest("button, .visit");
+        if (!target || target === button || target.id === "musicToggle" ||
+            target.id === "particleToggle" || target.id === "startHunt" ||
+            target.classList.contains("shadow-orb")) return;
+        tone(target.classList.contains("sigil") ? "power" : "click");
+      });
+      document.querySelector("#huntForm").addEventListener("submit", () => {
+        tone("start");
+      });
+      document.querySelector("#huntArena").addEventListener("click", event => {
+        if (event.target.closest(".shadow-orb")) tone("score");
+      });
+      updateButton();
+      window.addEventListener("pagehide", () => {
+        if (sfxContext && sfxContext.state !== "closed") sfxContext.close().catch(() => {});
+      });
+    })();
+
+
+    // Logo portal: reveals the character associated with the currently selected theme.
+    (() => {
+      const logo = document.querySelector("#logoPortal");
+      const portal = document.querySelector("#characterPortal");
+      const art = document.querySelector("#portalArt");
+      const title = document.querySelector("#portalTitle");
+      const kicker = document.querySelector("#portalKicker");
+      const description = document.querySelector("#portalDescription");
+      const close = document.querySelector("#portalClose");
+      const characterData = {
+        shadow: {
+          name:"SHADOW<br>MONARCH", kicker:"SYSTEM // ARISE", description:"Sung Jin-Woo · The Monarch of Shadows",
+          image:"https://channeln.gcdn.netmarble.com/channeln/Upload/0d74604c-3e97-4134-a06c-d66737f51aff.jpg"
+        },
+        naruto: {
+          name:"NARUTO<br>UZUMAKI", kicker:"HIDDEN LEAF // WILL OF FIRE", description:"The shinobi who never backs down.",
+          image:"https://naruto-official.com/special/wallpaper_gallery/month/jp/10.webp"
+        },
+        "black-clover": {
+          name:"ASTA<br>THE WIZARD KING", kicker:"BLACK BULLS // LIMIT BREAK", description:"No magic? Then surpass every limit.",
+          image:"https://bclover.jp/assets/img/character/full/main/asta.png"
+        },
+        bleach: {
+          name:"ICHIGO<br>KUROSAKI", kicker:"SOUL SOCIETY // BANKAI", description:"The blade that cuts through destiny.",
+          image:"https://bleach-anime.com/en/assets/img/character/thumb_01.jpg"
+        },
+        tensura: {
+          name:"RIMURU<br>TEMPEST", kicker:"TEMPEST NATION // EVOLUTION", description:"The slime who rises to become a Demon Lord.",
+          image:"https://www.ten-sura.com/assets/images/character/rimuru.png"
+        },
+        "jailer-2": {name:"JAILER 2", kicker:"TIGER RETURNS", description:"Rajinikanth as Tiger Muthuvel Pandian.", image:"https://m.media-amazon.com/images/M/MV5BYmE0MTFjOTYtMWYxNC00YjFjLTlhNzYtMWQ5ZDEwNjRmYzE1XkEyXkFqcGc%40._V1_.jpg"},
+        avengers: {name:"THE<br>AVENGERS", kicker:"EARTH'S MIGHTIEST HEROES", description:"The Avengers, together on one screen.", image:"https://cdn.shopify.com/s/files/1/0556/7322/5423/files/avengers_endgame.jpg?v=1678265680"},
+        "spider-verse": {name:"SPIDER-<br>VERSE", kicker:"ACROSS THE MULTIVERSE", description:"Miles Morales, Gwen Stacy, and the Spider-People.", image:"https://www.sonypictures.in/sites/india/files/2023-08/SPVKeyArt.jpg"},
+        "spider-brand-new-day": {name:"SPIDER-MAN<br>BRAND NEW DAY", kicker:"A NEW DAY IN NEW YORK", description:"Peter Parker steps into a brand-new chapter.", image:"https://www.sonypictures.com/sites/default/files/styles/max_860x460/public/title-key-art/spidermanbrandnewday_onesheet_1400x2100_1.jpg?itok=hXKCyx3k"}
+      };
+      let opened = false;
+      function openPortal() {
+        const key = document.body.dataset.theme || "shadow";
+        const data = characterData[key] || characterData.shadow;
+        title.innerHTML = data.name;
+        kicker.textContent = data.kicker;
+        description.textContent = data.description;
+        portal.dataset.character = key;
+        art.onerror = () => {
+          art.onerror = null;
+          art.style.display = "none";
+        };
+        if (data.image) {
+          art.src = data.image;
+          art.style.display = "block";
+        } else {
+          art.removeAttribute("src");
+          art.style.display = "none";
+        }
+        portal.classList.add("open");
+        portal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        opened = true;
+        close.focus({preventScroll:true});
+      }
+      function closePortal() {
+        portal.classList.remove("open");
+        portal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        opened = false;
+        logo.focus({preventScroll:true});
+      }
+      logo.setAttribute("aria-haspopup", "dialog");
+      logo.setAttribute("aria-controls", "characterPortal");
+      logo.addEventListener("click", () => opened ? closePortal() : openPortal());
+      close.addEventListener("click", closePortal);
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && opened) closePortal();
+      });
+    })();
+
+    // Hidden transformation: click the main sigil to briefly unleash its secret form.
+    (() => {
+      const sigil = document.querySelector("header .sigil");
+      if (!sigil) return;
+      const toast = document.createElement("div");
+      toast.className = "secret-toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.append(toast);
+      const messages = {
+        shadow: "SECRET AWAKENING UNLOCKED",
+        naruto: "NINE-TAILS CHAKRA RELEASE",
+        "black-clover": "ANTI-MAGIC: LIMIT BREAK",
+        bleach: "BANKAI: SPIRITUAL PRESSURE RELEASE",
+        tensura: "TENSURA: DEMON LORD AWAKENING"
+      };
+      let toastTimer, resetTimer;
+      sigil.setAttribute("role", "button");
+      sigil.setAttribute("tabindex", "0");
+      sigil.setAttribute("aria-label", "Trigger secret transformation");
+      const transform = () => {
+        const theme = document.body.dataset.theme || "shadow";
+        sigil.classList.remove("secret-transforming");
+        void sigil.offsetWidth;
+        sigil.classList.add("secret-transforming");
+        document.body.classList.add("secret-awakened");
+        toast.textContent = messages[theme] || messages.shadow;
+        toast.classList.add("visible");
+        window.clearTimeout(toastTimer);
+        window.clearTimeout(resetTimer);
+        toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 1900);
+        resetTimer = window.setTimeout(() => {
+          sigil.classList.remove("secret-transforming");
+          document.body.classList.remove("secret-awakened");
+        }, 1350);
+      };
+      sigil.addEventListener("click", transform);
+      sigil.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          transform();
+        }
+      });
+    })();
+
+    // Edit these entries to add your real public usernames and profile links.
+    // Leave url blank until you know the correct public profile address.
+    const profiles = [
+      {name:"GitHub", icon:"github", color:"ffffff", username:"dragonslayer20121", url:"https://github.com/dragonslayer20121"},
+      {name:"Roblox", icon:"roblox", color:"ffffff", username:"keshavthehindugod", url:""},
+      {name:"Discord", icon:"discord", color:"5865F2", username:"deaddragon987", url:""},
+      {name:"Instagram", icon:"instagram", color:"E4405F", username:"Aayush Anil · @dragonslayerthe1st", url:"https://www.instagram.com/dragonslayerthe1st/"},
+      {name:"YouTube", icon:"youtube", color:"FF0033", username:"@dragonslayer64", url:"https://www.youtube.com/@dragonslayer64"},
+      {name:"Steam", icon:"steam", color:"ffffff", username:"Not added yet", url:""},
+      {name:"More portals", icon:"plus", color:"EF3764", username:"Add another platform when ready", url:""}
+    ];
+
+    const grid = document.querySelector("#grid");
+    profiles.forEach((profile, index) => {
+      const card = document.createElement("article");
+      card.className = "card identity-card";
+      card.style.animationDelay = (index * 90) + "ms";
+      card.style.setProperty("--logo-glow", "#" + profile.color);
+      const top = document.createElement("div"); top.className = "cardtop";
+      const logo = document.createElement("div"); logo.className = "identity-logo";
+      if (profile.icon === "plus") {
+        logo.classList.add("is-plus"); logo.textContent = "+";
+      } else {
+        const image = document.createElement("img");
+        image.src = "https://cdn.simpleicons.org/" + profile.icon + "/" + profile.color;
+        image.alt = profile.name + " logo";
+        image.loading = "lazy";
+        image.onerror = () => { logo.textContent = profile.name.slice(0,1); };
+        logo.append(image);
+      }
+      const name = document.createElement("div"); name.className = "platform"; name.textContent = profile.name;
+      top.append(logo, name);
+      const username = document.createElement("div"); username.className = "username"; username.textContent = profile.username;
+      const actions = document.createElement("div"); actions.className = "actions";
+      const copy = document.createElement("button"); copy.type = "button";
+      copy.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copy username</span>';
+      copy.addEventListener("click", async () => {
+        const label = copy.querySelector("span");
+        try {
+          await navigator.clipboard.writeText(profile.username);
+          label.textContent = "✓ Copied";
+          window.setTimeout(() => label.textContent = "Copy username", 1400);
+        } catch {
+          label.textContent = "Clipboard blocked";
+          window.setTimeout(() => label.textContent = "Copy username", 1600);
+        }
+      });
+      actions.append(copy);
+      if (profile.url) {
+        const visit = document.createElement("a"); visit.className = "visit";
+        visit.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg><span>Visit portal ↗</span>';
+        visit.href = profile.url; visit.target = "_blank"; visit.rel = "noopener noreferrer";
+        actions.append(visit);
+      }
+      card.append(top, username, actions); grid.append(card);
+    });
+
+
+    // Shadow Hunt game: name required, 30-second round, browser-local top-ten leaderboard.
+    (() => {
+      const form = document.querySelector("#huntForm");
+      const nameInput = document.querySelector("#playerName");
+      const arena = document.querySelector("#huntArena");
+      const message = document.querySelector("#arenaMessage");
+      const scoreText = document.querySelector("#huntScore");
+      const timeText = document.querySelector("#huntTime");
+      const activePlayer = document.querySelector("#activePlayer");
+      const startButton = document.querySelector("#startHunt");
+      const leaderboardRows = document.querySelector("#leaderboardRows");
+      const storageKey = "shadowMonarchHuntLeaderboardV1";
+      const progressionKey = "shadowMonarchProgressionV1";
+      const rankTiers = [
+        {xp:0,title:"E-RANK HUNTER"},{xp:100,title:"D-RANK HUNTER"},
+        {xp:300,title:"C-RANK HUNTER"},{xp:650,title:"B-RANK HUNTER"},
+        {xp:1100,title:"A-RANK HUNTER"},{xp:1800,title:"S-RANK HUNTER"},
+        {xp:2800,title:"SHADOW COMMANDER"},{xp:4200,title:"SHADOW MONARCH"}
+      ];
+      const achievementDefs = [
+        {id:"first-hunt",label:"FIRST HUNT",test:p=>p.hunts>=1},
+        {id:"orb-hunter",label:"ORB HUNTER",test:p=>p.totalOrbs>=25},
+        {id:"centurion",label:"CENTURION",test:p=>p.totalOrbs>=100},
+        {id:"high-scorer",label:"HIGH SCORER",test:p=>p.bestScore>=25},
+        {id:"veteran",label:"VETERAN",test:p=>p.hunts>=10},
+        {id:"monarch",label:"MONARCH AWAKENED",test:p=>p.xp>=4200}
+      ];
+      function readProgress() {
+        const fallback={xp:0,hunts:0,totalOrbs:0,bestScore:0,unlocked:[]};
+        try {
+          const p=JSON.parse(localStorage.getItem(progressionKey)||"null");
+          if(!p||typeof p!=="object") return fallback;
+          return {xp:Math.max(0,Number(p.xp)||0),hunts:Math.max(0,Number(p.hunts)||0),totalOrbs:Math.max(0,Number(p.totalOrbs)||0),bestScore:Math.max(0,Number(p.bestScore)||0),unlocked:Array.isArray(p.unlocked)?p.unlocked.filter(x=>typeof x==="string"):[]};
+        } catch { return fallback; }
+      }
+      let progression=readProgress();
+      // Owner-only cosmetic rank: matching a public nickname is not secure authentication.
+      const ownerAliases = new Set(["dragonslayer20121","dragonslayer"]);
+      let ownerRankActive = false;
+      function currentRank(xp=progression.xp){let rank=rankTiers[0];for(const tier of rankTiers){if(xp>=tier.xp)rank=tier;}return ownerRankActive?{xp:0,title:"ETERNAL SHADOW SOVEREIGN"}:rank;}
+      function levelInfo(xp=progression.xp){const level=Math.floor(xp/100)+1;return {level,within:xp%100};}
+      function renderProgression(){
+        const info=levelInfo(), rank=currentRank();
+        document.querySelector("#hunterTitle").textContent=rank.title;
+        document.querySelector("#hunterLevel").textContent=ownerRankActive?"LEVEL 999 · AWAKENED":("LEVEL "+info.level+" · "+progression.xp+" XP");
+        document.querySelector("#hunterLifetime").textContent=ownerRankActive?"OWNER STATUS · UNIQUE":("TOTAL XP: "+progression.xp);
+        document.querySelector("#hunterXpCurrent").textContent=ownerRankActive?"ETERNAL RANK":(info.within+" / 100 XP");
+        document.querySelector("#hunterXpNext").textContent=ownerRankActive?"No further rank exists":((100-info.within)+" XP to next level");
+        document.querySelector("#hunterXpFill").style.width=ownerRankActive?"100%":(info.within+"%");
+        document.querySelector("#hunterXpTrack").setAttribute("aria-valuenow",ownerRankActive?"100":String(info.within));
+        const badges=document.querySelector("#hunterBadges");badges.replaceChildren();
+        achievementDefs.forEach(def=>{const el=document.createElement("span");el.className="hunter-badge"+(progression.unlocked.includes(def.id)?" unlocked":"");el.textContent=(progression.unlocked.includes(def.id)?"★ ":"🔒 ")+def.label;el.title=def.label;badges.append(el);});
+        const next=rankTiers.find(t=>t.xp>progression.xp);
+        document.querySelector("#hunterReward").textContent=next?"Next title: "+next.title+" at "+next.xp+" total XP.":"MAX RANK REACHED — THE SHADOWS ANSWER TO YOU.";
+      }
+      function saveProgress(){try{localStorage.setItem(progressionKey,JSON.stringify(progression));return true;}catch{return false;}}
+      function awardHuntXP(points){
+        const oldRank=currentRank().title, oldUnlocked=new Set(progression.unlocked);
+        const earned=points*10+25;
+        progression.xp+=earned;progression.hunts++;progression.totalOrbs+=points;progression.bestScore=Math.max(progression.bestScore,points);
+        achievementDefs.forEach(def=>{if(def.test(progression)&&!progression.unlocked.includes(def.id))progression.unlocked.push(def.id);});
+        saveProgress();renderProgression();
+        const newRank=currentRank().title;
+        const gained=progression.unlocked.filter(id=>!oldUnlocked.has(id)).map(id=>achievementDefs.find(d=>d.id===id)?.label).filter(Boolean);
+        let note="+"+earned+" XP earned! ";
+        if(newRank!==oldRank)note+="RANK UP: "+newRank+"! ";
+        if(gained.length)note+="Achievement unlocked: "+gained.join(", ")+"!";
+        document.querySelector("#hunterToast").textContent=note;
+      }
+      let score = 0, timeLeft = 30, timer = null, playing = false, player = "";
+      function readScores() {
+        try {
+          const value = JSON.parse(localStorage.getItem(storageKey) || "[]");
+          return Array.isArray(value) ? value.filter(s => s && typeof s.name === "string" && Number.isFinite(s.score)) : [];
+        } catch { return []; }
+      }
+      function renderLeaderboard() {
+        const scores = readScores().sort((a,b) => b.score - a.score).slice(0,10);
+        leaderboardRows.replaceChildren();
+        if (!scores.length) {
+          const empty = document.createElement("p"); empty.className = "game-note"; empty.textContent = "No scores yet. Be the first Shadow Hunter."; leaderboardRows.append(empty); return;
+        }
+        scores.forEach((entry,index) => {
+          const row = document.createElement("div"); row.className = "score-row";
+          const rank = document.createElement("span"); rank.className = "score-rank"; rank.textContent = "#" + (index + 1);
+          const name = document.createElement("span"); name.textContent = entry.name;
+          const points = document.createElement("span"); points.className = "score-points"; points.textContent = entry.score + " pts";
+          row.append(rank,name,points); leaderboardRows.append(row);
+        });
+      }
+      function placeOrb() {
+        arena.querySelector(".shadow-orb")?.remove();
+        const orb = document.createElement("button");
+        orb.type = "button"; orb.className = "shadow-orb"; orb.setAttribute("aria-label","Catch shadow orb");
+        const maxX = Math.max(0, arena.clientWidth - 48);
+        const maxY = Math.max(0, arena.clientHeight - 48);
+        orb.style.left = (8 + Math.random() * Math.max(0, maxX - 8)) + "px";
+        orb.style.top = (8 + Math.random() * Math.max(0, maxY - 8)) + "px";
+        orb.addEventListener("click", () => {
+          if (!playing) return;
+          score++; scoreText.textContent = String(score); placeOrb();
+        });
+        arena.append(orb);
+      }
+      function endHunt() {
+        playing = false;
+        if (timer) window.clearInterval(timer);
+        timer = null;
+        arena.querySelector(".shadow-orb")?.remove();
+        startButton.disabled = false; startButton.textContent = "PLAY AGAIN";
+        message.hidden = false;
+        message.textContent = player + " scored " + score + " points! Enter a name and play again.";
+        awardHuntXP(score);
+        try {
+          const scores = readScores();
+          scores.push({name:player,score});
+          scores.sort((a,b) => b.score - a.score);
+          localStorage.setItem(storageKey, JSON.stringify(scores.slice(0,50)));
+          renderLeaderboard();
+        } catch {
+          message.textContent += " (This browser blocked saving the leaderboard.)";
+        }
+      }
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        const entered = nameInput.value.trim().replace(/\s+/g," ");
+        if (!entered) { nameInput.focus(); return; }
+        if (playing) return;
+        player = entered.slice(0,18);
+        ownerRankActive = ownerAliases.has(player.toLowerCase());
+        renderProgression();
+        document.querySelector("#hunterToast").textContent = ownerRankActive ? "OWNER RECOGNIZED — ETERNAL SHADOW SOVEREIGN STATUS ACTIVE." : "";
+        score = 0; timeLeft = 30; playing = true;
+        scoreText.textContent = "0"; timeText.textContent = "30";
+        activePlayer.textContent = player;
+        message.hidden = true;
+        startButton.disabled = true; startButton.textContent = "HUNTING...";
+        placeOrb();
+        timer = window.setInterval(() => {
+          timeLeft--; timeText.textContent = String(timeLeft);
+          if (timeLeft <= 0) endHunt();
+        },1000);
+      });
+      renderLeaderboard();
+      renderProgression();
+    })();
+
+    // Lightweight ambient ember particles; automatically adapts to screen size.
+    (() => {
+      const canvas = document.querySelector("#embers");
+      const ctx = canvas.getContext("2d");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let savedSettings = {};
+      try { savedSettings = JSON.parse(localStorage.getItem("shadowHubSettingsV1") || "{}") || {}; } catch {}
+      const quality = ["low","balanced","high"].includes(savedSettings.quality) ? savedSettings.quality : "balanced";
+      let embersEnabled = savedSettings.embers !== false;
+      const userReducedMotion = savedSettings.reducedMotion === true;
+      let w = 0, h = 0, particles = [];
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 1);
+        w = window.innerWidth; h = window.innerHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const cap = !embersEnabled ? 0 : quality === "low" ? 3 : quality === "high" ? 12 : 6;
+        const count = Math.min(cap, Math.floor(w / (quality === "high" ? 42 : 55)));
+        particles = Array.from({length:count}, () => ({
+          x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.7+.4,
+          speed:Math.random()*.35+.12, drift:(Math.random()-.5)*.25,
+          alpha:Math.random()*.55+.15
+        }));
+      }
+      const particleColors = {
+        shadow: {fill:"#ef1738", glow:"#ef1738"},
+        naruto: {fill:"#ff8414", glow:"#ff7817"},
+        "black-clover": {fill:"#f01836", glow:"#f01836"},
+        bleach: {fill:"#65c8ff", glow:"#65c8ff"},
+        tensura: {fill:"#58e5d0", glow:"#58e5d0"},
+        "jailer-2": {fill:"#d6a84f", glow:"#d6a84f"},
+        avengers: {fill:"#65a9ff", glow:"#65a9ff"},
+        "spider-verse": {fill:"#e84dcb", glow:"#e84dcb"},
+        "spider-brand-new-day": {fill:"#e52c43", glow:"#e52c43"}
+      };
+      let lastDraw = 0;
+      let frameId = 0;
+      const canAnimate = () => embersEnabled && !document.hidden && !reduceMotion && !userReducedMotion && quality !== "low";
+      function scheduleDraw() {
+        if (!frameId && canAnimate()) frameId = requestAnimationFrame(draw);
+      }
+      function draw(timestamp = 0) {
+        frameId = 0;
+        if (document.hidden || !embersEnabled) return;
+        if (timestamp - lastDraw < 33) { scheduleDraw(); return; }
+        lastDraw = timestamp;
+        ctx.clearRect(0,0,w,h);
+        const theme = document.body.dataset.theme || "shadow";
+        const particle = particleColors[theme] || particleColors.shadow;
+        for (const p of particles) {
+          ctx.beginPath();
+          ctx.fillStyle = particle.fill;
+          ctx.globalAlpha = p.alpha;
+          ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fill();
+          if (canAnimate()) {
+            p.y -= p.speed; p.x += p.drift;
+            if (p.y < -5) {p.y=h+5;p.x=Math.random()*w;}
+            if (p.x < -5) p.x=w+5;
+            if (p.x > w+5) p.x=-5;
+          }
+        }
+        ctx.globalAlpha = 1;
+        if (canAnimate()) scheduleDraw();
+      }
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden && frameId) {
+          cancelAnimationFrame(frameId);
+          frameId = 0;
+        } else {
+          scheduleDraw();
+        }
+      });
+      document.addEventListener("shadowHubParticles", event => {
+        embersEnabled = event.detail?.enabled === true;
+        if (frameId) cancelAnimationFrame(frameId);
+        frameId = 0;
+        resize();
+        if (embersEnabled) draw(33);
+        else ctx.clearRect(0,0,w,h);
+      });
+      window.addEventListener("resize", () => {
+        resize();
+        if (canAnimate()) scheduleDraw();
+        else draw(33);
+      }, {passive:true});
+      window.addEventListener("pagehide", () => {
+        if (frameId) cancelAnimationFrame(frameId);
+        frameId = 0;
+      });
+      resize(); draw(33);
+    })();
+  </script>
+  <script>
+    // Apply saved graphics preferences across the hub without changing game rules.
+    (() => {
+      let settings = {};
+      try { settings = JSON.parse(localStorage.getItem("shadowHubSettingsV1") || "{}") || {}; } catch {}
+      const quality = ["low","balanced","high"].includes(settings.quality) ? settings.quality : "balanced";
+      document.body.dataset.quality = quality;
+      document.body.dataset.mist = settings.mist === false ? "off" : "on";
+      document.body.dataset.scanlines = settings.scanlines === false ? "off" : "on";
+      if (settings.reducedMotion === true) document.body.classList.add("user-reduced-motion");
+      const canvas = document.querySelector("#embers");
+      const particleToggle = document.querySelector("#particleToggle");
+      if (settings.embers === false) { if (canvas) canvas.style.opacity = "0"; if (particleToggle) { particleToggle.setAttribute("aria-pressed","false"); particleToggle.textContent = "SHADOWS: OFF"; } }
+      else if (particleToggle) { particleToggle.setAttribute("aria-pressed","true"); particleToggle.textContent = "SHADOWS: ON"; }
+    })();
+  </script>
+
+  <script>
+    // Small hidden Easter eggs. They are local-only, lightweight, and never interrupt typing in form fields.
+    (() => {
+      const toast = document.createElement("div");
+      toast.className = "easter-toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.appendChild(toast);
+      let toastTimer = 0;
+      let sigilClicks = 0;
+      let footerClicks = 0;
+      let clickReset = 0;
+      let typed = "";
+      const showSecret = (message) => {
+        toast.textContent = message;
+        toast.classList.add("show");
+        document.body.classList.remove("easter-flash");
+        void document.body.offsetWidth;
+        document.body.classList.add("easter-flash");
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => {
+          toast.classList.remove("show");
+          document.body.classList.remove("easter-flash");
+        }, 2800);
+      };
+
+      const sigil = document.querySelector("header .sigil");
+      if (sigil) {
+        sigil.setAttribute("title", "The system may be hiding something...");
+        sigil.addEventListener("click", () => {
+          sigilClicks++;
+          window.clearTimeout(clickReset);
+          clickReset = window.setTimeout(() => { sigilClicks = 0; }, 3500);
+          if (sigilClicks >= 7) {
+            sigilClicks = 0;
+            showSecret("SECRET UNLOCKED // THE SHADOW SOVEREIGN SEES YOU.");
+          }
+        });
+      }
+
+      const footer = document.querySelector("footer");
+      if (footer) {
+        footer.setAttribute("title", "Some messages are hidden in plain sight.");
+        footer.addEventListener("click", () => {
+          footerClicks++;
+          if (footerClicks >= 5) {
+            footerClicks = 0;
+            showSecret("HIDDEN MESSAGE // YOU WERE NEVER JUST A VISITOR.");
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        const target = event.target;
+        if (event.ctrlKey || event.altKey || event.metaKey ||
+            (target && (target.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(target.tagName)))) return;
+        if (event.key.length !== 1) return;
+        typed = (typed + event.key.toUpperCase()).slice(-5);
+        if (typed === "ARISE") {
+          typed = "";
+          showSecret("SYSTEM COMMAND ACCEPTED // ARISE, SHADOW MONARCH.");
+        }
+      });
+    })();
+  </script>
+  <script>
+    // Share popup: generate a QR code for the live hub URL only when requested.
+    (() => {
+      const siteUrl = "https://user-name-hub.onrender.com";
+      const modal = document.querySelector("#shareModal");
+      const qr = document.querySelector("#websiteQr");
+      const download = document.querySelector("#downloadWebsiteQr");
+      const urlText = document.querySelector("#shareUrl");
+      const openButton = document.querySelector("#shareWebsiteBtn");
+      const closeButton = document.querySelector("#closeShare");
+      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=440x440&margin=12&data=" + encodeURIComponent(siteUrl);
+      if (!modal || !openButton || !qr || !download) return;
+      urlText.textContent = siteUrl;
+      openButton.addEventListener("click", () => {
+        qr.src = qrUrl;
+        download.href = qrUrl;
+        modal.hidden = false;
+        closeButton.focus();
+      });
+      const close = () => { modal.hidden = true; openButton.focus(); };
+      closeButton.addEventListener("click", close);
+      modal.addEventListener("click", event => { if (event.target === modal) close(); });
+      document.addEventListener("keydown", event => { if (event.key === "Escape" && !modal.hidden) close(); });
+      document.querySelector("#copyWebsiteLink").addEventListener("click", async event => {
+        const button = event.currentTarget;
+        try {
+          await navigator.clipboard.writeText(siteUrl);
+          button.textContent = "✓ COPIED";
+        } catch {
+          button.textContent = "COPY FAILED";
+        }
+        window.setTimeout(() => button.textContent = "COPY LINK", 1500);
+      });
+    })();
+  </script>
+
+<script>
+(()=>{const toggle=document.getElementById("sidebarToggle");if(!toggle)return;toggle.addEventListener("click",()=>{const open=document.body.classList.toggle("sidebar-open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});document.addEventListener("click",e=>{if(document.body.classList.contains("sidebar-open")&&!e.target.closest("#siteSidebar")&&!e.target.closest("#sidebarToggle")){document.body.classList.remove("sidebar-open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}});})();
+</script>
+</body>
+</html>
