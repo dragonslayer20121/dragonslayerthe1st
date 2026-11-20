@@ -382,7 +382,26 @@
     .share-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
     .share-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:9px 12px;border:1px solid #54202e;border-radius:8px;font-size:.68rem;letter-spacing:.06em}
     .share-close{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#fff;font-size:1.8rem;cursor:pointer}
-  </style>
+  
+    /* Identity portal redesign: larger cards and recognizable platform marks. */
+    #profiles .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+    #profiles .identity-card{min-height:330px;padding:25px 24px 22px;border-radius:22px;display:flex;flex-direction:column;justify-content:flex-start;background:linear-gradient(145deg,#1b101beF,#0c0912f7 72%);border:1px solid #55263c;box-shadow:0 14px 38px #0007,inset 0 1px #ffffff0b;transition:transform .25s,border-color .25s,box-shadow .25s}
+    #profiles .identity-card:hover{transform:translateY(-6px);border-color:#e43a68;box-shadow:0 18px 46px #d10b3c24,0 12px 32px #0008}
+    #profiles .identity-card:before{width:3px;opacity:.9}
+    #profiles .identity-card .cardtop{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:17px;min-height:180px}
+    #profiles .identity-card .platform{font-size:1.22rem;font-weight:850;letter-spacing:.01em}
+    #profiles .identity-card .symbol{display:none}
+    #profiles .identity-logo{width:112px;height:112px;display:grid;place-items:center;border-radius:25px;background:radial-gradient(circle,#ffffff10,transparent 72%);filter:drop-shadow(0 0 18px var(--logo-glow,#e91e63)55);}
+    #profiles .identity-logo img{width:100%;height:100%;object-fit:contain}
+    #profiles .identity-logo.is-plus{border:1px solid #e43a68;border-radius:50%;width:104px;height:104px;color:#ff5c88;font-size:5rem;font-weight:300;line-height:1;box-shadow:0 0 28px #ef174533,inset 0 0 22px #ef17451c}
+    #profiles .identity-card .username{margin-top:15px;min-height:44px;color:#cbbdc8;font-size:.96rem;line-height:1.5}
+    #profiles .identity-card .actions{margin-top:auto;padding-top:20px;gap:10px}
+    #profiles .identity-card .actions button,#profiles .identity-card .actions .visit{min-height:43px;padding:10px 13px;border-radius:11px;font-size:.78rem}
+    #profiles .identity-card .actions svg{width:16px;height:16px;flex:none}
+    @media(max-width:1050px){#profiles .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){#profiles .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}#profiles .identity-card{min-height:300px;padding:19px}#profiles .identity-card .cardtop{min-height:160px}#profiles .identity-logo{width:88px;height:88px}}
+    @media(max-width:460px){#profiles .grid{grid-template-columns:1fr}#profiles .identity-card{min-height:275px}#profiles .identity-card .cardtop{min-height:145px}#profiles .identity-logo{width:82px;height:82px}}
+</style>
 </head>
 <body>
   <div class="animated-backdrop" aria-hidden="true"></div>
@@ -845,40 +864,54 @@
     // Edit these entries to add your real public usernames and profile links.
     // Leave url blank until you know the correct public profile address.
     const profiles = [
-      {name:"GitHub", symbol:"GH", username:"dragonslayer20121", url:"https://github.com/dragonslayer20121"},
-      {name:"Roblox", symbol:"RB", username:"keshavthehindugod", url:""},
-      {name:"Discord", symbol:"DS", username:"deaddragon987", url:""},
-      {name:"Instagram", symbol:"🐉", username:"Aayush Anil · @dragonslayerthe1st", url:"https://www.instagram.com/dragonslayerthe1st/"},
-      {name:"YouTube", symbol:"YT", username:"@dragonslayer64", url:"https://www.youtube.com/@dragonslayer64"},
-      {name:"Steam", symbol:"ST", username:"Not added yet", url:""},
-      {name:"More portals", symbol:"+", username:"Add another platform when ready", url:""}
+      {name:"GitHub", icon:"github", color:"ffffff", username:"dragonslayer20121", url:"https://github.com/dragonslayer20121"},
+      {name:"Roblox", icon:"roblox", color:"ffffff", username:"keshavthehindugod", url:""},
+      {name:"Discord", icon:"discord", color:"5865F2", username:"deaddragon987", url:""},
+      {name:"Instagram", icon:"instagram", color:"E4405F", username:"Aayush Anil · @dragonslayerthe1st", url:"https://www.instagram.com/dragonslayerthe1st/"},
+      {name:"YouTube", icon:"youtube", color:"FF0033", username:"@dragonslayer64", url:"https://www.youtube.com/@dragonslayer64"},
+      {name:"Steam", icon:"steam", color:"ffffff", username:"Not added yet", url:""},
+      {name:"More portals", icon:"plus", color:"EF3764", username:"Add another platform when ready", url:""}
     ];
 
     const grid = document.querySelector("#grid");
     profiles.forEach((profile, index) => {
       const card = document.createElement("article");
-      card.className = "card";
+      card.className = "card identity-card";
       card.style.animationDelay = (index * 90) + "ms";
+      card.style.setProperty("--logo-glow", "#" + profile.color);
       const top = document.createElement("div"); top.className = "cardtop";
+      const logo = document.createElement("div"); logo.className = "identity-logo";
+      if (profile.icon === "plus") {
+        logo.classList.add("is-plus"); logo.textContent = "+";
+      } else {
+        const image = document.createElement("img");
+        image.src = "https://cdn.simpleicons.org/" + profile.icon + "/" + profile.color;
+        image.alt = profile.name + " logo";
+        image.loading = "lazy";
+        image.onerror = () => { logo.textContent = profile.name.slice(0,1); };
+        logo.append(image);
+      }
       const name = document.createElement("div"); name.className = "platform"; name.textContent = profile.name;
-      const symbol = document.createElement("div"); symbol.className = "symbol"; symbol.textContent = profile.symbol;
-      top.append(name, symbol);
+      top.append(logo, name);
       const username = document.createElement("div"); username.className = "username"; username.textContent = profile.username;
       const actions = document.createElement("div"); actions.className = "actions";
-      const copy = document.createElement("button"); copy.type = "button"; copy.textContent = "Copy username";
+      const copy = document.createElement("button"); copy.type = "button";
+      copy.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copy username</span>';
       copy.addEventListener("click", async () => {
+        const label = copy.querySelector("span");
         try {
           await navigator.clipboard.writeText(profile.username);
-          copy.textContent = "✓ Copied";
-          window.setTimeout(() => copy.textContent = "Copy username", 1400);
+          label.textContent = "✓ Copied";
+          window.setTimeout(() => label.textContent = "Copy username", 1400);
         } catch {
-          copy.textContent = "Clipboard blocked";
-          window.setTimeout(() => copy.textContent = "Copy username", 1600);
+          label.textContent = "Clipboard blocked";
+          window.setTimeout(() => label.textContent = "Copy username", 1600);
         }
       });
       actions.append(copy);
       if (profile.url) {
-        const visit = document.createElement("a"); visit.className = "visit"; visit.textContent = "Visit portal ↗";
+        const visit = document.createElement("a"); visit.className = "visit";
+        visit.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3"/><path d="M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg><span>Visit portal ↗</span>';
         visit.href = profile.url; visit.target = "_blank"; visit.rel = "noopener noreferrer";
         actions.append(visit);
       }
