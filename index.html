@@ -401,6 +401,35 @@
     @media(max-width:1050px){#profiles .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:760px){#profiles .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}#profiles .identity-card{min-height:300px;padding:19px}#profiles .identity-card .cardtop{min-height:160px}#profiles .identity-logo{width:88px;height:88px}}
     @media(max-width:460px){#profiles .grid{grid-template-columns:1fr}#profiles .identity-card{min-height:275px}#profiles .identity-card .cardtop{min-height:145px}#profiles .identity-logo{width:82px;height:82px}}
+
+/* Left utility sidebar */
+body{--sidebar-width:238px}
+.site-sidebar{position:fixed;z-index:80;left:18px;top:18px;bottom:18px;width:210px;padding:20px 15px;border:1px solid #542238;border-radius:20px;background:linear-gradient(165deg,#170d19f5,#09070df7 75%);box-shadow:0 18px 55px #0009,inset 0 1px #ffffff0b;display:flex;flex-direction:column;gap:9px;overflow-y:auto;backdrop-filter:blur(16px)}
+.sidebar-brand{padding:4px 7px 17px;margin-bottom:8px;border-bottom:1px solid #ffffff18;font-size:.86rem;font-weight:950;letter-spacing:.1em;color:#fff;text-decoration:none}
+.sidebar-brand span{color:#ff527c}
+.sidebar-label{margin:12px 7px 5px;color:#8f7e8b;font-size:.62rem;font-weight:900;letter-spacing:.18em}
+.sidebar-link,.sidebar-control{display:flex;align-items:center;gap:11px;width:100%;min-height:42px;padding:10px 11px;border:1px solid transparent;border-radius:11px;background:transparent;color:#cbbdc8;text-decoration:none;text-align:left;font:inherit;font-size:.76rem;letter-spacing:.035em;cursor:pointer;transition:.2s}
+.sidebar-link:hover,.sidebar-control:hover{background:#351020;border-color:#69243e;color:#fff}
+.sidebar-link .side-icon,.sidebar-control .side-icon{width:19px;text-align:center;color:#ff6488;font-size:1rem}
+.sidebar-spacer{flex:1;min-height:12px}
+.sidebar-note{padding:12px 8px 2px;border-top:1px solid #ffffff14;color:#766a76;font-size:.64rem;line-height:1.6}
+.sidebar-toggle{display:none}
+body:not(.hunt-page) .wrap{width:min(1250px,calc(100% - var(--sidebar-width) - 54px));margin-left:calc(var(--sidebar-width) + 34px);margin-right:20px}
+body .wrap>nav{padding-left:0}
+body .wrap>nav .controls{display:none}
+@media(max-width:850px){
+ body{--sidebar-width:0px}
+ .site-sidebar{left:0;top:0;bottom:0;width:260px;border-radius:0 18px 18px 0;transform:translateX(-105%);transition:transform .25s}
+ body.sidebar-open .site-sidebar{transform:translateX(0)}
+ .sidebar-toggle{display:inline-flex;position:fixed;z-index:90;left:14px;top:14px;align-items:center;justify-content:center;width:43px;height:43px;border:1px solid #713047;border-radius:12px;background:#170d19;color:#ff7897;font-size:1.25rem}
+ body:not(.hunt-page) .wrap{width:calc(100% - 34px);margin:0 auto;padding-top:68px}
+ body.hunt-page .wrap{width:calc(100% - 34px);margin:0 auto;padding-top:68px}
+}
+body.hunt-page .wrap>header,body.hunt-page .wrap>section:not(#shadow-hunt),body.hunt-page .wrap>footer{display:none!important}
+body.hunt-page #shadow-hunt{display:block;margin-top:40px}
+body.hunt-page .wrap{width:min(1050px,calc(100% - var(--sidebar-width) - 54px));margin-left:calc(var(--sidebar-width) + 34px);margin-right:20px}
+body.hunt-page .wrap>nav{margin-bottom:22px}
+@media(max-width:850px){body.hunt-page .wrap{width:calc(100% - 34px);margin:0 auto}}
 </style>
 </head>
 <body>
@@ -443,8 +472,27 @@
       </div>
     </div>
   </div>
+  
+<button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open settings sidebar" aria-expanded="false">☰</button>
+<aside class="site-sidebar" id="siteSidebar" aria-label="Site controls">
+  <a class="sidebar-brand" href="index.html">DRAGON<span>SLAYER</span> // HUB</a>
+  <div class="sidebar-label">AUDIO</div>
+  <button class="sidebar-control" id="musicToggle" type="button" aria-pressed="false"><span class="side-icon">♫</span><span>MUSIC: OFF</span></button>
+  <button class="sidebar-control" id="sfxToggle" type="button" aria-pressed="true"><span class="side-icon">◖</span><span>SFX: ON</span></button>
+  <div class="sidebar-label">VISUAL SETTINGS</div>
+  <button class="sidebar-control" id="particleToggle" type="button" aria-pressed="true"><span class="side-icon">✧</span><span>SHADOWS: ON</span></button>
+  <a class="sidebar-link" href="settings.html"><span class="side-icon">⚙</span>GRAPHICS & SETTINGS</a>
+  <div class="sidebar-label">QUICK LINKS</div>
+  <a class="sidebar-link" href="anime-worlds.html"><span class="side-icon">◇</span>WORLDS</a>
+  <a class="sidebar-link" href="shadow-hunt.html"><span class="side-icon">✦</span>SHADOW HUNT</a>
+  <a class="sidebar-link" href="how-to.html"><span class="side-icon">?</span>HOW TO USE</a>
+  <a class="sidebar-link" href="index.html#profiles"><span class="side-icon">◎</span>MY IDENTITIES</a>
+  <div class="sidebar-spacer"></div>
+  <button class="sidebar-control" id="shareWebsiteBtn" type="button"><span class="side-icon">↗</span><span>SHARE WEBSITE</span></button>
+  <div class="sidebar-note">YOUR SPACE. YOUR RULES.<br>DRAGONSLAYER // HUB</div>
+</aside>
   <div class="wrap">
-    <nav><button class="brand logo-portal" id="logoPortal" type="button" aria-label="Open anime character portal">DRAGON<span>SLAYER</span> // HUB <span class="logo-hint">✦</span></button><div class="controls"><a class="navlink" href="anime-worlds.html">WORLDS ↗</a><button class="control-button" id="musicToggle" type="button" aria-pressed="false">MUSIC: OFF</button><button class="control-button" id="sfxToggle" type="button" aria-pressed="true">🔊 SFX: ON</button><button class="control-button" id="particleToggle" type="button" aria-pressed="true">SHADOWS: ON</button><a class="navlink" href="#profiles">EXPLORE PROFILES ↓</a><a class="navlink howto-link" href="how-to.html">HOW TO USE ↗</a><a class="navlink howto-link" href="settings.html">GRAPHICS & SETTINGS ⚙</a><button class="control-button" id="shareWebsiteBtn" type="button">↗ SHARE WEBSITE</button></div></nav>
+    <nav><button class="brand logo-portal" id="logoPortal" type="button" aria-label="Open character portal">DRAGON<span>SLAYER</span> // HUB <span class="logo-hint">✦</span></button><div class="controls"><a class="navlink" href="anime-worlds.html">WORLDS ↗</a><a class="navlink" href="shadow-hunt.html">SHADOW HUNT ↗</a></div></nav>
     <header>
       <div class="sigil" aria-hidden="true">♜</div>
       <div class="eyebrow">THE SHADOWS ARE WAITING</div>
@@ -468,30 +516,7 @@
       <p class="note">A couple of links are still missing. I’ll add them when they’re ready. Don’t share passwords or private account details here.</p>
     </section>
 
-    <section id="shadow-hunt">
-      <div class="sectionhead"><h2>◆ &nbsp; SHADOW HUNT</h2><span class="hint">30 SECONDS · CATCH THE ORBS</span></div>
-      <div class="game-panel">
-        <p class="game-intro">Enter your player name first, then start the hunt. Click the glowing shadow orb as many times as you can before time runs out.</p>
-        <form class="game-entry" id="huntForm">
-          <input id="playerName" name="playerName" maxlength="18" autocomplete="nickname" placeholder="Enter your player name" aria-label="Player name" required>
-          <button id="startHunt" type="submit">START HUNT</button>
-        </form>
-        <div class="game-stats"><span>PLAYER: <strong id="activePlayer">—</strong></span><span>SCORE: <strong id="huntScore">0</strong></span><span>TIME: <strong id="huntTime">30</strong>s</span></div>
-        <div class="hunter-progression" id="hunterProgression" aria-label="Hunter progression">
-          <div class="hunter-progression-top"><div><div class="hunter-rank-label">HUNTER RANK</div><div class="hunter-rank-title" id="hunterTitle">E-RANK HUNTER</div><div class="hunter-level" id="hunterLevel">LEVEL 1 · 0 XP</div></div><div class="hunter-level" id="hunterLifetime">TOTAL XP: 0</div></div>
-          <div class="hunter-xp-track" role="progressbar" aria-label="Progress to next level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="hunterXpTrack"><div class="hunter-xp-fill" id="hunterXpFill"></div></div>
-          <div class="hunter-xp-meta"><span id="hunterXpCurrent">0 / 100 XP</span><span id="hunterXpNext">100 XP to next level</span></div>
-          <div class="hunter-badges" id="hunterBadges"></div>
-          <div class="hunter-reward" id="hunterReward">Complete hunts to earn XP, unlock ranks, and collect achievements.</div>
-          <p class="hunter-toast" id="hunterToast" aria-live="polite"></p>
-        </div>
-        <div class="hunt-arena" id="huntArena" aria-label="Shadow Hunt game area">
-          <div class="arena-message" id="arenaMessage">Enter your name and press START HUNT to begin.</div>
-        </div>
-        <div class="leaderboard"><h3>◆ LOCAL LEADERBOARD — TOP 10</h3><div id="leaderboardRows"><p class="game-note">No scores yet. Be the first Shadow Hunter.</p></div></div>
-        <p class="game-note">Leaderboard note: this static website saves scores in this browser on this device only. It is not a shared online leaderboard yet, and clearing browser data can erase scores. Use a nickname—don't enter private information.</p>
-      </div>
-    </section>
+    
 
     <footer>MADE BY AAYUSH<br><strong>STILL A WORK IN PROGRESS</strong></footer>
   </div>
@@ -922,6 +947,7 @@
     // Shadow Hunt game: name required, 30-second round, browser-local top-ten leaderboard.
     (() => {
       const form = document.querySelector("#huntForm");
+      if (!form) return;
       const nameInput = document.querySelector("#playerName");
       const arena = document.querySelector("#huntArena");
       const message = document.querySelector("#arenaMessage");
@@ -1277,5 +1303,8 @@
     })();
   </script>
 
+<script>
+(()=>{const toggle=document.getElementById("sidebarToggle");if(!toggle)return;toggle.addEventListener("click",()=>{const open=document.body.classList.toggle("sidebar-open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});document.addEventListener("click",e=>{if(document.body.classList.contains("sidebar-open")&&!e.target.closest("#siteSidebar")&&!e.target.closest("#sidebarToggle")){document.body.classList.remove("sidebar-open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}});})();
+</script>
 </body>
 </html>
