@@ -61,6 +61,13 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 @keyframes lifeJourney{0%{width:0}25%{width:28%}50%{width:57%}75%{width:86%}100%{width:86%}}
 @media(prefers-reduced-motion:reduce){#life-cycle .life-progress{animation:none;width:86%}}
 
+
+#hunter-x-hunter{--accent:#72df9b;--art:none;background-image:linear-gradient(115deg,rgba(5,15,12,.97),rgba(8,25,19,.9)),radial-gradient(circle at 82% 18%,#72df9b44,transparent 46%)}
+#thalapathy-vijay{--accent:#e7c46a;--art:none;background-image:linear-gradient(115deg,rgba(18,13,7,.97),rgba(31,20,8,.9)),radial-gradient(circle at 82% 18%,#e7c46a44,transparent 46%)}
+#kgf-rocky{--accent:#d9a45b;--art:none;background-image:linear-gradient(115deg,rgba(17,10,5,.98),rgba(35,19,8,.9)),radial-gradient(circle at 82% 18%,#d9a45b55,transparent 46%)}
+#pushpa{--accent:#d9783c;--art:none;background-image:linear-gradient(115deg,rgba(18,9,5,.98),rgba(37,17,8,.9)),radial-gradient(circle at 82% 18%,#d9783c55,transparent 46%)}
+#kantara{--accent:#d9a84f;--art:none;background-image:linear-gradient(115deg,rgba(15,10,5,.98),rgba(34,23,9,.92)),radial-gradient(circle at 82% 18%,#d9a84f55,transparent 46%)}
+
 </style>
 </head>
 <body>
@@ -70,7 +77,7 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 <div class="navlinks"><a href="index.html">MAIN HUB ↗</a><a href="how-to.html">HOW TO USE ↗</a><a href="settings.html">GRAPHICS & SETTINGS ↗</a></div>
 </nav>
 <header>
-<div class="eyebrow">MULTIVERSE SELECT // 011 WORLDS</div>
+<div class="eyebrow">MULTIVERSE SELECT // 017 WORLDS</div>
 <h1>CHOOSE YOUR<br>WORLD</h1>
 <p class="subtitle">Choose a universe. Each world brings its own colours, atmosphere, and effects to your hub.</p>
 </header>
@@ -182,13 +189,49 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 <button class="choose" type="button" data-theme="life-cycle">SELECT WORLD ↗</button>
 </article>
 
+<article class="world" id="hunter-x-hunter">
+<div class="world-code">WORLD 13 // HUNTER EXAMINATION</div>
+<div class="world-icon" aria-hidden="true"><span>✦</span></div>
+<h2>HUNTER × HUNTER</h2>
+<p>Enter a world of Nen, dangerous exams, impossible journeys, and unforgettable rivalries. Follow Gon, Killua, Kurapika and Leorio beyond the limits of an ordinary adventure.</p>
+<button class="choose" type="button" data-theme="hunter-x-hunter">SELECT WORLD ↗</button>
+</article>
+<article class="world" id="thalapathy-vijay">
+<div class="world-code">WORLD 14 // THALAPATHY</div>
+<div class="world-icon" aria-hidden="true"><span>★</span></div>
+<h2>VIJAY — THE THALAPATHY WORLD</h2>
+<p>A tribute to Vijay's cinematic universe: mass moments, memorable roles, sharp style, punchy action, and the unmistakable big-screen energy of Thalapathy.</p>
+<button class="choose" type="button" data-theme="thalapathy-vijay">SELECT WORLD ↗</button>
+</article>
+<article class="world" id="kgf-rocky">
+<div class="world-code">WORLD 15 // THE EMPIRE OF GOLD</div>
+<div class="world-icon" aria-hidden="true"><span>₭</span></div>
+<h2>KGF — ROCKY BHAI</h2>
+<p>From the streets to the gold fields, enter Rocky's world of ambition, power, loyalty, and a kingdom built with an unbreakable will.</p>
+<button class="choose" type="button" data-theme="kgf-rocky">SELECT WORLD ↗</button>
+</article>
+<article class="world" id="pushpa">
+<div class="world-code">WORLD 16 // THE RULE</div>
+<div class="world-icon" aria-hidden="true"><span>♠</span></div>
+<h2>PUSHPA — THE RULE</h2>
+<p>Enter Pushpa Raj's rugged world of grit, swagger, forest trails, and a rise that refuses to bow. Thaggede Le.</p>
+<button class="choose" type="button" data-theme="pushpa">SELECT WORLD ↗</button>
+</article>
+<article class="world" id="kantara">
+<div class="world-code">WORLD 17 // DIVINE ROOTS</div>
+<div class="world-icon" aria-hidden="true"><span>ॐ</span></div>
+<h2>KANTARA — THE DIVINE MYSTERY</h2>
+<p>A world rooted in the land, its people, ancient traditions, and the mysterious force that watches over the forest. A tribute to Kantara's atmosphere and folklore.</p>
+<button class="choose" type="button" data-theme="kantara">SELECT WORLD ↗</button>
+</article>
+
 </main>
 <p id="message" aria-live="polite">CURRENT WORLD: checking saved theme…</p>
 <footer>MADE BY AAYUSH · WORLDS</footer>
 </div>
 <script>
 (() => {
-  const valid = ["shadow","naruto","black-clover","bleach","tensura","jailer-2","avengers","spider-verse","spider-brand-new-day","itachi","boruto-roast","life-cycle"];
+  const valid = ["shadow","naruto","black-clover","bleach","tensura","jailer-2","avengers","spider-verse","spider-brand-new-day","itachi","boruto-roast","life-cycle","hunter-x-hunter","thalapathy-vijay","kgf-rocky","pushpa","kantara"];
   let current = "shadow";
   try {
     const saved = localStorage.getItem("identityHubTheme");
