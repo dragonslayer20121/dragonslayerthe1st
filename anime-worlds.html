@@ -24,6 +24,11 @@ h1{font-size:clamp(2.2rem,7vw,4.5rem);line-height:.98;letter-spacing:.025em;marg
 .world:before{content:"";position:absolute;right:-28px;top:-44px;width:145px;height:145px;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:50%;box-shadow:0 0 0 17px color-mix(in srgb,var(--accent) 4%,transparent),0 0 0 36px color-mix(in srgb,var(--accent) 3%,transparent);pointer-events:none}
 .world:before{display:none}
 .world-code{font-size:.67rem;font-weight:900;letter-spacing:.2em;color:var(--accent)}
+.world-icon{display:grid;place-items:center;width:48px;height:48px;margin:0 0 4px;border:1px solid color-mix(in srgb,var(--accent) 62%,transparent);border-radius:13px;background:color-mix(in srgb,var(--accent) 13%,#09070b);color:var(--accent);font-family:Georgia,serif;font-size:1.75rem;font-weight:800;line-height:1;text-shadow:0 0 16px color-mix(in srgb,var(--accent) 48%,transparent);box-shadow:inset 0 0 18px color-mix(in srgb,var(--accent) 9%,transparent),0 0 18px color-mix(in srgb,var(--accent) 8%,transparent)}
+.world-icon span{display:block}
+.world h2{margin:12px 0 9px}
+.world p{max-width:470px}
+
 .world h2{position:relative;margin:16px 0 9px;font-size:clamp(1.3rem,3.5vw,2rem);letter-spacing:.04em}
 .world p{position:relative;color:var(--muted);font-size:.88rem;line-height:1.65;margin:0 0 22px;max-width:460px}
 .choose{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border:1px solid color-mix(in srgb,var(--accent) 65%,transparent);border-radius:8px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:#fff;font-weight:900;font-size:.72rem;letter-spacing:.09em;cursor:pointer}
@@ -61,56 +66,65 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 <main class="grid" aria-label="Available anime worlds">
 <article class="world" id="shadow">
 <div class="world-code">WORLD 01 // DEFAULT</div>
-<h2>SHADOW MONARCH</h2>
-<p>Black and blood-red energy. The original DRAGONSLAYER // HUB identity.</p>
+<div class="world-icon" aria-hidden="true"><span>♛</span></div>
+<h2>THE SHADOW MONARCH</h2>
+<p>Command the darkness. A black-and-crimson realm shaped by shadow soldiers, monarch authority, and an awakening beyond limits.</p>
 <button class="choose" type="button" data-theme="shadow">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="naruto">
 <div class="world-code">WORLD 02 // WILL OF FIRE</div>
+<div class="world-icon" aria-hidden="true"><span>◎</span></div>
 <h2>NARUTO — SHINOBI LEGACY</h2>
-<p>Kurama-orange energy and the spirit of a shinobi who never gives up.</p>
+<p>Feel the Will of Fire. A world of shinobi bonds, hidden villages, sealing arts, and the blazing resolve of the Nine-Tails.</p>
 <button class="choose" type="button" data-theme="naruto">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="black-clover">
 <div class="world-code">WORLD 03 // ANTI-MAGIC</div>
+<div class="world-icon" aria-hidden="true"><span>♣</span></div>
 <h2>BLACK CLOVER — WIZARD KING</h2>
-<p>Dark anti-magic energy with a fierce red edge. Surpass your limits.</p>
+<p>Break past your limits. Enter a realm of grimoires, rival squads, anti-magic, and the relentless climb toward the Wizard King.</p>
 <button class="choose" type="button" data-theme="black-clover">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="bleach">
 <div class="world-code">WORLD 04 // SOUL REAPER</div>
+<div class="world-icon" aria-hidden="true"><span>⚔</span></div>
 <h2>BLEACH — SOUL REAPER</h2>
-<p>Cold blue spiritual pressure and a blade that cuts through destiny.</p>
+<p>Unleash spiritual pressure. A realm of Zanpakutō, Soul Reapers, hollow masks, and battles that reach beyond life and death.</p>
 <button class="choose" type="button" data-theme="bleach">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="tensura">
 <div class="world-code">WORLD 05 // DEMON SLIME</div>
+<div class="world-icon" aria-hidden="true"><span>◆</span></div>
 <h2>TENSURA — RIMURU TEMPEST</h2>
-<p>Azure slime energy, cool teal light, and the rise of a ruler who builds a nation of monsters.</p>
+<p>Build a nation from the impossible. Azure magic, monster allies, evolving skills, and the calm authority of Rimuru Tempest.</p>
 <button class="choose" type="button" data-theme="tensura">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="jailer-2">
 <div class="world-code">WORLD 06 // TIGER RETURNS</div>
-<h2>JAILER 2</h2>
-<p>Dark gold, deep red, and the larger-than-life style of the Jailer universe.</p>
+<div class="world-icon" aria-hidden="true"><span>虎</span></div>
+<h2>JAILER 2 — TIGER'S RETURN</h2>
+<p>Step into a larger-than-life underworld. A dark gold-and-crimson tribute to Tiger Muthuvel Pandian and the Jailer legacy.</p>
 <button class="choose" type="button" data-theme="jailer-2">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="avengers">
 <div class="world-code">WORLD 07 // EARTH'S MIGHTIEST</div>
+<div class="world-icon" aria-hidden="true"><span>A</span></div>
 <h2>MARVEL — AVENGERS</h2>
-<p>Blue and gold energy inspired by the team that protects the universe.</p>
+<p>Assemble Earth's Mightiest Heroes. A cinematic world of heroic alliances, cosmic threats, and the power to stand together.</p>
 <button class="choose" type="button" data-theme="avengers">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="spider-verse">
 <div class="world-code">WORLD 08 // INTO THE SPIDER-VERSE</div>
+<div class="world-icon" aria-hidden="true"><span>⌘</span></div>
 <h2>SPIDER-MAN — ACROSS THE SPIDER-VERSE</h2>
-<p>Neon pink, electric blue, and comic-book energy from across the multiverse.</p>
+<p>Leap between dimensions. Neon colours, glitch energy, web-slinging heroes, and the infinite possibilities of the Spider-Verse.</p>
 <button class="choose" type="button" data-theme="spider-verse">SELECT WORLD ↗</button>
 </article>
 <article class="world" id="spider-brand-new-day">
 <div class="world-code">WORLD 09 // A NEW DAY</div>
+<div class="world-icon" aria-hidden="true"><span>✣</span></div>
 <h2>SPIDER-MAN — BRAND NEW DAY</h2>
-<p>A fresh New York chapter with classic red-and-blue Spider-Man energy.</p>
+<p>A new chapter begins in New York. Classic red-and-blue hero energy, street-level adventures, and a fresh start for Spider-Man.</p>
 <button class="choose" type="button" data-theme="spider-brand-new-day">SELECT WORLD ↗</button>
 </article>
 </main>
