@@ -50,7 +50,18 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
   .world{padding:20px;min-height:0}
   .choose{min-height:44px;width:100%}
 }
-  </style>
+  
+#life-cycle{--accent:#b8a5c9;--art:none;background-image:linear-gradient(115deg,rgba(10,8,15,.98),rgba(25,18,33,.94)),radial-gradient(circle at 80% 15%,#b8a5c933,transparent 48%)}
+#life-cycle .life-track{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;margin:10px 0 18px;padding-top:16px}
+#life-cycle .life-track:before{content:"";position:absolute;left:7%;right:7%;top:22px;height:2px;background:#b8a5c966}
+#life-cycle .life-progress{position:absolute;left:7%;top:19px;width:0;height:6px;border-radius:8px;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:lifeJourney 8s linear infinite}
+#life-cycle .life-stage{position:relative;z-index:1;text-align:center;color:#e6ddec;font-size:.72rem;font-weight:800;letter-spacing:.04em}
+#life-cycle .life-stage b{display:grid;place-items:center;width:22px;height:22px;margin:0 auto 9px;border:2px solid var(--accent);border-radius:50%;background:#17111e;font-size:.62rem}
+#life-cycle .life-caption{color:#c9bbd1;font-size:.82rem;line-height:1.6;margin:0 0 16px}
+@keyframes lifeJourney{0%{width:0}25%{width:28%}50%{width:57%}75%{width:86%}100%{width:86%}}
+@media(prefers-reduced-motion:reduce){#life-cycle .life-progress{animation:none;width:86%}}
+
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -152,13 +163,32 @@ footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-al
 <p style="margin-top:0">Kakashi and Sasuke were legendary prodigies too — but Boruto's résumé started looking like a veteran's before he was even old enough to drive. Average was removed from the bloodline. A playful roast-world for the sequel era.</p>
 <button class="choose" type="button" data-theme="boruto-roast">SELECT WORLD ↗</button>
 </article>
+
+<article class="world" id="life-cycle">
+<div class="world-code">WORLD 12 // THE HUMAN LIFE SPEEDRUN</div>
+<div class="world-icon" aria-hidden="true"><span>⌛</span></div>
+<h2>BORN TO STUDY. WORK. REPEAT. DIE.</h2>
+<p>Humanity's most questionable life tutorial: arrive as a baby, get sent to school, spend years studying for a job, work until retirement, then roll credits. Who designed this system?</p>
+<div class="life-track" aria-label="A looping timeline from baby to student to worker to grave">
+<div class="life-progress"></div>
+<div class="life-stage"><b>1</b>BABY</div>
+<div class="life-stage"><b>2</b>STUDENT</div>
+<div class="life-stage"><b>3</b>JOB</div>
+<div class="life-stage"><b>4</b>GRAVE</div>
+</div>
+<p class="life-caption">BABY: "Welcome to life."<br>STUDENT: "Study or else."<br>JOB: "Work or else."<br>GRAVE: "Finally, no more deadlines."</p>
+<div class="world-code" style="margin:0 0 8px">THE OFFICIAL HUMAN QUESTLINE</div>
+<p>Born → school → exams → more exams → job → bills → retirement (maybe) → credits. The system calls it a successful life. The student calls it a scam.</p>
+<button class="choose" type="button" data-theme="life-cycle">SELECT WORLD ↗</button>
+</article>
+
 </main>
 <p id="message" aria-live="polite">CURRENT WORLD: checking saved theme…</p>
 <footer>MADE BY AAYUSH · WORLDS</footer>
 </div>
 <script>
 (() => {
-  const valid = ["shadow","naruto","black-clover","bleach","tensura","jailer-2","avengers","spider-verse","spider-brand-new-day","itachi","boruto-roast"];
+  const valid = ["shadow","naruto","black-clover","bleach","tensura","jailer-2","avengers","spider-verse","spider-brand-new-day","itachi","boruto-roast","life-cycle"];
   let current = "shadow";
   try {
     const saved = localStorage.getItem("identityHubTheme");
