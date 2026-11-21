@@ -1,67 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080609">
-<meta name="description" content="Aayush's Minecraft corner: modded survival, Tensura progression, performance tweaks and multiplayer adventures.">
+<meta name="theme-color" content="#101a12">
+<meta name="description" content="Aayush's Minecraft corner: vanilla survival, building, exploration, redstone and progression.">
 <meta name="author" content="Aayush">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Minecraft | DragonslayerThe1st">
-<meta property="og:description" content="Modded worlds, survival progression and Minecraft experiments.">
+<meta property="og:title" content="Minecraft — DragonslayerThe1st">
+<meta property="og:description" content="A vanilla Minecraft corner for survival, building, exploration and redstone.">
 <meta property="og:url" content="https://user-name-hub.onrender.com/minecraft.html">
-<title>Minecraft | DragonslayerThe1st</title>
+<link rel="canonical" href="https://user-name-hub.onrender.com/minecraft.html">
+<title>Minecraft — DragonslayerThe1st</title>
 <style>
-:root{color-scheme:dark;--bg:#080a08;--panel:#101710;--line:#29412b;--accent:#72df83;--muted:#a8b7a9}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,#174323 0,transparent 48%),var(--bg);color:#f3f8f2;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:inherit}.wrap{width:min(1080px,92%);margin:auto}nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}.brand{text-decoration:none;font-weight:950;letter-spacing:.12em;font-size:.9rem}.brand span{color:var(--accent)}.navlinks{display:flex;gap:10px;flex-wrap:wrap}.navlinks a{padding:9px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:#d5e6d5;font-size:.7rem;letter-spacing:.07em}.navlinks a:hover{border-color:var(--accent);color:#fff}
-header{padding:72px 0 42px;max-width:800px}.eyebrow{color:var(--accent);font-size:.7rem;font-weight:900;letter-spacing:.24em}h1{font-size:clamp(2.7rem,9vw,6rem);line-height:.95;letter-spacing:.035em;margin:16px 0}header p{max-width:650px;color:var(--muted);line-height:1.75;font-size:1rem}.tag{display:inline-block;margin-top:10px;padding:8px 11px;border:1px solid #376c40;border-radius:7px;color:#c7f5cc;font-size:.68rem;letter-spacing:.1em;font-weight:800}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 50px}.card{position:relative;overflow:hidden;min-height:210px;padding:25px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#142218,#0c110d 72%)}.card:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}.code{color:var(--accent);font-size:.65rem;font-weight:900;letter-spacing:.18em}.card h2{margin:12px 0 9px;font-size:1.25rem}.card p,.card li{color:var(--muted);font-size:.88rem;line-height:1.7}.card ul{padding-left:19px;margin-bottom:0}.wide{grid-column:1/-1}.note{padding:20px;border:1px solid #355b39;border-radius:12px;background:#102016;color:#c7d9c9;line-height:1.7}.note strong{color:#fff}footer{padding:25px 0 35px;border-top:1px solid var(--line);text-align:center;color:#849486;font-size:.7rem;letter-spacing:.1em;line-height:2}footer strong{color:var(--accent)}
-@media(max-width:650px){nav{align-items:flex-start;flex-direction:column}.navlinks{width:100%}.navlinks a{flex:1;text-align:center}.grid{grid-template-columns:1fr}.wide{grid-column:auto}header{padding:48px 0 28px}.card{min-height:0}}
+:root{color-scheme:dark;--bg:#090e0b;--panel:#111a14;--green:#73d477;--lime:#b3e878;--muted:#a9b8aa;--line:#2b4630}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -12%,#244b2b 0,transparent 48%),var(--bg);color:#f1f6ef;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}
+.wrap{width:min(1050px,calc(100% - 32px));margin:auto;padding:22px 0 52px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 0 20px;border-bottom:1px solid var(--line)}
+.brand{font-weight:950;letter-spacing:.1em;text-decoration:none}.brand span{color:var(--green)}
+.navlinks{display:flex;gap:15px;flex-wrap:wrap}.navlinks a{font-size:.72rem;letter-spacing:.1em;text-decoration:none;color:var(--muted)}.navlinks a:hover{color:var(--lime)}
+.hero{text-align:center;padding:66px 0 38px}.kicker{color:var(--lime);font-size:.7rem;font-weight:900;letter-spacing:.28em}
+h1{font-size:clamp(2.7rem,8vw,5.7rem);line-height:.95;letter-spacing:.02em;margin:15px 0}.hero p{max-width:660px;margin:18px auto 0;color:var(--muted);line-height:1.8}
+.tag{display:inline-flex;margin-top:22px;padding:8px 12px;border:1px solid #56865a;border-radius:999px;color:#c7f0bd;font-size:.7rem;font-weight:850;letter-spacing:.13em}
+.section-title{margin:42px 0 15px;font-size:1.2rem;letter-spacing:.08em}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{padding:21px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#17251a,#0e1510 75%);min-height:155px}.symbol{font-size:1.35rem;color:var(--lime)}.card h3{margin:12px 0 7px;font-size:1rem}.card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.7}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.step{padding:16px;border:1px solid var(--line);border-radius:12px;background:#101910}.step b{display:block;color:var(--lime);font-size:.7rem;letter-spacing:.12em;margin-bottom:8px}.step span{font-size:.88rem;line-height:1.5}
+.note{margin-top:18px;padding:17px 19px;border-left:3px solid var(--green);background:#132018;color:#c6d4c7;line-height:1.7}footer{margin-top:45px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.72rem;line-height:2;letter-spacing:.08em}footer strong{color:#e9f3e8}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:48px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body><div class="wrap">
 <nav aria-label="Main navigation">
 <a class="brand" href="index.html">DRAGON<span>SLAYER</span> // HUB</a>
-<div class="navlinks"><a href="index.html">MAIN HUB ↗</a><a href="anime-worlds.html">WORLDS ↗</a><a href="shadow-hunt.html">SHADOW HUNT ↗</a></div>
+<div class="navlinks"><a href="index.html">MAIN HUB ↗</a><a href="anime-worlds.html">WORLDS ↗</a><a href="how-to.html">HOW TO USE ↗</a></div>
 </nav>
-<header>
-<div class="eyebrow">PLAYER PROFILE // BLOCK BY BLOCK</div>
-<h1>MINECRAFT<br>REALMS.</h1>
-<p>My Minecraft corner: modded survival, progression, experiments, multiplayer and the occasional attempt to make a low-spec setup run smoothly.</p>
-<span class="tag">SURVIVE · EXPLORE · EVOLVE</span>
+<header class="hero">
+<div class="kicker">THE BLOCKY SIDE OF THE HUB</div><h1>MINECRAFT</h1>
+<p>Survive. Explore. Build something ridiculous. This page is dedicated to the original Minecraft experience — no mods, no modpacks, just vanilla Minecraft.</p>
+<div class="tag">VANILLA ONLY · SURVIVAL FIRST</div>
 </header>
-<main class="grid">
-<section class="card">
-<div class="code">01 // CURRENT INTEREST</div>
-<h2>TENSURA: REINCARNATED</h2>
-<p>Start small. Choose the slime path, build up skills, grow stronger and work towards a Rimuru-style journey. The big dream: meet Veldora and earn a name.</p>
-<ul><li>Slime-start progression</li><li>Skill learning and evolution</li><li>Bosses, magicules and exploration</li></ul>
+<main>
+<h2 class="section-title">THE VANILLA EXPERIENCE</h2>
+<section class="grid" aria-label="Minecraft activities">
+<article class="card"><div class="symbol">▦</div><h3>Survival</h3><p>Start with nothing, gather resources, craft your gear, build a base and work your way towards the End.</p></article>
+<article class="card"><div class="symbol">⌂</div><h3>Building</h3><p>Make starter houses, mega bases, villages, farms and detailed interiors using blocks available in the base game.</p></article>
+<article class="card"><div class="symbol">◇</div><h3>Exploration</h3><p>Find villages, shipwrecks, trial chambers, ancient cities, strongholds and new biomes.</p></article>
+<article class="card"><div class="symbol">⌁</div><h3>Redstone</h3><p>Experiment with farms, doors, storage systems, item sorters and other contraptions using vanilla mechanics.</p></article>
 </section>
-<section class="card">
-<div class="code">02 // MODDED SURVIVAL</div>
-<h2>MODS & EXPERIMENTS</h2>
-<p>Testing modded Minecraft setups, quality-of-life features and performance-friendly combinations.</p>
-<ul><li>Fabric and NeoForge setups</li><li>Sodium / Lithium-style performance tools where compatible</li><li>Xaero's maps and useful UI tweaks</li></ul>
+<h2 class="section-title">A CLASSIC SURVIVAL ROADMAP</h2>
+<section class="steps" aria-label="Survival progression">
+<div class="step"><b>01 — START</b><span>Collect wood, make tools and find food.</span></div>
+<div class="step"><b>02 — SETTLE</b><span>Build shelter, mine ores and gear up.</span></div>
+<div class="step"><b>03 — PREPARE</b><span>Explore, trade, enchant and find a stronghold.</span></div>
+<div class="step"><b>04 — CONQUER</b><span>Reach the End, defeat the dragon and keep exploring.</span></div>
 </section>
-<section class="card">
-<div class="code">03 // PERFORMANCE LAB</div>
-<h2>SMOOTHER GAMEPLAY</h2>
-<p>Keeping Minecraft playable on a modest laptop matters more than piling on flashy effects.</p>
-<ul><li>Prefer lightweight mods</li><li>Keep render distance and particles sensible</li><li>Use windowed mode when it helps multitasking</li></ul>
-</section>
-<section class="card">
-<div class="code">04 // MULTIPLAYER</div>
-<h2>PLAY WITH FRIENDS</h2>
-<p>Survival worlds, modded adventures, voice chat and shared builds. This section can grow with server details and group projects.</p>
-<ul><li>Mod compatibility first</li><li>Voice chat when the server supports it</li><li>Keep a backup before changing modpacks</li></ul>
-</section>
-<section class="card wide">
-<div class="code">05 // THE NEXT QUEST</div>
-<h2>BUILD THE WORLD YOUR WAY</h2>
-<p>From a tiny slime to a ridiculous endgame build: this page is the home for Minecraft projects, modpack notes, screenshots-free progress logs and future server links.</p>
-<div class="note"><strong>Current goal:</strong> get the Tensura experience working properly, confirm the exact modpack version and controls, then build a slime-to-monster-lord progression path.</div>
+<div class="note"><strong>Vanilla rule:</strong> Everything featured here should be achievable in unmodded Minecraft. Resource packs and shaders are optional visual changes; gameplay mods and modpack-only features are outside this page.</div>
+<h2 class="section-title">WHAT BELONGS HERE?</h2>
+<section class="grid">
+<article class="card"><h3>Worlds & Seeds</h3><p>Interesting survival worlds, seed notes, base locations and exploration discoveries.</p></article>
+<article class="card"><h3>Builds & Farms</h3><p>Vanilla-friendly build ideas, useful farms and practical redstone projects.</p></article>
 </section>
 </main>
 <footer>MADE BY AAYUSH<br><strong>OWNER: AAYUSH — DRAGONSLAYER THE 1ST</strong><br>COLLABORATORS: CHATGPT · JINWOO</footer>
