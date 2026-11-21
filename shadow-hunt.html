@@ -460,6 +460,15 @@ body.hunt-page #shadow-hunt{display:block;margin-top:40px}
 body.hunt-page .wrap{width:min(1050px,calc(100% - var(--sidebar-width) - 54px));margin-left:calc(var(--sidebar-width) + 34px);margin-right:20px}
 body.hunt-page .wrap>nav{margin-bottom:22px}
 @media(max-width:850px){body.hunt-page .wrap{width:calc(100% - 34px);margin:0 auto}}
+    body[data-theme="berserk-guts"]{--bg:#100609;--panel:#1b0b10;--red:#a92d3d;--red2:#601522;--muted:#d1aeb5;--line:#51202b}
+    body[data-theme="berserk-guts"] .animated-backdrop{background:radial-gradient(ellipse at 18% 35%,#a92d3d80 0%,transparent 38%),radial-gradient(ellipse at 78% 28%,#60152280 0%,transparent 42%),radial-gradient(ellipse at 55% 85%,#24080f 0%,transparent 45%),#100609}
+    body[data-theme="berserk-guts"] .brand span,body[data-theme="berserk-guts"] .eyebrow,body[data-theme="berserk-guts"] h2,body[data-theme="berserk-guts"] .awakening-kicker,body[data-theme="berserk-guts"] .symbol{color:#d85a6b}
+    body[data-theme="berserk-guts"] .sigil,body[data-theme="berserk-guts"] .card,body[data-theme="berserk-guts"] .game-panel{border-color:#51202b}
+    body[data-theme="berserk-guts"] .card:before,body[data-theme="berserk-guts"] .rule{background:linear-gradient(90deg,transparent,#a92d3d,transparent)}
+    body[data-theme="berserk-guts"] button,body[data-theme="berserk-guts"] .visit,body[data-theme="berserk-guts"] .control-button,body[data-theme="berserk-guts"] .theme-select{border-color:#51202b;background:#1b0b10}
+    body[data-theme="berserk-guts"] button:hover,body[data-theme="berserk-guts"] .visit:hover{background:#601522;border-color:#d85a6b}
+    body[data-theme="berserk-guts"] .sigil{background:#1b0b10;box-shadow:0 0 28px #a92d3d55,inset 0 0 22px #a92d3d22}
+    body[data-theme="berserk-guts"] .card{background:linear-gradient(140deg,#321018ed,#1b0b10f5 68%)}
 </style>
 </head>
 <body class="hunt-page">
@@ -594,7 +603,8 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         "thalapathy-vijay": {title:"THALAPATHY VIJAY", kicker:"CINEMATIC UNIVERSE // MASS MODE", tagline:"Every entrance deserves its own soundtrack.", sigil:"★", intro:"THE THALAPATHY<br>UNIVERSE", introKicker:"MASS MOMENT // ACTIVATED", introText:"A tribute to Vijay's big-screen energy and memorable roles.", enter:"ENTER THALAPATHY WORLD ↗"},
         "kgf-rocky": {title:"ROCKY BHAI", kicker:"KGF // THE EMPIRE OF GOLD", tagline:"A kingdom built from ambition and grit.", sigil:"₭", intro:"THE EMPIRE<br>OF GOLD", introKicker:"ROCKY'S WORLD", introText:"Enter the gold fields and the legend of Rocky Bhai.", enter:"ENTER KGF ↗"},
         "pushpa": {title:"PUSHPA RAJ", kicker:"THE RULE // THAGGEDE LE", tagline:"A rise that refuses to bow.", sigil:"♠", intro:"PUSHPA<br>THE RULE", introKicker:"THE FOREST HAS A KING", introText:"Step into Pushpa Raj's rugged world of grit and swagger.", enter:"ENTER PUSHPA'S WORLD ↗"},
-        "kantara": {title:"KANTARA", kicker:"LAND // FOLKLORE // DIVINE MYSTERY", tagline:"Some stories are rooted deeper than the forest.", sigil:"ॐ", intro:"THE DIVINE<br>MYSTERY", introKicker:"THE LAND REMEMBERS", introText:"A world inspired by Kantara's folklore, landscape, and atmosphere.", enter:"ENTER KANTARA ↗"}
+        "kantara": {title:"KANTARA", kicker:"LAND // FOLKLORE // DIVINE MYSTERY", tagline:"Some stories are rooted deeper than the forest.", sigil:"ॐ", intro:"THE DIVINE<br>MYSTERY", introKicker:"THE LAND REMEMBERS", introText:"A world inspired by Kantara's folklore, landscape, and atmosphere.", enter:"ENTER KANTARA ↗"},
+        "berserk-guts": {title:"GUTS // THE BLACK SWORDSMAN", kicker:"BERSERK // THE STRUGGLE CONTINUES", tagline:"The one who suffered the most—and kept moving forward.", sigil:"⚔", intro:"THE BLACK<br>SWORDSMAN", introKicker:"THE STRUGGLE NEVER ENDS", introText:"Enter Guts' dark fantasy world: hardship, betrayal, loss, and unbreakable resolve.", enter:"ENTER BERSERK ↗"}
       };
       function applyTheme(key, animate = true) {
         const theme = themes[key] || themes.shadow;
@@ -868,7 +878,8 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         "thalapathy-vijay": {name:"THALAPATHY<br>VIJAY", kicker:"CINEMATIC UNIVERSE", description:"A tribute to Vijay's memorable roles and big-screen presence."},
         "kgf-rocky": {name:"ROCKY<br>BHAI", kicker:"KGF // EMPIRE OF GOLD", description:"The ambition, grit, and rise of Rocky from the KGF universe."},
         "pushpa": {name:"PUSHPA<br>RAJ", kicker:"THE RULE // THAGGEDE LE", description:"A rugged world inspired by Pushpa Raj's rise and unmistakable swagger."},
-        "kantara": {name:"KANTARA", kicker:"FOLKLORE // DIVINE MYSTERY", description:"A tribute to Kantara's landscape, folklore, and powerful atmosphere."}
+        "kantara": {name:"KANTARA", kicker:"FOLKLORE // DIVINE MYSTERY", description:"A tribute to Kantara's landscape, folklore, and powerful atmosphere."},
+        "berserk-guts": {name:"GUTS<br>THE BLACK SWORDSMAN", kicker:"BERSERK // THE STRUGGLE", description:"Guts: the one who suffered the most. A life of relentless hardship, betrayal, and loss—met with the will to keep going."}
       };
       let opened = false;
       function openPortal() {
@@ -925,7 +936,8 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         naruto: "NINE-TAILS CHAKRA RELEASE",
         "black-clover": "ANTI-MAGIC: LIMIT BREAK",
         bleach: "BANKAI: SPIRITUAL PRESSURE RELEASE",
-        tensura: "TENSURA: DEMON LORD AWAKENING"
+        tensura: "TENSURA: DEMON LORD AWAKENING",
+        "berserk-guts": "BERSERK: THE STRUGGLE CONTINUES"
       };
       let toastTimer, resetTimer;
       sigil.setAttribute("role", "button");
@@ -1202,7 +1214,8 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         "thalapathy-vijay": {fill:"#e7c46a", glow:"#e7c46a"},
         "kgf-rocky": {fill:"#d9a45b", glow:"#d9a45b"},
         "pushpa": {fill:"#d9783c", glow:"#d9783c"},
-        "kantara": {fill:"#d9a84f", glow:"#d9a84f"}
+        "kantara": {fill:"#d9a84f", glow:"#d9a84f"},
+        "berserk-guts": {fill:"#a92d3d", glow:"#a92d3d"}
       };
       let lastDraw = 0;
       let frameId = 0;
