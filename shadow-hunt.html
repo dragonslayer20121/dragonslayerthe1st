@@ -1497,5 +1497,63 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
   })();
 </script>
 
+
+<style id="hub-live-tools-style">
+#hub-live-tools{position:fixed;right:14px;bottom:14px;z-index:9998;display:flex;align-items:center;gap:10px;padding:8px 11px;border:1px solid rgba(255,70,110,.35);border-radius:14px;background:rgba(9,10,18,.78);color:#f8f7ff;box-shadow:0 5px 22px rgba(0,0,0,.22);backdrop-filter:blur(7px);font:600 12px/1.2 system-ui,sans-serif;contain:layout paint;pointer-events:none}
+#hub-live-tools canvas{display:block;width:92px;height:25px;opacity:.92}
+#hub-live-clock{white-space:nowrap;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+@media(max-width:600px){#hub-live-tools{right:8px;bottom:8px;gap:7px;padding:6px 8px}#hub-live-tools canvas{width:66px;height:21px}#hub-live-clock{font-size:11px}}
+@media(prefers-reduced-motion:reduce){#hub-live-tools canvas{opacity:.65}}
+</style>
+<div id="hub-live-tools" aria-label="Live clock and music visualizer">
+  <canvas id="hub-audio-visualizer" width="184" height="50" aria-label="Audio visualizer"></canvas>
+  <span id="hub-live-clock">--:--:--</span>
+</div>
+<script id="hub-live-tools-script">
+(()=> {
+  const canvas=document.getElementById("hub-audio-visualizer"),clock=document.getElementById("hub-live-clock");
+  if(!canvas||!clock)return;
+  const g=canvas.getContext("2d",{alpha:true});if(!g)return;
+  let analyser=null,data=null,lastFrame=0,raf=0,phase=0;
+  const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const NativeConnect=window.AudioNode&&AudioNode.prototype.connect;
+  if(NativeConnect&&!AudioNode.prototype.__hubVisualizerHook){
+    AudioNode.prototype.__hubVisualizerHook=true;
+    AudioNode.prototype.connect=function(destination,...args){
+      const ctx=this.context;
+      if(destination&&ctx&&destination===ctx.destination&&args.length===0){
+        try{
+          if(!ctx.__hubAnalyser){ctx.__hubAnalyser=ctx.createAnalyser();ctx.__hubAnalyser.fftSize=128;ctx.__hubAnalyser.smoothingTimeConstant=.82;ctx.__hubAnalyser.connect(ctx.destination);}
+          this.connect(ctx.__hubAnalyser);analyser=ctx.__hubAnalyser;data=new Uint8Array(analyser.frequencyBinCount);return destination;
+        }catch(e){}
+      }
+      return NativeConnect.call(this,destination,...args);
+    };
+  }
+  function updateClock(){const d=new Date();clock.textContent=d.toLocaleTimeString(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:true});}
+  updateClock();setInterval(updateClock,1000);
+  function draw(t){
+    raf=0;if(document.hidden)return;
+    if(t-lastFrame<48){raf=requestAnimationFrame(draw);return;}lastFrame=t;
+    const w=canvas.width,h=canvas.height,bars=23;
+    g.clearRect(0,0,w,h);
+    if(analyser&&data)analyser.getByteFrequencyData(data);
+    const bw=5,gap=3;
+    for(let i=0;i<bars;i++){
+      let v;
+      if(analyser&&data){v=data[Math.min(data.length-1,Math.floor(i/bars*data.length))]/255;}
+      else {v=.12+.24*Math.abs(Math.sin(phase+i*.42))*Math.abs(Math.sin(phase*.61+i*.16));}
+      if(reduced)v=.2;
+      const bh=Math.max(3,v*(h-5)),x=i*(bw+gap),y=(h-bh)/2;
+      g.fillStyle="rgba(255,"+(65+Math.floor(i/bars*90))+", "+(112+Math.floor(i/bars*95))+", "+(.55+v*.4)+")";
+      g.fillRect(x,y,bw,bh);
+    }
+    phase+=.075;raf=requestAnimationFrame(draw);
+  }
+  function start(){if(!raf&&!document.hidden)raf=requestAnimationFrame(draw);}
+  document.addEventListener("visibilitychange",()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;}else start();});
+  start();
+})();
+</script>
 </body>
 </html>
