@@ -160,10 +160,20 @@
     body[data-theme="black-clover"] .world-character-bg{background-image:url("https://bclover.jp/assets/img/character/full/main/asta.png")}
     body[data-theme="bleach"] .world-character-bg{background-image:url("https://bleach-anime.com/en/assets/img/character/thumb_01.jpg")}
     body[data-theme="tensura"] .world-character-bg{background-image:url("https://www.ten-sura.com/assets/images/character/rimuru.png")}
-    body[data-theme="jailer-2"] .world-character-bg{background-image:url("https://m.media-amazon.com/images/M/MV5BYmE0MTFjOTYtMWYxNC00YjFjLTlhNzYtMWQ5ZDEwNjRmYzE1XkEyXkFqcGc%40._V1_.jpg")}
-    body[data-theme="avengers"] .world-character-bg{background-image:url("https://cdn.shopify.com/s/files/1/0556/7322/5423/files/avengers_endgame.jpg?v=1678265680")}
-    body[data-theme="spider-verse"] .world-character-bg{background-image:url("https://www.sonypictures.in/sites/india/files/2023-08/SPVKeyArt.jpg")}
+    body[data-theme="jailer-2"] .world-character-bg{background-image:url("https://akm-img-a-in.tosshub.com/indiatoday/images/story/202212/fjvc-zdvuaapnp_-one_one.jpg?VersionId=UJAQ3JUzs7diIbwuXbVvd6vbHjwjEdbS")}
+    body[data-theme="avengers"] .world-character-bg{background-image:url("https://img.netzwelt.de/dw1200_dh900_sw2880_sh2160_sx568_sy0_sr4x3_nu0/picture/original/2019/07/avengers-endgame-255597.jpeg")}
+    body[data-theme="spider-verse"] .world-character-bg{background-image:url("https://savethecat.com/wp-content/uploads/2023/06/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM%40._V1_.jpg")}
     body[data-theme="spider-brand-new-day"] .world-character-bg{background-image:url("https://www.sonypictures.com/sites/default/files/styles/max_860x460/public/title-key-art/spidermanbrandnewday_onesheet_1400x2100_1.jpg?itok=hXKCyx3k")}
+    body[data-theme="itachi"] .world-character-bg{background-image:url("https://m.media-amazon.com/images/S/pv-target-images/e6e24c6811a107de10086e5572e0581361ea94723bbafa3262187b5dd392c049.jpg")}
+    body[data-theme="boruto-roast"] .world-character-bg{background-image:url("https://pbs.twimg.com/media/FO3V2lAWQA4uMuV.jpg")}
+    body[data-theme="life-cycle"] .world-character-bg{background-image:url("https://cdn.cforp.io/cdn/Ressources-PED/Mission-science/inc/2e/AdobeStock_282912725.jpg")}
+    body[data-theme="hunter-x-hunter"] .world-character-bg{background-image:url("https://www.chicswipe.com/media/2026/05/gon-freecss-cinematic-forest-journey-desktop-wallpaper.jpg?v=1779644786217")}
+    body[data-theme="thalapathy-vijay"] .world-character-bg{background-image:url("https://www.livemint.com/lm-img/img/2023/11/06/1600x900/Vijay_Leo_1698036607463_1699245599104.png")}
+    body[data-theme="kgf-rocky"] .world-character-bg{background-image:url("https://media.assettype.com/tnm%2Fimport%2Fsites%2Fdefault%2Ffiles%2FKGF_yash_poster.jpg")}
+    body[data-theme="pushpa"] .world-character-bg{background-image:url("https://images.moviebuff.com/f4ed0878-6954-41f1-858e-4a4cc37985ee?w=1000")}
+    body[data-theme="kantara"] .world-character-bg{background-image:url("https://media.assettype.com/deccanherald/2025-12-11/c5s4t2pd/Kantara.jpg?w=undefined")}
+    body[data-theme="minecraft"] .world-character-bg{background-image:url("https://cdn.shopify.com/s/files/1/0544/6385/6835/articles/minecraft-steve_520x500_1e24ad84-e363-4058-9dbc-a8d6dfed16d7.png?v=1736853225")}
+    body[data-theme="berserk-guts"] .world-character-bg{background-image:url("https://cdn.sweezy-wallpapers.com/wallpapers/c76da2cc-afef-415d-9fb3-f9424562f66c/guts-berserk-dark-fantasy-warrior-desktop-wallpaper-variant_2k.jpg")}
     @media(max-width:700px){.world-character-bg{opacity:.34;background-position:58% top}}
     @media(prefers-reduced-motion:reduce){.world-character-bg{transition:none}}
 
@@ -660,6 +670,7 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
       let musicStep = 0;
       let musicNodes = [];
       const stopMusic = () => {
+        try { localStorage.setItem("dragonslayerAmbientMusic", "off"); } catch {}
         if (musicTimer) { window.clearInterval(musicTimer); musicTimer = null; }
         musicNodes.forEach(node => { try { node.stop(); } catch {} });
         musicNodes = [];
@@ -712,6 +723,7 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         }, 2400);
         musicToggle.setAttribute("aria-pressed", "true");
         musicToggle.textContent = "MUSIC: ON";
+        try { localStorage.setItem("dragonslayerAmbientMusic", "on"); } catch {}
       };
       musicToggle.addEventListener("click", async () => {
         if (musicToggle.getAttribute("aria-pressed") === "true") {
@@ -721,6 +733,8 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
           catch { musicToggle.textContent = "TAP TO RETRY"; }
         }
       });
+      // Resume music only if the visitor previously opted in; autoplay may still require a tap.
+      try { if (localStorage.getItem("dragonslayerAmbientMusic") === "on") startMusic().catch(() => { musicToggle.textContent = "MUSIC: TAP TO RESUME"; }); } catch {}
 
       const toggle = document.querySelector("#particleToggle");
       const canvas = document.querySelector("#embers");
