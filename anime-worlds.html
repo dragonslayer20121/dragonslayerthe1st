@@ -309,7 +309,7 @@ function note(freq,duration=3.8,volume=.045,wave="triangle"){if(!ctx||!master)re
 async function start(){const C=window.AudioContext||window.webkitAudioContext;if(!C){button.textContent="MUSIC UNSUPPORTED";return;}if(!ctx){ctx=new C();master=ctx.createGain();master.gain.value=.0001;master.connect(ctx.destination);}await ctx.resume();if(ctx.state!=="running")throw Error("Audio is not running");master.gain.setTargetAtTime(.12,ctx.currentTime,.5);note(55,18,.065,"sine");note(82.41,18,.025,"sine");step=0;clearInterval(timer);timer=setInterval(()=>{if(!ctx||ctx.state!=="running")return;note(notes[step%notes.length],3.8,.04);if(step%4===0)note(notes[(step+2)%notes.length]/2,5.2,.018,"sine");step++;},2600);playing=true;button.setAttribute("aria-pressed","true");button.textContent="♫ MUSIC: ON";localStorage.setItem(pref,"on");}
 function stop(){clearInterval(timer);timer=null;if(master&&ctx)master.gain.setTargetAtTime(.0001,ctx.currentTime,.18);playing=false;button.setAttribute("aria-pressed","false");button.textContent="♫ MUSIC: OFF";try{localStorage.setItem(pref,"off");}catch{}}
 button.addEventListener("click",()=>{if(playing){stop();return;}start().catch(()=>{button.textContent="♫ TAP TO RESUME";});});
-try{if(localStorage.getItem(pref)==="on")button.textContent="♫ MUSIC: TAP TO RESUME";}catch{}
+try{if(localStorage.getItem(pref)==="on"){start().catch(()=>{button.textContent="♫ MUSIC: TAP TO RESUME";});}}catch{}
 })();
 </script>
 </body>
