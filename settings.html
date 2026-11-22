@@ -27,6 +27,15 @@ main{width:min(850px,calc(100% - 32px));margin:auto;padding:clamp(35px,7vw,76px)
   .toggle:checked:before{transform:translateX(22px)}
   .actions .button{flex:1 1 100%}
 }
+
+    /* Smooth rendering: keep the atmosphere while reducing costly effects on everyday devices. */
+    .animated-backdrop:before,.animated-backdrop:after{filter:none!important}
+    .site-sidebar,.share-modal,.portal-close{backdrop-filter:none!important}
+    .card,.feature-panel,.feature-progress span{transition:transform .18s ease,border-color .18s ease,background-color .18s ease}
+    @media(max-width:900px){.cursor-aura,.cursor-glow-dot{display:none!important}.animated-backdrop:before,.animated-backdrop:after{animation:none!important;filter:none!important}.character-portal .portal-art{animation:none!important;transform:none!important}}
+    @media(max-width:600px){.card{animation-duration:.35s}.site-sidebar{box-shadow:0 8px 24px #0008}.share-modal{background:#050308f2}}
+    @media(prefers-reduced-motion:reduce){.travel-stage:before{animation:none!important}.travel-stage.traveling{animation:none!important}}
+
 </style>
 </head>
 <body>
