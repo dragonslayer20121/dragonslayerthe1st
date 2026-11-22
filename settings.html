@@ -87,4 +87,20 @@ main{width:min(850px,calc(100% - 32px));margin:auto;padding:clamp(35px,7vw,76px)
  render();
 })();
 </script>
+<style id="siteMusicStyle">
+#siteMusicToggle{position:fixed;right:16px;bottom:16px;z-index:99999;padding:11px 15px;border:1px solid #ef3753;border-radius:10px;background:rgba(17,8,14,.94);color:#fff;font:800 11px/1.2 system-ui,sans-serif;letter-spacing:.08em;cursor:pointer;box-shadow:0 8px 28px #0007;backdrop-filter:blur(10px)}
+#siteMusicToggle:hover{background:#35101d;border-color:#ff7184}
+@media(max-width:600px){#siteMusicToggle{right:10px;bottom:10px;padding:10px 12px}}
+</style>
+<button id="siteMusicToggle" type="button" aria-pressed="false">♫ MUSIC: OFF</button>
+<script>
+(()=>{const button=document.getElementById("siteMusicToggle");if(!button)return;const pref="dragonslayerAmbientMusic";let ctx=null,master=null,timer=null,step=0,playing=false;
+const notes=[110,130.81,164.81,146.83,110,98,130.81,164.81];
+function note(freq,duration=3.8,volume=.045,wave="triangle"){if(!ctx||!master)return;const now=ctx.currentTime,osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=wave;osc.frequency.setValueAtTime(freq,now);gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(volume,now+.45);gain.gain.setTargetAtTime(.0001,now+duration-.35,.25);osc.connect(gain);gain.connect(master);osc.start(now);osc.stop(now+duration+.2);}
+async function start(){const C=window.AudioContext||window.webkitAudioContext;if(!C){button.textContent="MUSIC UNSUPPORTED";return;}if(!ctx){ctx=new C();master=ctx.createGain();master.gain.value=.0001;master.connect(ctx.destination);}await ctx.resume();if(ctx.state!=="running")throw Error("Audio is not running");master.gain.setTargetAtTime(.12,ctx.currentTime,.5);note(55,18,.065,"sine");note(82.41,18,.025,"sine");step=0;clearInterval(timer);timer=setInterval(()=>{if(!ctx||ctx.state!=="running")return;note(notes[step%notes.length],3.8,.04);if(step%4===0)note(notes[(step+2)%notes.length]/2,5.2,.018,"sine");step++;},2600);playing=true;button.setAttribute("aria-pressed","true");button.textContent="♫ MUSIC: ON";localStorage.setItem(pref,"on");}
+function stop(){clearInterval(timer);timer=null;if(master&&ctx)master.gain.setTargetAtTime(.0001,ctx.currentTime,.18);playing=false;button.setAttribute("aria-pressed","false");button.textContent="♫ MUSIC: OFF";try{localStorage.setItem(pref,"off");}catch{}}
+button.addEventListener("click",()=>{if(playing){stop();return;}start().catch(()=>{button.textContent="♫ TAP TO RESUME";});});
+try{if(localStorage.getItem(pref)==="on")button.textContent="♫ MUSIC: TAP TO RESUME";}catch{}
+})();
+</script>
 </body></html>
