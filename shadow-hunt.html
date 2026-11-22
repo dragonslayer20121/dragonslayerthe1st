@@ -1445,5 +1445,34 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
 <script>
 (()=>{const toggle=document.getElementById("sidebarToggle");if(!toggle)return;toggle.addEventListener("click",()=>{const open=document.body.classList.toggle("sidebar-open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});document.addEventListener("click",e=>{if(document.body.classList.contains("sidebar-open")&&!e.target.closest("#siteSidebar")&&!e.target.closest("#sidebarToggle")){document.body.classList.remove("sidebar-open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}});})();
 </script>
+
+<script>
+  // Lightweight inspection deterrent only. Browser-side source cannot be made private.
+  (() => {
+    const warn = () => {
+      let notice = document.getElementById("inspectNotice");
+      if (!notice) {
+        notice = document.createElement("div");
+        notice.id = "inspectNotice";
+        notice.setAttribute("role", "status");
+        notice.textContent = "This site’s source is public to the browser. Please respect the creator’s work.";
+        Object.assign(notice.style, {position:"fixed",left:"50%",bottom:"22px",transform:"translateX(-50%)",zIndex:"2147483647",maxWidth:"min(92vw,520px)",padding:"12px 16px",border:"1px solid #ef3753",borderRadius:"10px",background:"#170b11",color:"#fff",font:"600 13px/1.4 system-ui",textAlign:"center",boxShadow:"0 8px 30px #0009"});
+        document.body.appendChild(notice);
+      }
+      notice.hidden = false;
+      clearTimeout(notice._hideTimer);
+      notice._hideTimer = setTimeout(() => { notice.hidden = true; }, 2800);
+    };
+    document.addEventListener("contextmenu", event => { event.preventDefault(); warn(); });
+    document.addEventListener("keydown", event => {
+      const key = event.key.toLowerCase();
+      const blocked = event.key === "F12" ||
+        (event.ctrlKey && event.shiftKey && ["i","j","c"].includes(key)) ||
+        (event.ctrlKey && ["u"].includes(key));
+      if (blocked) { event.preventDefault(); warn(); }
+    });
+  })();
+</script>
+
 </body>
 </html>
