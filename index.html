@@ -254,6 +254,33 @@
     .rule,.card:before{display:none!important}
     .status{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff17;border-radius:999px;padding:8px 13px;color:#d8cbd0;font-size:.72rem;background:#ffffff05}
     .dot{width:7px;height:7px;background:#ed2745;border-radius:50%;box-shadow:0 0 12px #ed2745;animation:blink 1.8s infinite}
+
+    /* World travel + daily progression hub */
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin:18px 0}
+    .feature-panel{border:1px solid var(--line);border-radius:15px;padding:18px;background:linear-gradient(145deg,#1b1018ed,#0d0910f2);min-width:0}
+    .feature-panel h3{margin:0 0 9px;font-size:.9rem;letter-spacing:.08em;color:#ff8090}
+    .feature-panel p{color:var(--muted);font-size:.78rem;line-height:1.6;margin:8px 0 13px}
+    .feature-kicker{font-size:.65rem;letter-spacing:.18em;color:#a99ca5}
+    .travel-stage{position:relative;overflow:hidden;min-height:110px;display:grid;place-items:center;text-align:center;border:1px solid #ffffff18;border-radius:12px;background:radial-gradient(ellipse at center,#501126,#100911 70%);margin:12px 0;padding:15px}
+    .travel-stage:before{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,#ef173855,transparent,#ef173833,transparent);opacity:.6;animation:travel-spin 12s linear infinite}
+    .travel-stage strong,.travel-stage span{position:relative;z-index:1}
+    .travel-stage strong{font-size:1.05rem;letter-spacing:.08em}
+    .travel-stage span{display:block;margin-top:5px;font-size:.68rem;color:#c5b8bf}
+    .travel-stage.traveling{animation:travel-flash .85s ease both}
+    @keyframes travel-spin{to{transform:rotate(360deg)}}
+    @keyframes travel-flash{0%{transform:scale(.98);filter:brightness(1)}35%{transform:scale(1.03);filter:brightness(2.2)}100%{transform:scale(1);filter:brightness(1)}}
+    .feature-progress{height:8px;border-radius:99px;overflow:hidden;background:#ffffff12;margin:10px 0}
+    .feature-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8f071e,#ff526c);transition:width .25s}
+    .feature-list{display:grid;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+    .feature-list li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:9px 10px;border:1px solid #ffffff12;border-radius:9px;background:#ffffff04;font-size:.73rem;color:#d8cbd0}
+    .feature-list .done{color:#ff9aaa;border-color:#ef526c66}
+    .collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+    .collection-item{padding:10px 6px;text-align:center;border:1px solid #ffffff14;border-radius:10px;background:#ffffff04;font-size:.68rem;color:#a99ca5}
+    .collection-item.unlocked{border-color:#ef526c88;color:#fff;background:#ef173814}
+    .collection-item b{display:block;font-size:1.2rem;margin-bottom:5px}
+    .feature-toast{min-height:1.2em;color:#ff9aaa;font-size:.75rem;margin:10px 0 0}
+    @media(prefers-reduced-motion:reduce){.travel-stage:before{animation:none}.travel-stage.traveling{animation:none}}
+
     section{margin:20px 0 0}
     .sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
     h2{margin:0;font-size:.78rem;letter-spacing:.23em;color:#ff8090}
@@ -580,6 +607,38 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
       <h2 id="updateTitle">SITE NOTES</h2>
       <p>I’m still adding links and checking that everything works well on phones. Some things may change as I go.</p>
       <div class="update-foot"><span>GAMES</span><span>ANIME</span><span>MY LINKS</span></div>
+    </section>
+
+
+    <section id="adventure-system" aria-labelledby="adventureTitle">
+      <div class="sectionhead"><h2 id="adventureTitle">✦ &nbsp; ADVENTURE SYSTEM</h2><span class="hint">TRAVEL · QUESTS · COLLECTION</span></div>
+      <div class="feature-grid">
+        <article class="feature-panel" aria-labelledby="travelTitle">
+          <div class="feature-kicker">WORLD TRAVEL</div><h3 id="travelTitle">THE MULTIVERSE GATE</h3>
+          <p>Jump between themed worlds. Every trip adds to your explorer progress.</p>
+          <div class="travel-stage" id="travelStage" aria-live="polite"><div><strong id="travelWorldName">SHADOW MONARCH</strong><span id="travelWorldCount">WORLD 1 / 19</span></div></div>
+          <button type="button" id="travelNext">TRAVEL TO NEXT WORLD ↗</button>
+          <p class="feature-toast" id="travelToast" aria-live="polite"></p>
+        </article>
+        <article class="feature-panel" aria-labelledby="questTitle">
+          <div class="feature-kicker">DAILY MISSIONS</div><h3 id="questTitle">TODAY'S QUESTS</h3>
+          <p>Complete these small site quests. Progress is saved in this browser and refreshes daily.</p>
+          <ul class="feature-list" id="dailyQuestList"></ul>
+          <div class="feature-progress" aria-label="Daily quest completion"><span id="questProgressFill"></span></div>
+          <p class="feature-toast" id="questToast" aria-live="polite">Complete all quests for the daily clear.</p>
+        </article>
+        <article class="feature-panel" aria-labelledby="achievementTitle">
+          <div class="feature-kicker">MILESTONES</div><h3 id="achievementTitle">ACHIEVEMENTS</h3>
+          <p>Unlock badges by exploring and using the hub.</p>
+          <ul class="feature-list" id="achievementList"></ul>
+        </article>
+        <article class="feature-panel" aria-labelledby="collectionTitle">
+          <div class="feature-kicker">CHARACTER VAULT</div><h3 id="collectionTitle">COLLECTION</h3>
+          <p>Discover characters as you explore different worlds.</p>
+          <div class="collection-grid" id="characterCollection"></div>
+          <p class="feature-toast" id="collectionToast" aria-live="polite"></p>
+        </article>
+      </div>
     </section>
 
     <section id="profiles">
@@ -1536,6 +1595,51 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         (event.ctrlKey && ["u"].includes(key));
       if (blocked) { event.preventDefault(); warn(); }
     });
+  })();
+</script>
+
+
+<script>
+  // Local-only adventure progression: travel, daily quests, achievements and collection.
+  (() => {
+    const worlds = [
+      ["shadow","SHADOW MONARCH"],["naruto","SHINOBI LEGACY"],["black-clover","WIZARD KING"],["bleach","SOUL REAPER"],["tensura","RIMURU TEMPEST"],["jailer-2","JAILER 2"],["avengers","THE AVENGERS"],["spider-verse","SPIDER-VERSE"],["spider-brand-new-day","BRAND NEW DAY"],["itachi","ITACHI UCHIHA"],["boruto-roast","BORUTO ERA"],["life-cycle","HUMAN QUESTLINE"],["hunter-x-hunter","HUNTER × HUNTER"],["thalapathy-vijay","THALAPATHY VIJAY"],["kgf-rocky","ROCKY BHAI"],["pushpa","PUSHPA RAJ"],["kantara","KANTARA"],["minecraft","MINECRAFT"],["berserk-guts","GUTS"]
+    ];
+    const quests=[{id:"travel3",label:"Visit 3 different worlds",goal:3},{id:"hunt",label:"Open Shadow Hunt",goal:1},{id:"portal",label:"Open one identity portal",goal:1}];
+    const achievements=[{id:"firsttrip",label:"FIRST STEP",test:p=>p.visited.length>=1},{id:"worldhopper",label:"WORLD HOPPER",test:p=>p.visited.length>=5},{id:"portalwalker",label:"PORTAL WALKER",test:p=>p.portalVisits>=1},{id:"questclear",label:"DAILY CLEAR",test:p=>p.dailyDone===true}];
+    const collection=[{id:"shadow",name:"Sung Jinwoo",symbol:"♜",world:"shadow"},{id:"rimuru",name:"Rimuru",symbol:"◉",world:"tensura"},{id:"naruto",name:"Naruto",symbol:"卍",world:"naruto"},{id:"itachi",name:"Itachi",symbol:"写",world:"itachi"},{id:"spider",name:"Spider-Man",symbol:"蜘蛛",world:"spider-verse"},{id:"minecraft",name:"Steve",symbol:"▦",world:"minecraft"}];
+    const key="dragonslayerAdventureV1";
+    const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+    const blank=()=>({visited:[],portalVisits:0,achievements:[],questDate:today(),quests:{travel3:0,hunt:0,portal:0},dailyDone:false});
+    let data=blank();try{const old=JSON.parse(localStorage.getItem(key)||"null");if(old&&typeof old==="object")data={...blank(),...old,visited:Array.isArray(old.visited)?old.visited:[],achievements:Array.isArray(old.achievements)?old.achievements:[],quests:old.quests&&typeof old.quests==="object"?old.quests:blank().quests};}catch{}
+    if(data.questDate!==today()){data.questDate=today();data.quests={travel3:0,hunt:0,portal:0};data.dailyDone=false;}
+    const save=()=>{try{localStorage.setItem(key,JSON.stringify(data));}catch{}};
+    const travelName=document.getElementById("travelWorldName"),travelCount=document.getElementById("travelWorldCount"),travelStage=document.getElementById("travelStage"),travelToast=document.getElementById("travelToast");
+    let current=Math.max(0,worlds.findIndex(w=>w[0]===(document.body.dataset.theme||"shadow")));if(current<0)current=0;
+    const countTravel=()=>{data.quests.travel3=Math.min(3,data.visited.length);};
+    const updateAchievements=()=>{achievements.forEach(a=>{if(a.test(data)&&!data.achievements.includes(a.id))data.achievements.push(a.id);});};
+    const render=()=>{
+      countTravel();data.dailyDone=quests.every(q=>(Number(data.quests[q.id])||0)>=q.goal);updateAchievements();save();
+      const qList=document.getElementById("dailyQuestList");qList.replaceChildren();quests.forEach(q=>{const n=Math.min(q.goal,Number(data.quests[q.id])||0),li=document.createElement("li");li.className=n>=q.goal?"done":"";const label=document.createElement("span");label.textContent=q.label;const state=document.createElement("b");state.textContent=n+"/"+q.goal;li.append(label,state);qList.append(li);});
+      const completed=quests.filter(q=>(Number(data.quests[q.id])||0)>=q.goal).length;document.getElementById("questProgressFill").style.width=(completed/quests.length*100)+"%";document.getElementById("questToast").textContent=data.dailyDone?"DAILY CLEAR COMPLETE — NICE WORK!":" "+completed+" / "+quests.length+" quests complete";
+      const aList=document.getElementById("achievementList");aList.replaceChildren();achievements.forEach(a=>{const unlocked=data.achievements.includes(a.id),li=document.createElement("li");li.className=unlocked?"done":"";const label=document.createElement("span");label.textContent=a.label;const state=document.createElement("b");state.textContent=unlocked?"UNLOCKED":"LOCKED";li.append(label,state);aList.append(li);});
+      const vault=document.getElementById("characterCollection");vault.replaceChildren();collection.forEach(c=>{const unlocked=data.visited.includes(c.world),el=document.createElement("div");el.className="collection-item"+(unlocked?" unlocked":"");const symbol=document.createElement("b");symbol.textContent=unlocked?c.symbol:"?";const name=document.createElement("span");name.textContent=unlocked?c.name:"???";el.append(symbol,name);vault.append(el);});
+      const unlocked=collection.filter(c=>data.visited.includes(c.world)).length;document.getElementById("collectionToast").textContent=unlocked+" / "+collection.length+" characters discovered";
+    };
+    const recordQuest=(id)=>{const q=quests.find(x=>x.id===id);if(q)data.quests[id]=Math.min(q.goal,(Number(data.quests[id])||0)+1);render();};
+    const updateTravelLabel=()=>{travelName.textContent=worlds[current][1];travelCount.textContent="WORLD "+(current+1)+" / "+worlds.length;};
+    updateTravelLabel();
+    document.getElementById("travelNext").addEventListener("click",()=>{
+      current=(current+1)%worlds.length;const [theme,name]=worlds[current];
+      try{localStorage.setItem("identityHubTheme",theme);}catch{}
+      document.body.dataset.theme=theme;data.visited=Array.from(new Set([...data.visited,theme]));recordQuest("travel3");
+      travelStage.classList.remove("traveling");void travelStage.offsetWidth;travelStage.classList.add("traveling");updateTravelLabel();travelToast.textContent="ARRIVED: "+name+" · "+data.visited.length+" worlds explored";
+      const titleMap={"shadow":"SHADOW MONARCH","naruto":"SHINOBI LEGACY","black-clover":"WIZARD KING","bleach":"SOUL REAPER","tensura":"RIMURU TEMPEST","jailer-2":"JAILER 2","avengers":"THE AVENGERS","spider-verse":"SPIDER-VERSE","spider-brand-new-day":"BRAND NEW DAY","itachi":"ITACHI UCHIHA","boruto-roast":"BORUTO ERA","life-cycle":"THE HUMAN QUESTLINE","hunter-x-hunter":"HUNTER × HUNTER","thalapathy-vijay":"THALAPATHY VIJAY","kgf-rocky":"ROCKY BHAI","pushpa":"PUSHPA RAJ","kantara":"KANTARA","minecraft":"MINECRAFT","berserk-guts":"GUTS"};
+      document.querySelector("h1").innerHTML=(titleMap[theme]||name).replace(" ","<br>");
+      document.querySelector(".eyebrow").textContent=name+" // WORLD ACTIVE";
+    });
+    document.addEventListener("click",event=>{const link=event.target.closest("a");if(!link)return;const href=link.getAttribute("href")||"";if(href.includes("shadow-hunt.html"))recordQuest("hunt");if(link.closest("#grid")){data.portalVisits++;recordQuest("portal");}},{capture:true});
+    render();
   })();
 </script>
 
