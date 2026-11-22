@@ -501,6 +501,15 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
     body[data-theme="berserk-guts"] button:hover,body[data-theme="berserk-guts"] .visit:hover{background:#601522;border-color:#d85a6b}
     body[data-theme="berserk-guts"] .sigil{background:#1b0b10;box-shadow:0 0 28px #a92d3d55,inset 0 0 22px #a92d3d22}
     body[data-theme="berserk-guts"] .card{background:linear-gradient(140deg,#321018ed,#1b0b10f5 68%)}
+
+    /* Smooth rendering: keep the atmosphere while reducing costly effects on everyday devices. */
+    .animated-backdrop:before,.animated-backdrop:after{filter:none!important}
+    .site-sidebar,.share-modal,.portal-close{backdrop-filter:none!important}
+    .card,.feature-panel,.feature-progress span{transition:transform .18s ease,border-color .18s ease,background-color .18s ease}
+    @media(max-width:900px){.cursor-aura,.cursor-glow-dot{display:none!important}.animated-backdrop:before,.animated-backdrop:after{animation:none!important;filter:none!important}.character-portal .portal-art{animation:none!important;transform:none!important}}
+    @media(max-width:600px){.card{animation-duration:.35s}.site-sidebar{box-shadow:0 8px 24px #0008}.share-modal{background:#050308f2}}
+    @media(prefers-reduced-motion:reduce){.travel-stage:before{animation:none!important}.travel-stage.traveling{animation:none!important}}
+
 </style>
 </head>
 <body class="hunt-page">
@@ -1227,7 +1236,7 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
         w = window.innerWidth; h = window.innerHeight;
         canvas.width = w * dpr; canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const cap = !embersEnabled ? 0 : quality === "low" ? 3 : quality === "high" ? 12 : 6;
+        const cap = !embersEnabled ? 0 : quality === "low" ? 2 : quality === "high" ? 8 : 4;
         const count = Math.min(cap, Math.floor(w / (quality === "high" ? 42 : 55)));
         particles = Array.from({length:count}, () => ({
           x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.7+.4,
@@ -1265,7 +1274,7 @@ body.hunt-page .wrap>nav{margin-bottom:22px}
       function draw(timestamp = 0) {
         frameId = 0;
         if (document.hidden || !embersEnabled) return;
-        if (timestamp - lastDraw < 33) { scheduleDraw(); return; }
+        if (timestamp - lastDraw < 40) { scheduleDraw(); return; }
         lastDraw = timestamp;
         ctx.clearRect(0,0,w,h);
         const theme = document.body.dataset.theme || "shadow";
